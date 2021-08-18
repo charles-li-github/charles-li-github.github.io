@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://charles-li-github.github.io/"/>
-  <updated>2021-08-18T07:05:26.052Z</updated>
+  <updated>2021-08-18T13:41:53.131Z</updated>
   <id>https://charles-li-github.github.io/</id>
   
   <author>
@@ -17,13 +17,86 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>typora+picgo+gitee配置图片上传</title>
+    <link href="https://charles-li-github.github.io/typora-picgo-gitee-pei-zhi-tu-pian-shang-chuan.html"/>
+    <id>https://charles-li-github.github.io/typora-picgo-gitee-pei-zhi-tu-pian-shang-chuan.html</id>
+    <published>2021-08-18T13:37:49.000Z</published>
+    <updated>2021-08-18T13:41:53.131Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、Gitee配置&quot;&gt;&lt;a href=&quot;#一、Gitee配置&quot; class=&quot;headerlink&quot; title=&quot;一、Gitee配置&quot;&gt;&lt;/a&gt;一、Gitee配置&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;新建仓库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="https://charles-li-github.github.io/categories/Blog/"/>
+    
+      <category term="Typora" scheme="https://charles-li-github.github.io/categories/Blog/Typora/"/>
+    
+    
+      <category term="Gitee" scheme="https://charles-li-github.github.io/tags/Gitee/"/>
+    
+      <category term="Picgo" scheme="https://charles-li-github.github.io/tags/Picgo/"/>
+    
+      <category term="Typora" scheme="https://charles-li-github.github.io/tags/Typora/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安装NVM管理nodejs</title>
+    <link href="https://charles-li-github.github.io/an-zhuang-nvm-guan-li-nodejs.html"/>
+    <id>https://charles-li-github.github.io/an-zhuang-nvm-guan-li-nodejs.html</id>
+    <published>2021-08-18T13:35:34.000Z</published>
+    <updated>2021-08-18T13:42:47.842Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;nvm 的全称是 Node Version Manager，Nodejs 版本管理器。nvm 可以帮助我们快速切换 Nodejs
+        
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="https://charles-li-github.github.io/categories/Blog/"/>
+    
+    
+      <category term="Hexo" scheme="https://charles-li-github.github.io/tags/Hexo/"/>
+    
+      <category term="博客搭建" scheme="https://charles-li-github.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+      <category term="Nodejs" scheme="https://charles-li-github.github.io/tags/Nodejs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Github + Hexo 搭建个人博客超详细教程</title>
     <link href="https://charles-li-github.github.io/github-hexo-da-jian-ge-ren-bo-ke-chao-xiang-xi-jiao-cheng.html"/>
     <id>https://charles-li-github.github.io/github-hexo-da-jian-ge-ren-bo-ke-chao-xiang-xi-jiao-cheng.html</id>
     <published>2021-08-18T13:17:35.000Z</published>
-    <updated>2021-08-18T07:05:26.052Z</updated>
+    <updated>2021-08-18T13:34:42.823Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本篇内容参考[枫叶](&lt;a href=&quot;https://zhuanlan.zhihu.com/p/102592286&quot;
+        
+      
     
     </summary>
     
