@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Charles Blog</title>
   
-  
+  <subtitle>CharlesLi</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://charles-li-github.github.io/"/>
@@ -10,7 +10,7 @@
   <id>https://charles-li-github.github.io/</id>
   
   <author>
-    <name>Charles Li</name>
+    <name>CharlesLi</name>
     
   </author>
   
@@ -29,8 +29,8 @@
       
         
         
-          &lt;p&gt;&lt;img src=&quot;https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/01.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;font color=magenta
+          &lt;p&gt;&lt;img src=&quot;https://muyiio-1300292673.cos.ap-chongqing.myqcloud.com/%E5%8D%9A%E5%AE%A2/_posts/1/01.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;magenta&quot;
         
       
     
