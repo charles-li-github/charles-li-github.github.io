@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://charles-li-github.github.io/"/>
-  <updated>2021-08-18T13:41:53.131Z</updated>
+  <updated>2021-08-19T13:11:37.594Z</updated>
   <id>https://charles-li-github.github.io/</id>
   
   <author>
@@ -15,6 +15,187 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Typora美化及配置</title>
+    <link href="https://charles-li-github.github.io/typora-mei-hua-ji-pei-zhi.html"/>
+    <id>https://charles-li-github.github.io/typora-mei-hua-ji-pei-zhi.html</id>
+    <published>2021-08-19T13:08:52.000Z</published>
+    <updated>2021-08-19T13:11:37.594Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、Typora更换主题&quot;&gt;&lt;a href=&quot;#一、Typora更换主题&quot; class=&quot;headerlink&quot; title=&quot;一、Typora更换主题&quot;&gt;&lt;/a&gt;一、Typora更换主题&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Typora" scheme="https://charles-li-github.github.io/categories/Typora/"/>
+    
+    
+      <category term="Typora" scheme="https://charles-li-github.github.io/tags/Typora/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu16.04安装openLDAP</title>
+    <link href="https://charles-li-github.github.io/ubuntu16-04-an-zhuang-openldap.html"/>
+    <id>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-openldap.html</id>
+    <published>2021-08-19T13:07:30.000Z</published>
+    <updated>2021-08-19T13:11:59.140Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、OpenLDAP-Server安装步骤&quot;&gt;&lt;a href=&quot;#一、OpenLDAP-Server安装步骤&quot; class=&quot;headerlink&quot; title=&quot;一、OpenLDAP Server安装步骤&quot;&gt;&lt;/a&gt;一、OpenLDAP
+        
+      
+    
+    </summary>
+    
+      <category term="openLDAP" scheme="https://charles-li-github.github.io/categories/openLDAP/"/>
+    
+      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/openLDAP/ubuntu16-04/"/>
+    
+    
+      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/tags/ubuntu16-04/"/>
+    
+      <category term="openLDAP" scheme="https://charles-li-github.github.io/tags/openLDAP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu16.04安装dhcpv6</title>
+    <link href="https://charles-li-github.github.io/ubuntu16-04-an-zhuang-dhcpv6.html"/>
+    <id>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-dhcpv6.html</id>
+    <published>2021-08-19T13:06:10.000Z</published>
+    <updated>2021-08-19T13:11:46.486Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;ISC-dhcp-server安装&quot;&gt;&lt;a href=&quot;#ISC-dhcp-server安装&quot; class=&quot;headerlink&quot; title=&quot;ISC dhcp server安装&quot;&gt;&lt;/a&gt;ISC dhcp
+        
+      
+    
+    </summary>
+    
+      <category term="ipv6" scheme="https://charles-li-github.github.io/categories/ipv6/"/>
+    
+      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ipv6/ubuntu16-04/"/>
+    
+    
+      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/tags/ubuntu16-04/"/>
+    
+      <category term="dhcpv6" scheme="https://charles-li-github.github.io/tags/dhcpv6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu16.04安装radvd</title>
+    <link href="https://charles-li-github.github.io/ubuntu16-04-an-zhuang-radvd.html"/>
+    <id>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-radvd.html</id>
+    <published>2021-08-19T13:03:41.000Z</published>
+    <updated>2021-08-19T13:05:50.543Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;安装radvd&quot;&gt;&lt;a href=&quot;#安装radvd&quot; class=&quot;headerlink&quot; title=&quot;安装radvd&quot;&gt;&lt;/a&gt;安装radvd&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;执行下述命令进行安装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;sudo
+        
+      
+    
+    </summary>
+    
+      <category term="ipv6" scheme="https://charles-li-github.github.io/categories/ipv6/"/>
+    
+      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ipv6/ubuntu16-04/"/>
+    
+    
+      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/tags/ubuntu16-04/"/>
+    
+      <category term="radvd" scheme="https://charles-li-github.github.io/tags/radvd/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习环境配置</title>
+    <link href="https://charles-li-github.github.io/shen-du-xue-xi-huan-jing-pei-zhi-cuda-tensorflow-pytorch.html"/>
+    <id>https://charles-li-github.github.io/shen-du-xue-xi-huan-jing-pei-zhi-cuda-tensorflow-pytorch.html</id>
+    <published>2021-08-19T13:00:55.000Z</published>
+    <updated>2021-08-19T13:02:50.091Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、安装Anaconda&quot;&gt;&lt;a href=&quot;#一、安装Anaconda&quot; class=&quot;headerlink&quot; title=&quot;一、安装Anaconda&quot;&gt;&lt;/a&gt;一、安装Anaconda&lt;/h2&gt;&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="CUDA" scheme="https://charles-li-github.github.io/tags/CUDA/"/>
+    
+      <category term="Tensorflow" scheme="https://charles-li-github.github.io/tags/Tensorflow/"/>
+    
+      <category term="Pytorch" scheme="https://charles-li-github.github.io/tags/Pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Neo4j安装</title>
+    <link href="https://charles-li-github.github.io/neo4j-an-zhuang.html"/>
+    <id>https://charles-li-github.github.io/neo4j-an-zhuang.html</id>
+    <published>2021-08-19T12:57:24.000Z</published>
+    <updated>2021-08-19T13:03:11.438Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;JDK安装&quot;&gt;&lt;a href=&quot;#JDK安装&quot; class=&quot;headerlink&quot; title=&quot;JDK安装&quot;&gt;&lt;/a&gt;JDK安装&lt;/h2&gt;&lt;p&gt;从官网下载jdk1.8&lt;/p&gt;
+&lt;p&gt;下载地址:&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="知识图谱" scheme="https://charles-li-github.github.io/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+    
+      <category term="Java" scheme="https://charles-li-github.github.io/tags/Java/"/>
+    
+      <category term="Neo4j" scheme="https://charles-li-github.github.io/tags/Neo4j/"/>
+    
+      <category term="知识图谱" scheme="https://charles-li-github.github.io/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+  </entry>
   
   <entry>
     <title>typora+picgo+gitee配置图片上传</title>
@@ -56,7 +237,7 @@
     <link href="https://charles-li-github.github.io/an-zhuang-nvm-guan-li-nodejs.html"/>
     <id>https://charles-li-github.github.io/an-zhuang-nvm-guan-li-nodejs.html</id>
     <published>2021-08-18T13:35:34.000Z</published>
-    <updated>2021-08-18T13:42:47.842Z</updated>
+    <updated>2021-08-19T13:00:10.200Z</updated>
     
     <summary type="html">
     
@@ -71,6 +252,8 @@
     </summary>
     
       <category term="Blog" scheme="https://charles-li-github.github.io/categories/Blog/"/>
+    
+      <category term="Nodejs" scheme="https://charles-li-github.github.io/categories/Blog/Nodejs/"/>
     
     
       <category term="Hexo" scheme="https://charles-li-github.github.io/tags/Hexo/"/>

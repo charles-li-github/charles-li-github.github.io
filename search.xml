@@ -4,6 +4,176 @@
   
     
     <entry>
+      <title>Typora美化及配置</title>
+      <link href="/typora-mei-hua-ji-pei-zhi.html"/>
+      <url>/typora-mei-hua-ji-pei-zhi.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、Typora更换主题"><a href="#一、Typora更换主题" class="headerlink" title="一、Typora更换主题"></a>一、Typora更换主题</h2><ul><li><a href="https://theme.typora.io/" target="_blank" rel="noopener">Typora主题官方下载链接</a></li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819103147758.png" alt="image-20210819103147758"></p><ul><li>选择喜欢的主题并下载</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819103318928.png" alt="image-20210819103318928"></p><ul><li>打开Typora的主题文件夹</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819103353363.png" alt="image-20210819103353363"></p><ul><li>将下载好的主题解压后复制到Typora的主题文件夹</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819103533708.png" alt="image-20210819103533708"></p><ul><li>重启Typora即可在主题按钮下选择主题</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819103632160.png" alt="image-20210819103632160"></p><h2 id="二、修改Typora背景颜色"><a href="#二、修改Typora背景颜色" class="headerlink" title="二、修改Typora背景颜色"></a>二、修改Typora背景颜色</h2><p>白色背景有时候会与图片的白色背景融合在一起，不容易看到图片边界，因此可以通过以下方式修改下Typora的背景颜色。</p><ul><li><p>打开Typora安装路径下的\Typora\Typora\resources\style\base.css文件</p></li><li><p>修改–bg-color的颜色</p></li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819104558631.png" alt="image-20210819104558631"></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819104615514.png" alt="image-20210819104615514"></p><ul><li>保存后重新启动Typora</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819104710412.png" alt="image-20210819104710412"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Typora </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Typora </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ubuntu16.04安装openLDAP</title>
+      <link href="/ubuntu16-04-an-zhuang-openldap.html"/>
+      <url>/ubuntu16-04-an-zhuang-openldap.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、OpenLDAP-Server安装步骤"><a href="#一、OpenLDAP-Server安装步骤" class="headerlink" title="一、OpenLDAP Server安装步骤"></a>一、OpenLDAP Server安装步骤</h2><ul><li>安装Berkeley DB</li></ul><pre><code>$&gt; tar zxvf db-4.8.30.tar.gz$&gt; cd db-4.8.30/build_unix/$&gt; ../dist/configure$&gt; make$&gt; sudo make install$&gt; sudo cp /usr/local/BerkeleyDB.4.8/include/* /usr/include/ (for build openldap)$&gt; sudo cp /usr/local/BerkeleyDB.4.8/lib/* /usr/lib (for build openldap)</code></pre><ul><li>安装openssl和ldap-utils</li></ul><pre><code>sudo apt-get install libcurl4-openssl-dev ldap-utils libssl-dev</code></pre><ul><li>安装OpenLDAP</li></ul><pre><code>$&gt; tar zxvf openldap-2.4.50.tgz$&gt; cd openldap-2.4.50/$&gt; export CPPFLAGS=&quot;-I/usr/local/BerkeleyDB.4.8/include&quot;$&gt; export LDFLAGS=&quot;-L/usr/local/BerkeleyDB.4.8/lib&quot;$&gt; ./configure --prefix=/usr/local/openldap --with-tls=openssl$&gt; make depend$&gt; make$&gt; sudo make install</code></pre><h2 id="二、配置OpenLDAP—-无加密"><a href="#二、配置OpenLDAP—-无加密" class="headerlink" title="二、配置OpenLDAP—-无加密"></a>二、配置OpenLDAP—-无加密</h2><ul><li>修改OpenLDAP配置文件</li></ul><pre><code>$&gt; sudo vim /usr/local/openldap/etc/openldap/slapd.conf</code></pre><ul><li>在上述命令打开的slapd.conf配置文件中添加下述内容</li></ul><pre><code>include /usr/local/openldap/etc/openldap/schema/corba.schemainclude /usr/local/openldap/etc/openldap/schema/cosine.schemainclude /usr/local/openldap/etc/openldap/schema/dyngroup.schemainclude /usr/local/openldap/etc/openldap/schema/inetorgperson.schemainclude /usr/local/openldap/etc/openldap/schema/java.schemainclude /usr/local/openldap/etc/openldap/schema/misc.schemainclude /usr/local/openldap/etc/openldap/schema/nis.schemainclude /usr/local/openldap/etc/openldap/schema/openldap.schema</code></pre><ul><li>在打开的slapd.conf配置文件中修改下述内容</li></ul><pre><code>suffix &quot;dc=example,dc=com&quot;rootdn &quot;cn=Manager,dc=example,dc=com&quot;rootpw secret</code></pre><ul><li>启动OpenLDAP Server</li></ul><pre><code>$&gt; sudo /usr/local/openldap/libexec/slapd -d 1</code></pre><ul><li>为OpenLDAP Server添加用户</li></ul><pre><code>$&gt; vim ~/.ldaprc</code></pre><p>​         在上述文件中添加下述内容</p><pre><code>URI ldap://192.168.0.100(192.168.0.100 is ldap server ip)BASE dc=example,dc=com</code></pre><p>​         添加用户—-abcd.ldif文件内容见附录</p><pre><code>$&gt; /usr/local/openldap/bin/ldapadd -x -D &quot;cn=Manager,dc=example,dc=com&quot; -W -f abcd.ldif</code></pre><p>​         查看用户</p><pre><code>$&gt; /usr/local/openldap/bin/ldapsearch -x -b &#39;dc=example,dc=com&#39; (for check adding use roperation) </code></pre><h2 id="三、配置OpenLDAP—-SSL加密"><a href="#三、配置OpenLDAP—-SSL加密" class="headerlink" title="三、配置OpenLDAP—-SSL加密"></a>三、配置OpenLDAP—-SSL加密</h2><ul><li>创建SSL认证文件</li></ul><pre><code>$&gt; openssl req -newkey rsa:1024 -x509 -nodes -out server.pem -keyout server.pem -days 3650$&gt; sudo cp server.pem /usr/local/etc/</code></pre><ul><li>配置OpenLDAP Server以支持SSL加密—-此配置是在无加密配置上更改</li></ul><pre><code>$&gt; sudo vim /usr/local/openldap/etc/openldap/slapd.conf</code></pre><ul><li>在上述配置文件添加下述内容</li></ul><pre><code>TLSCipherSuite HIGH:MEDIUM:+SSLv2:+SSLv3:+TLSv1TLSVerifyClient neverTLSCACertificateFile /usr/local/etc/server.pemTLSCertificateFile /usr/local/etc/server.pemTLSCertificateKeyFile /usr/local/etc/server.pem</code></pre><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819111609955.png" alt="image-20210819111609955"></p><ul><li>启动OpenLDAP Server</li></ul><pre><code>$&gt; sudo /usr/local/openldap/libexec/slapd -h ldaps:// -d 1</code></pre><h2 id="四、配置OpenLDAP—-StartTLS加密"><a href="#四、配置OpenLDAP—-StartTLS加密" class="headerlink" title="四、配置OpenLDAP—-StartTLS加密"></a>四、配置OpenLDAP—-StartTLS加密</h2><ul><li>生成StartTLS认证文件。注意：192.168.0.100是OpenLDAP Server IP</li></ul><pre><code>Create CA certificat:$&gt; openssl genrsa 2048 &gt; cakey.pem$&gt; openssl req -new -sha256 -x509 -nodes -days 3650 -key cakey.pem -out cacert.pem -subj &#39;/C=bb/ST=bb/L=bb/CN=192.168.0.100/emailAddress=bb@bb.bb&#39;Create server certificate:$&gt; openssl req -sha256 -newkey rsa:2048 -days 3650 -nodes -keyout server-key.pem -out server-req.pem -subj &#39;/C=cc/ST=cc/L=cc/CN=192.168.0.100/emailAddress=cc@cc.cc&#39;$&gt; openssl rsa -in server-key.pem -out server-key.pem$&gt; openssl x509 -sha256 -req -in server-req.pem -days 3650 -CA cacert.pem -CAkey cakey.pem -set_serial 01 -out server-crt.pemCreate client certificate:$&gt; openssl req -sha256 -newkey rsa:2048 -days 3650 -nodes -keyout client-key.pem -out client-req.pem -subj &#39;/C=dd/ST=dd/L=dd/CN=192.168.0.100/emailAddress=dd@dd.dd&#39;$&gt; openssl rsa -in client-key.pem -out client-key.pem$&gt; openssl x509 -sha256 -req -in client-req.pem -days 3650 -CA cacert.pem -CAkey cakey.pem -set_serial 01 -out client-crt.pem</code></pre><ul><li>修改认证文件路径</li></ul><pre><code>$&gt; sudo mkdir /var/myca$&gt; sudo mkdir /var/myca/client$&gt; sudo cp cacert.pem /usr/local/openldap/etc/certs/$&gt; sudo cp cacert.pem /var/myca/client$&gt; sudo mv server-* /usr/local/openldap/etc/certs/$&gt; sudo mv client-* /var/myca/client</code></pre><ul><li>配置OpenLDAP Server以支持StartTLS加密—-此配置是在SSL配置上更改的</li></ul><pre><code>$&gt; vim /usr/local/openldap/etc/openldap/slapd.conf</code></pre><ul><li>在slapd.conf文件中修改下述内容</li></ul><pre><code>TLSVerifyClient never =&gt; TLSVerifyClient demand</code></pre><ul><li>在slapd.conf文件中注释下述内容</li></ul><pre><code>#TLSCACertificateFile /usr/local/openldap/etc/server.pem#TLSCertificateFile /usr/local/openldap/etc/server.pem#TLSCertificateKeyFile /usr/local/openldap/etc/server.pem</code></pre><ul><li>在slapd.conf文件中添加下述内容</li></ul><pre><code>TLSCACertificateFile /usr/local/openldap/etc/certs/cacert.pemTLSCertificateFile /usr/local/openldap/etc/certs/server-crt.pemTLSCertificateKeyFile /usr/local/openldap/etc/certs/server-key.pem</code></pre><ul><li>启动OpenLDAP Server</li></ul><pre><code> $&gt; /usr/local/openldap/libexec/slapd -d 1</code></pre><h2 id="附录：abcd-ldif文件内容"><a href="#附录：abcd-ldif文件内容" class="headerlink" title="附录：abcd.ldif文件内容"></a>附录：abcd.ldif文件内容</h2><pre><code>dn: dc=example,dc=comobjectclass: topobjectClass: dcobjectobjectClass: organizationdc: exampleo: example comdn: ou=user, dc=example,dc=comou: userobjectClass: organizationalUnitdn: ou=testgroup, dc=example,dc=comou: testgroupobjectClass: organizationalUnitdn: cn=ldaprg1,ou=testgroup, dc=example,dc=comobjectClass: groupOfNamescn: ldaprg1member: cn=LDAPuser1,ou=user,dc=example,dc=comdn: cn=LDAPuser1,ou=user, dc=example,dc=comuserPassword:: MTExMTEx#Password is 111111uid: test001objectClass: uidObjectobjectClass: topobjectClass: personsn: LDAPcn: LDAPuser1</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> openLDAP </category>
+          
+          <category> ubuntu16.04 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ubuntu16.04 </tag>
+            
+            <tag> openLDAP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ubuntu16.04安装dhcpv6</title>
+      <link href="/ubuntu16-04-an-zhuang-dhcpv6.html"/>
+      <url>/ubuntu16-04-an-zhuang-dhcpv6.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="ISC-dhcp-server安装"><a href="#ISC-dhcp-server安装" class="headerlink" title="ISC dhcp server安装"></a>ISC dhcp server安装</h2><ul><li>执行下述命令安装ISC dhcp server</li></ul><pre><code>sudo apt-get install isc-dhcp-server</code></pre><ul><li>为接口设置一个静态IPv6地址我要从中运行DHCPv6服务器，该地址是DHCP范围之外的IPv6网络子网的一部分。</li></ul><pre><code>sudo ifconfig eth0 inet6 add 2001:db8:0:1::128/64</code></pre><ul><li>编辑/etc/dhcp/dhcpd6.conf文件以配置DHCPv6范围等，添加下述内容。</li></ul><pre><code>default-lease-time 600;max-lease-time 7200;log-facility local7;subnet6 2001:db8:0:1::/64{#Range for clientsrange6 2001:db8:0:1::129 2001:db8:0:1::254;}</code></pre><ul><li>创建/var/lib/dhcp/dhcpd6.leases</li></ul><pre><code>touch /var/lib/dhcp/dhcpd6.leasessudo chmod 777 /var/lib/dhcp/dhcpd6.leases</code></pre><ul><li>手动启动DHCPv6服务器。</li></ul><pre><code>sudo dhcpd -6 -f -cf /etc/dhcp/dhcpd6.conf eth0</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ipv6 </category>
+          
+          <category> ubuntu16.04 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ubuntu16.04 </tag>
+            
+            <tag> dhcpv6 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ubuntu16.04安装radvd</title>
+      <link href="/ubuntu16-04-an-zhuang-radvd.html"/>
+      <url>/ubuntu16-04-an-zhuang-radvd.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="安装radvd"><a href="#安装radvd" class="headerlink" title="安装radvd"></a>安装radvd</h2><ul><li>执行下述命令进行安装</li></ul><pre><code>sudo apt-install radvd</code></pre><ul><li>配置radvd</li></ul><pre><code>touch /etc/radvd.conf chmod 777 /etc/radvd.conf</code></pre><p>​         配置如下：</p><pre><code>#log-level 8#log-mode full#statelessinterface eth0 {   AdvSendAdvert on;   MinRtrAdvInterval 30;   MaxRtrAdvInterval 600;   AdvManagedFlag on;                   #M bit=1   AdvOtherConfigFlag on;               #O bit=1   AdvLinkMTU 1500;   AdvSourceLLAddress on;   AdvDefaultPreference high;   prefix 2001:db8:0:1::/64   {   AdvOnLink on;   AdvAutonomous off;                   #A bit=0   AdvRouterAddr on;   AdvPreferredLifetime 3600;   AdvValidLifetime 7200;   }; route 2001:db8:0:1::/64 {    };};</code></pre><ul><li>启动radvd</li></ul><pre><code>sudo radvd –C /etc/radvd.conf start</code></pre><ul><li>停止的话需要手动kill这个进程</li></ul><pre><code>killall radvd</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ipv6 </category>
+          
+          <category> ubuntu16.04 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ubuntu16.04 </tag>
+            
+            <tag> radvd </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度学习环境配置</title>
+      <link href="/shen-du-xue-xi-huan-jing-pei-zhi-cuda-tensorflow-pytorch.html"/>
+      <url>/shen-du-xue-xi-huan-jing-pei-zhi-cuda-tensorflow-pytorch.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、安装Anaconda"><a href="#一、安装Anaconda" class="headerlink" title="一、安装Anaconda"></a>一、安装Anaconda</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Anaconda指的是一个开源的Python发行版本，其包含了conda、Python等180多个科学包及其依赖项。</p><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>下载地址：<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">https://www.anaconda.com/download/</a></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819141212750.png" alt="image-20210819141212750"></p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul><li>打开安装包，点击Next</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20200724211856768.png" alt="在这里插入图片描述"></p><ul><li>点击I Agree</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20200724211918523.png" alt="在这里插入图片描述"></p><ul><li>Just me还是All Users，假如你的电脑有好几个 Users ，才需要考虑这个问题.其实我们电脑一般就一个 User，就我们一个人使用，如果你的电脑有多个用户，选择All Users，我这里直接 All User，继续点击 Next。</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20200724212329536.png" alt="在这里插入图片描述"></p><ul><li>选择安装目录</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20200724212534120.png" alt="在这里插入图片描述"></p><ul><li>第一个选项是加入环境变量，建议小伙伴们选中这个选项，否则后面需要自己配置环境变量比较麻烦，第二个是默认使用 Python 3.8，此选项可以不选。点击Install</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20200724213932775.png" alt="在这里插入图片描述"></p><ul><li>执行安装</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20200724214310251.png" alt="在这里插入图片描述"></p><ul><li>点击Next</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/2020072421485150.png" alt="在这里插入图片描述"></p><ul><li>还是点击Next</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20200724214955473.png" alt="在这里插入图片描述"></p><ul><li>这两个选项直接取消掉就行，跟安装一点关系没有。点击Finish</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20200724215308519.png" alt="在这里插入图片描述"></p><ul><li>安装完成后打开cmd，输入下列命令查看是否安装成功</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20200725100810974.png" alt="在这里插入图片描述"></p><h2 id="二、使用Anaconda创建虚拟环境"><a href="#二、使用Anaconda创建虚拟环境" class="headerlink" title="二、使用Anaconda创建虚拟环境"></a>二、使用Anaconda创建虚拟环境</h2><p>创建虚拟环境的目的：满足存在多个项目需要不同运行环境的情况。<br>创建方法：</p><ul><li>在Anaconda Prompt中输入下述命令</li></ul><pre><code>conda create -n &lt;your env name&gt; python=&lt;your python version&gt;</code></pre><blockquote><p>注：上述命令中 <code>&lt;your env name&gt;</code>是虚拟环境名，<code>&lt;your python version&gt;</code>是虚拟环境所使用的python版本。</p><p>例如若环境名设置为tensorflow_lh，python版本使用3.6则命令为：</p><pre><code>conda create -n tensorflow_lh python=3.6</code></pre></blockquote><ul><li>激活虚拟环境则在Anaconda Prompt中输入下述命令</li></ul><pre><code>conda activate &lt;your env name&gt;</code></pre><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819142914767.png" alt="image-20210819142914767"></p><h2 id="三、安装CUDA和cudnn"><a href="#三、安装CUDA和cudnn" class="headerlink" title="三、安装CUDA和cudnn"></a>三、安装CUDA和cudnn</h2><p>此部分安装教程配置为RTX3060显卡+CUDA11.1+cudnn8.0.5</p><h3 id="CUDA下载与安装"><a href="#CUDA下载与安装" class="headerlink" title="CUDA下载与安装"></a>CUDA下载与安装</h3><ul><li>cuda下载地址：<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-toolkit-archive</a></li><li>选择cuda11.1下载</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819143631053.png" alt="image-20210819143631053"></p><ul><li>根据自己电脑配置选择并下载</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/25011725-eed1f92551583cb6.png" alt="img"></p><ul><li>下载完成后点击安装包进行安装</li></ul><h3 id="Cudnn下载与安装"><a href="#Cudnn下载与安装" class="headerlink" title="Cudnn下载与安装"></a>Cudnn下载与安装</h3><ul><li>cudnn下载网址：<a href="https://developer.nvidia.com/cudnn" target="_blank" rel="noopener">https://developer.nvidia.com/cudnn</a></li><li>直接官网下载就可以了，不过需要注册个账号。下载cudnn8.0.5</li><li>下载解压完成后，就是三个文件夹+一个txt</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/25011725-d16b66da90922267.png" alt="img"></p><ul><li>将cudnn里面的三个文件夹复制到cuda安装目录，然后全部替换掉。cuda默认安装话，安装目录如下图：</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/25011725-d103202ac10d51c0.png" alt="img"></p><h3 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h3><ul><li>下面是环境变量配置，在系统中添加以下 5个 环境变量：</li></ul><pre><code>CUDA_SDK_PATH = C:\ProgramData\NVIDIA Corporation\CUDA Samples\v11.1       （cuda默认安装的话就是这个路径）CUDA_LIB_PATH = %CUDA_PATH%\lib\x64CUDA_BIN_PATH = %CUDA_PATH%\binCUDA_SDK_BIN_PATH = %CUDA_SDK_PATH%\bin\win64CUDA_SDK_LIB_PATH = %CUDA_SDK_PATH%\common\lib\x64</code></pre><ul><li>在环境变量Path中添加：</li></ul><pre><code>C:\ProgramData\NVIDIA Corporation\CUDA Samples\v11.1\common\lib\x64C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\lib\x64C:\ProgramData\NVIDIA Corporation\CUDA Samples\v11.1\bin\win64C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\bin</code></pre><h2 id="四、安装Tensorflow-gpu"><a href="#四、安装Tensorflow-gpu" class="headerlink" title="四、安装Tensorflow-gpu"></a>四、安装Tensorflow-gpu</h2><ul><li>在Anaconda Prompt中激活虚拟环境</li></ul><pre><code>例如：conda activate tensorflow_lh</code></pre><ul><li>执行下列命令进行安装</li></ul><pre><code>pip install tensorflow-gpu==2.4.1 -i https://pypi.tuna.tsinghua.edu.cn/simple</code></pre><h2 id="五、安装Pytorch"><a href="#五、安装Pytorch" class="headerlink" title="五、安装Pytorch"></a>五、安装Pytorch</h2><ul><li>在Anaconda Prompt中激活虚拟环境</li></ul><pre><code>例如：conda activate pytorch_lh</code></pre><ul><li>执行下列命令进行安装</li><li>安装命令可参考此链接：<a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener">https://pytorch.org/get-started/locally/</a></li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819145600765.png" alt="image-20210819145600765"></p><pre><code>conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CUDA </tag>
+            
+            <tag> Tensorflow </tag>
+            
+            <tag> Pytorch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Neo4j安装</title>
+      <link href="/neo4j-an-zhuang.html"/>
+      <url>/neo4j-an-zhuang.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2><p>从官网下载jdk1.8</p><p>下载地址:<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819151628734.png" alt="image-20210819151628734"></p><ul><li>下载后点击安装</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819152513903.png" alt="image-20210819152513903"></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819152528683.png" alt="image-20210819152528683"></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819152547735.png" alt="image-20210819152547735"></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819152645928.png" alt="image-20210819152645928"></p><ul><li>打开cmd输入<code>java -version</code>可查看java是否安装成功</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819152735871.png" alt="image-20210819152735871"></p><h2 id="Neo4j安装"><a href="#Neo4j安装" class="headerlink" title="Neo4j安装"></a>Neo4j安装</h2><p>下载链接：<a href="https://neo4j.com/download-center/" target="_blank" rel="noopener">Neo4j Download Center - Neo4j Graph Database Platform</a></p><p>推荐下载community server版本</p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819151058618.png" alt="image-20210819151058618"></p><ul><li>解压后即安装完成</li><li>添加neo4j的环境变量</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819154348241.png" alt="image-20210819154348241"></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819153251764.png" alt="image-20210819153251764"></p><ul><li>验证</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819161959580.png" alt="image-20210819161959580"></p><blockquote><p>除了<code>neo4j.bat console</code>以外还可以用service的形式运行neo4j</p></blockquote><ul><li>在cmd下输入<code>neo4j.bat install-service</code></li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819171816521.png" alt="image-20210819171816521"></p><ul><li>然后再windows的services list下可以发现neo4j的service已经安装成功</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819171941917.png" alt="image-20210819171941917"></p><ul><li>之后我们可以再cmd中使用<code>neo4j.bat start</code>命令启动neo4j sevices</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819172106844.png" alt="image-20210819172106844"></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819172237397.png" alt="image-20210819172237397"></p><p>注：默认登陆账号密码均为neo4j，初次登陆后需要修改密码，可修改为admin</p><ul><li>若要查看当前neo4j service的状态可通过<code>neo4j.bat status</code>命令</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819173041674.png" alt="image-20210819173041674"></p><ul><li>若要停止neo4j sevices可在cmd输入<code>neo4j.bat stop</code>命令</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819172403607.png" alt="image-20210819172403607"></p><ul><li>如果不需要neo4j services则可通过<code>neo4j.bat uninstall-service</code>命令卸载服务</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210819172825494.png" alt="image-20210819172825494"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 知识图谱 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Neo4j </tag>
+            
+            <tag> 知识图谱 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>typora+picgo+gitee配置图片上传</title>
       <link href="/typora-picgo-gitee-pei-zhi-tu-pian-shang-chuan.html"/>
       <url>/typora-picgo-gitee-pei-zhi-tu-pian-shang-chuan.html</url>
@@ -45,6 +215,8 @@
       <categories>
           
           <category> Blog </category>
+          
+          <category> Nodejs </category>
           
       </categories>
       
