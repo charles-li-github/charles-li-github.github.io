@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://charles-li-github.github.io/typora-mei-hua-ji-pei-zhi.html</loc>
+    
+    <lastmod>2021-08-19T13:24:15.462Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-openldap.html</loc>
     
     <lastmod>2021-08-19T13:11:59.140Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-dhcpv6.html</loc>
     
     <lastmod>2021-08-19T13:11:46.486Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://charles-li-github.github.io/typora-mei-hua-ji-pei-zhi.html</loc>
-    
-    <lastmod>2021-08-19T13:11:37.594Z</lastmod>
     
   </url>
   
@@ -93,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://charles-li-github.github.io/categories/index.html</loc>
+    <loc>https://charles-li-github.github.io/archives/index.html</loc>
     
     <lastmod>2021-05-25T09:21:24.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://charles-li-github.github.io/archives/index.html</loc>
+    <loc>https://charles-li-github.github.io/categories/index.html</loc>
     
     <lastmod>2021-05-25T09:21:24.000Z</lastmod>
     
