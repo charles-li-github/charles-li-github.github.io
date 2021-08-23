@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://charles-li-github.github.io/"/>
-  <updated>2021-08-19T13:24:15.462Z</updated>
+  <updated>2021-08-23T13:14:43.273Z</updated>
   <id>https://charles-li-github.github.io/</id>
   
   <author>
@@ -17,11 +17,149 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>医学知识图谱实例</title>
+    <link href="https://charles-li-github.github.io/yi-xue-zhi-shi-tu-pu-shi-li.html"/>
+    <id>https://charles-li-github.github.io/yi-xue-zhi-shi-tu-pu-shi-li.html</id>
+    <published>2021-08-23T13:03:53.000Z</published>
+    <updated>2021-08-23T13:14:43.273Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;医学知识图谱案例&quot;&gt;&lt;a href=&quot;#医学知识图谱案例&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="知识图谱" scheme="https://charles-li-github.github.io/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+    
+      <category term="Github" scheme="https://charles-li-github.github.io/tags/Github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu16.04搭建Radius-server</title>
+    <link href="https://charles-li-github.github.io/ubuntu16-04-da-jian-radius-server.html"/>
+    <id>https://charles-li-github.github.io/ubuntu16-04-da-jian-radius-server.html</id>
+    <published>2021-08-23T13:03:35.000Z</published>
+    <updated>2021-08-23T13:12:28.931Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;ubuntu16-04搭建Radius-Server&quot;&gt;&lt;a href=&quot;#ubuntu16-04搭建Radius-Server&quot; class=&quot;headerlink&quot; title=&quot;ubuntu16.04搭建Radius
+        
+      
+    
+    </summary>
+    
+      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
+    
+    
+      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu16.04搭建dns-server</title>
+    <link href="https://charles-li-github.github.io/ubuntu16-04-da-jian-dns-server.html"/>
+    <id>https://charles-li-github.github.io/ubuntu16-04-da-jian-dns-server.html</id>
+    <published>2021-08-23T13:03:12.000Z</published>
+    <updated>2021-08-23T13:13:19.165Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;ubuntu16-04搭建DNS-Server&quot;&gt;&lt;a href=&quot;#ubuntu16-04搭建DNS-Server&quot; class=&quot;headerlink&quot; title=&quot;ubuntu16.04搭建DNS Server&quot;&gt;&lt;/a&gt;ubuntu16.04搭建DNS
+        
+      
+    
+    </summary>
+    
+      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
+    
+    
+      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
+    
+      <category term="dns" scheme="https://charles-li-github.github.io/tags/dns/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python基础语法整理</title>
+    <link href="https://charles-li-github.github.io/python-ji-chu-yu-fa-zheng-li.html"/>
+    <id>https://charles-li-github.github.io/python-ji-chu-yu-fa-zheng-li.html</id>
+    <published>2021-08-23T13:02:45.000Z</published>
+    <updated>2021-08-23T13:10:59.185Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;注：该笔记基于&lt;a href=&quot;https://www.liaoxuefeng.com/wiki/1016959663602400&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;廖雪峰python学习教程&lt;/a&gt;和&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Computer Language" scheme="https://charles-li-github.github.io/categories/Computer-Language/"/>
+    
+    
+      <category term="Python" scheme="https://charles-li-github.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络协议介绍</title>
+    <link href="https://charles-li-github.github.io/wang-luo-xie-yi-jie-shao.html"/>
+    <id>https://charles-li-github.github.io/wang-luo-xie-yi-jie-shao.html</id>
+    <published>2021-08-23T13:02:18.000Z</published>
+    <updated>2021-08-23T13:09:32.455Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;计算机网络体系结构&quot;&gt;&lt;a href=&quot;#计算机网络体系结构&quot; class=&quot;headerlink&quot; title=&quot;计算机网络体系结构&quot;&gt;&lt;/a&gt;计算机网络体系结构&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;注：本文参考链接：&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Computer Network" scheme="https://charles-li-github.github.io/categories/Computer-Network/"/>
+    
+    
+      <category term="TCP/IP" scheme="https://charles-li-github.github.io/tags/TCP-IP/"/>
+    
+      <category term="TCP&amp;UDP" scheme="https://charles-li-github.github.io/tags/TCP-UDP/"/>
+    
+      <category term="HTTP&amp;HTTPS" scheme="https://charles-li-github.github.io/tags/HTTP-HTTPS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Typora美化及配置</title>
     <link href="https://charles-li-github.github.io/typora-mei-hua-ji-pei-zhi.html"/>
     <id>https://charles-li-github.github.io/typora-mei-hua-ji-pei-zhi.html</id>
     <published>2021-08-19T13:08:52.000Z</published>
-    <updated>2021-08-19T13:24:15.462Z</updated>
+    <updated>2021-08-19T13:27:08.224Z</updated>
     
     <summary type="html">
     
@@ -48,7 +186,7 @@
     <link href="https://charles-li-github.github.io/ubuntu16-04-an-zhuang-openldap.html"/>
     <id>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-openldap.html</id>
     <published>2021-08-19T13:07:30.000Z</published>
-    <updated>2021-08-19T13:11:59.140Z</updated>
+    <updated>2021-08-23T13:18:24.055Z</updated>
     
     <summary type="html">
     
@@ -62,14 +200,10 @@
     
     </summary>
     
-      <category term="openLDAP" scheme="https://charles-li-github.github.io/categories/openLDAP/"/>
-    
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/openLDAP/ubuntu16-04/"/>
+      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
     
     
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/tags/ubuntu16-04/"/>
-    
-      <category term="openLDAP" scheme="https://charles-li-github.github.io/tags/openLDAP/"/>
+      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
     
   </entry>
   
@@ -78,7 +212,7 @@
     <link href="https://charles-li-github.github.io/ubuntu16-04-an-zhuang-dhcpv6.html"/>
     <id>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-dhcpv6.html</id>
     <published>2021-08-19T13:06:10.000Z</published>
-    <updated>2021-08-19T13:11:46.486Z</updated>
+    <updated>2021-08-23T13:18:00.296Z</updated>
     
     <summary type="html">
     
@@ -92,14 +226,12 @@
     
     </summary>
     
-      <category term="ipv6" scheme="https://charles-li-github.github.io/categories/ipv6/"/>
-    
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ipv6/ubuntu16-04/"/>
+      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
     
     
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/tags/ubuntu16-04/"/>
+      <category term="ipv6" scheme="https://charles-li-github.github.io/tags/ipv6/"/>
     
-      <category term="dhcpv6" scheme="https://charles-li-github.github.io/tags/dhcpv6/"/>
+      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
     
   </entry>
   
@@ -108,7 +240,7 @@
     <link href="https://charles-li-github.github.io/ubuntu16-04-an-zhuang-radvd.html"/>
     <id>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-radvd.html</id>
     <published>2021-08-19T13:03:41.000Z</published>
-    <updated>2021-08-19T13:05:50.543Z</updated>
+    <updated>2021-08-23T13:17:37.386Z</updated>
     
     <summary type="html">
     
@@ -125,14 +257,12 @@
     
     </summary>
     
-      <category term="ipv6" scheme="https://charles-li-github.github.io/categories/ipv6/"/>
-    
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ipv6/ubuntu16-04/"/>
+      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
     
     
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/tags/ubuntu16-04/"/>
+      <category term="ipv6" scheme="https://charles-li-github.github.io/tags/ipv6/"/>
     
-      <category term="radvd" scheme="https://charles-li-github.github.io/tags/radvd/"/>
+      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
     
   </entry>
   
@@ -171,7 +301,7 @@
     <link href="https://charles-li-github.github.io/neo4j-an-zhuang.html"/>
     <id>https://charles-li-github.github.io/neo4j-an-zhuang.html</id>
     <published>2021-08-19T12:57:24.000Z</published>
-    <updated>2021-08-19T13:03:11.438Z</updated>
+    <updated>2021-08-23T13:17:14.795Z</updated>
     
     <summary type="html">
     
@@ -193,8 +323,6 @@
     
       <category term="Neo4j" scheme="https://charles-li-github.github.io/tags/Neo4j/"/>
     
-      <category term="知识图谱" scheme="https://charles-li-github.github.io/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
   </entry>
   
   <entry>
@@ -202,7 +330,7 @@
     <link href="https://charles-li-github.github.io/typora-picgo-gitee-pei-zhi-tu-pian-shang-chuan.html"/>
     <id>https://charles-li-github.github.io/typora-picgo-gitee-pei-zhi-tu-pian-shang-chuan.html</id>
     <published>2021-08-18T13:37:49.000Z</published>
-    <updated>2021-08-18T13:41:53.131Z</updated>
+    <updated>2021-08-23T13:15:05.623Z</updated>
     
     <summary type="html">
     
@@ -228,8 +356,6 @@
     
       <category term="Picgo" scheme="https://charles-li-github.github.io/tags/Picgo/"/>
     
-      <category term="Typora" scheme="https://charles-li-github.github.io/tags/Typora/"/>
-    
   </entry>
   
   <entry>
@@ -237,7 +363,7 @@
     <link href="https://charles-li-github.github.io/an-zhuang-nvm-guan-li-nodejs.html"/>
     <id>https://charles-li-github.github.io/an-zhuang-nvm-guan-li-nodejs.html</id>
     <published>2021-08-18T13:35:34.000Z</published>
-    <updated>2021-08-19T13:00:10.200Z</updated>
+    <updated>2021-08-23T13:16:33.974Z</updated>
     
     <summary type="html">
     
@@ -252,8 +378,6 @@
     </summary>
     
       <category term="Blog" scheme="https://charles-li-github.github.io/categories/Blog/"/>
-    
-      <category term="Nodejs" scheme="https://charles-li-github.github.io/categories/Blog/Nodejs/"/>
     
     
       <category term="Hexo" scheme="https://charles-li-github.github.io/tags/Hexo/"/>
