@@ -4,15 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="ubuntu16.04安装dhcpv6, Charles Blog">
+    <meta name="keywords" content="windows安装MySQL5.7, Charles Blog">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="ISC dhcp server安装
-执行下述命令安装ISC dhcp server
+    <meta name="description" content="windows安装MySQL5.7
+转载传送门：https://www.cnblogs.com/kendoziyu/p/MySQL.html
 
-sudo apt-get install isc-dhcp-server
-为接口设置一个静态IPv6地址我要从中运行DHCPv6服务器，该地址是DHCP范">
+一、检查及卸载原版本我们可以检查下我们的系统服务确定下有没有安装过MySQL，打开Windows">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +19,7 @@ sudo apt-get install isc-dhcp-server
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ubuntu16.04安装dhcpv6 | Charles Blog</title>
+    <title>windows安装MySQL5.7 | Charles Blog</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -619,13 +618,13 @@ sudo apt-get install isc-dhcp-server
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        ubuntu16.04安装dhcpv6
+                        windows安装MySQL5.7
                     </div>
                 </div>
             </div>
@@ -736,12 +735,8 @@ sudo apt-get install isc-dhcp-server
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/ipv6/" target="_blank">
-                            <span class="chip bg-color">ipv6</span>
-                        </a>
-                        
-                        <a href="/tags/build-server/" target="_blank">
-                            <span class="chip bg-color">build server</span>
+                        <a href="/tags/MySQL/" target="_blank">
+                            <span class="chip bg-color">MySQL</span>
                         </a>
                         
                     </div>
@@ -752,8 +747,8 @@ sudo apt-get install isc-dhcp-server
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/ubuntu16-04/" class="post-category" target="_blank">
-                            ubuntu16.04
+                        <a href="/categories/DataBase/" class="post-category" target="_blank">
+                            DataBase
                         </a>
                         
                     </div>
@@ -764,7 +759,7 @@ sudo apt-get install isc-dhcp-server
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-19
+                    2021-08-26
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -778,14 +773,14 @@ sudo apt-get install isc-dhcp-server
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    163
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
                 
@@ -801,30 +796,98 @@ sudo apt-get install isc-dhcp-server
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="ISC-dhcp-server安装"><a href="#ISC-dhcp-server安装" class="headerlink" title="ISC dhcp server安装"></a>ISC dhcp server安装</h2><ul>
-<li>执行下述命令安装ISC dhcp server</li>
+                <h3 id="windows安装MySQL5-7"><a href="#windows安装MySQL5-7" class="headerlink" title="windows安装MySQL5.7"></a>windows安装MySQL5.7</h3><blockquote>
+<p>转载传送门：<a href="https://www.cnblogs.com/kendoziyu/p/MySQL.html" target="_blank" rel="noopener">https://www.cnblogs.com/kendoziyu/p/MySQL.html</a></p>
+</blockquote>
+<h3 id="一、检查及卸载原版本"><a href="#一、检查及卸载原版本" class="headerlink" title="一、检查及卸载原版本"></a>一、检查及卸载原版本</h3><p>我们可以检查下我们的系统服务确定下有没有安装过MySQL，打开Windows系统服务有以下两种方式：</p>
+<ul>
+<li>右击我的电脑/计算机，点击管理，打开计算机管理，依次选择服务和应用程序——服务。</li>
+<li>使用快捷命令：同时按下<strong>win+r键</strong>，在运行窗口中输入<strong>services.msc</strong>，即可打开服务。</li>
 </ul>
-<pre><code>sudo apt-get install isc-dhcp-server</code></pre><ul>
-<li>为接口设置一个静态IPv6地址我要从中运行DHCPv6服务器，该地址是DHCP范围之外的IPv6网络子网的一部分。</li>
+<p>打开系统服务后页面如下，可以看到我的电脑中已经安装有MySQL，下面我将其卸载，若你的电脑没有MySQL服务则不需要操作此步。<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191002105417276-217001891.png" alt="检查Mysql服务"></p>
+<p>现在我们打开cmd命令行来卸载MySQL：</p>
+<p>1.停止MySQL服务<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191002105456062-1583359584.png" alt="停止Mysql服务"><br>2.卸载MySQL<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191002105524805-457396218.png" alt="卸载Mysql"></p>
+<h3 id="二、下载MySQL安装包"><a href="#二、下载MySQL安装包" class="headerlink" title="二、下载MySQL安装包"></a>二、下载MySQL安装包</h3><p>我们常用的是<strong>MySQL Community Server</strong>这款产品。</p>
+<h5 id="下载方案A"><a href="#下载方案A" class="headerlink" title="下载方案A"></a>下载方案A</h5><blockquote>
+<p>下载地址（选择该地址可下载目前最新的通用版本）：<br><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+</blockquote>
+<ol>
+<li>点击<code>Looking for previous GA versions</code>，点击后效果如下图，：<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191002105603734-976233778.png" alt="查找最新的通用版本"></li>
+<li>有两种可选的下载策略，一个是下载installer安装器，一个是下载解压安装包<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191002105718006-80264316.png" alt="img"></li>
+<li>installer安装器下载地址:</li>
+</ol>
+<blockquote>
+<p><a href="https://dev.mysql.com/downloads/windows/installer/5.7.html" target="_blank" rel="noopener">https://dev.mysql.com/downloads/windows/installer/5.7.html</a></p>
+</blockquote>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191002105747162-1277733805.png" alt="下载安装器"></p>
+<p>PS:只有32位的下载器</p>
+<h5 id="下载方案B"><a href="#下载方案B" class="headerlink" title="下载方案B"></a>下载方案B</h5><blockquote>
+<p>下载地址（选择该地址可以下载历史版本）<br><a href="https://downloads.mysql.com/archives/community/" target="_blank" rel="noopener">https://downloads.mysql.com/archives/community/</a></p>
+</blockquote>
+<p>PS：选择这种方式<strong>只能下载用压缩包方案</strong>安装。</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210825234203460.png" alt="image-20210825234203460"></p>
+<h3 id="三、安装MySQL"><a href="#三、安装MySQL" class="headerlink" title="三、安装MySQL"></a>三、安装MySQL</h3><h5 id="安装方案A：安装器安装"><a href="#安装方案A：安装器安装" class="headerlink" title="安装方案A：安装器安装"></a>安装方案A：安装器安装</h5><h6 id="1-双击安装包mysql-installer-community-5-7-27-0-msi时出现错误"><a href="#1-双击安装包mysql-installer-community-5-7-27-0-msi时出现错误" class="headerlink" title="1. 双击安装包mysql-installer-community-5.7.27.0.msi时出现错误"></a>1. 双击安装包mysql-installer-community-5.7.27.0.msi时出现错误</h6><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191003122859389-1971663578.png" alt="installer安装报错"></p>
+<blockquote>
+<p>下载.NET FRAMEWORK 4.5.2的地址 <a href="https://www.microsoft.com/zh-CN/download/details.aspx?id=42642" target="_blank" rel="noopener">https://www.microsoft.com/zh-CN/download/details.aspx?id=42642</a></p>
+</blockquote>
+<h6 id="2-选择安装类型Server-Only"><a href="#2-选择安装类型Server-Only" class="headerlink" title="2. 选择安装类型Server Only"></a>2. 选择安装类型Server Only</h6><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191003123008831-453269682.png" alt="Server Only"></p>
+<p>选择理由：我的主要目的不是对MySQL进行二次开发，而是基于MySQL提供的数据库服务，开发Web服务器，所以选择选择Server Only。</p>
+<h6 id="3-遇到缺少必要的组件："><a href="#3-遇到缺少必要的组件：" class="headerlink" title="3. 遇到缺少必要的组件："></a>3. 遇到缺少必要的组件：</h6><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191003123041760-1437047115.png" alt="Check Requirements"></p>
+<ul>
+<li>Microsoft Visual C++ 2013 Redistributable Packages（x64） is not installed</li>
 </ul>
-<pre><code>sudo ifconfig eth0 inet6 add 2001:db8:0:1::128/64</code></pre><ul>
-<li>编辑/etc/dhcp/dhcpd6.conf文件以配置DHCPv6范围等，添加下述内容。</li>
+<blockquote>
+<p>下载地址：<a href="https://www.microsoft.com/en-us/download/details.aspx?id=40784" target="_blank" rel="noopener">https://www.microsoft.com/en-us/download/details.aspx?id=40784</a></p>
+</blockquote>
+<ul>
+<li>我选择了下载 vcredist_x64.exe</li>
+<li>双击安装 vcredist_x64.exe，安装完成之后，关闭MySQL Intaller并重新打开<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191003123120007-1732055678.png" alt="MySQL-installation"></li>
 </ul>
-<pre><code>default-lease-time 600;
-max-lease-time 7200;
-log-facility local7;
-subnet6 2001:db8:0:1::/64
-{
-#Range for clients
-range6 2001:db8:0:1::129 2001:db8:0:1::254;
-}</code></pre><ul>
-<li>创建/var/lib/dhcp/dhcpd6.leases</li>
+<h6 id="4-其他的一些步骤参考（基本保持默认-点击Next就好了）"><a href="#4-其他的一些步骤参考（基本保持默认-点击Next就好了）" class="headerlink" title="4. 其他的一些步骤参考（基本保持默认,点击Next就好了）"></a>4. 其他的一些步骤参考（基本保持默认,点击Next就好了）</h6><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191003123202668-1358491620.png" alt="High-availability"><br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191003123235586-1307104687.png" alt="Type-and-networking"><br>这一步选择填写数据库的端口号<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191003123333492-1449855759.png" alt="Windows Service"><br>这一步填写Windows服务的名称<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191003123400271-794557846.png" alt="Apply Configurations"><br>这一步自动依次执行列表中所有的额外配置步骤</p>
+<h6 id="5-配置环境变量"><a href="#5-配置环境变量" class="headerlink" title="5. 配置环境变量"></a>5. 配置环境变量</h6><p>我的MySQL安装在<code>C:\Program Files\MySQL\MySQL Server 5.7</code>目录下，</p>
+<ul>
+<li>在桌面上右击计算机-属性-高级系统设置：<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191003123443242-709003050.png" alt="环境变量"><br><strong>新增</strong> 系统变量MYSQL_HOME=C:\Program Files\MySQL\MySQL Server 5.7<br>在系统变量Path的最后 <strong>追加</strong> <code>;%MYSQL_HOME%\bin</code></li>
+<li><code>Win+R</code>打开运行，输入<code>cmd</code>回车<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191003123504019-1764572605.png" alt="Cmd-Windows-Service"></li>
 </ul>
-<pre><code>touch /var/lib/dhcp/dhcpd6.leases
-sudo chmod 777 /var/lib/dhcp/dhcpd6.leases</code></pre><ul>
-<li>手动启动DHCPv6服务器。</li>
+<h5 id="安装方案B：解压安装包安装"><a href="#安装方案B：解压安装包安装" class="headerlink" title="安装方案B：解压安装包安装"></a>安装方案B：解压安装包安装</h5><h6 id="1-解压安装包（mysql-5-7-17-winx64）"><a href="#1-解压安装包（mysql-5-7-17-winx64）" class="headerlink" title="1.解压安装包（mysql-5.7.17-winx64）"></a>1.解压安装包（mysql-5.7.17-winx64）</h6><blockquote>
+<p>我选择解压在D盘，并且创建lib文件夹，即D:\lib\mysql-5.7.17-winx64，我又修改文件夹名称为D:\lib\mysql<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191007001628194-2037607139.png" alt="解压MySQL"></p>
+</blockquote>
+<h6 id="2-在解压目录下创建my-ini"><a href="#2-在解压目录下创建my-ini" class="headerlink" title="2.在解压目录下创建my.ini"></a>2.在解压目录下创建my.ini</h6><pre><code>[client]
+# 设置mysql客户端默认字符集
+default-character-set=utf8
+
+[mysqld]
+# 设置3306端口
+port=3306
+character_set_server=utf8
+# 解压目录
+basedir=D:\lib\mysql
+# 解压目录下data目录
+datadir=D:\lib\mysql\data
+default-storage-engine=INNODB
+
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+
+[WinMySQLAdmin]
+D:\lib\mysql\bin\mysqld.exe</code></pre><h6 id="3-设置MYSQL的环境变量"><a href="#3-设置MYSQL的环境变量" class="headerlink" title="3.设置MYSQL的环境变量"></a>3.设置MYSQL的环境变量</h6><ul>
+<li>新增系统变量 MYSQL_HOME=D:\lib\mysql</li>
+<li>在系统变量Path后面追加<code>;%MYSQL_HOME%\bin</code></li>
 </ul>
-<pre><code>sudo dhcpd -6 -f -cf /etc/dhcp/dhcpd6.conf eth0</code></pre>
+<h6 id="4-安装MYSQL"><a href="#4-安装MYSQL" class="headerlink" title="4.安装MYSQL"></a>4.安装MYSQL</h6><ul>
+<li>在解压目录的\bin下（D:\lib\mysql\bin)，按住键盘<code>Ctrl+Shift</code>，然后右击鼠标打开命令窗口<br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191007001651827-785308498.png" alt="打开命令窗口"></li>
+<li>执行命令初始化数据库<br><code>mysqld -install</code><br><code>mysqld --initialize --console</code><br><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/1730512-20191007001732043-1502848367.png" alt="初始化数据库"></li>
+</ul>
+<blockquote>
+<p>“mysqld –initialize –console”命令，可以得到mysql的初始密码，用<strong>mysqld –initialize 的目的是</strong>初始化data目录。要不然mysql5.7的解压文件夹下面不会出现data文件夹<br>比如本文中的初始密码为<code>.ak8%if5#nzJ</code></p>
+</blockquote>
+<ul>
+<li>接着就是在输入<strong>net start mysql</strong>启动服务</li>
+<li>开始使用mysql，输入命令：<strong>mysql -uroot -p</strong>，然后输入刚才的初始密码</li>
+<li>修改密码<br><code>mysql&gt; alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;123456&#39;;</code><br><code>mysql&gt; flush privileges;</code></li>
+<li>使用quit退出</li>
+<li>输入命令：<strong>mysql -uroot -p</strong>，然后尝试新密码</li>
+</ul>
+
             </div>
             <hr />
 
@@ -858,9 +921,9 @@ sudo chmod 777 /var/lib/dhcp/dhcpd6.leases</code></pre><ul>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《ubuntu16.04安装dhcpv6》
+                    《windows安装MySQL5.7》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/ubuntu16-04-an-zhuang-dhcpv6.html" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/windows-an-zhuang-mysql5-7.html" property="cc:attributionName"
                rel="cc:attributionURL">
                 CharlesLi
             </a> 采用
@@ -901,7 +964,7 @@ sudo chmod 777 /var/lib/dhcp/dhcpd6.leases</code></pre><ul>
         repo: 'charles-li-github.github.io',
         owner: 'charles-li-github',
         admin: "charles-li-github",
-        id: 'ubuntu16-04-an-zhuang-dhcpv6.html',
+        id: 'windows-an-zhuang-mysql5-7.html',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1184,46 +1247,48 @@ sudo chmod 777 /var/lib/dhcp/dhcpd6.leases</code></pre><ul>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/ubuntu16-04-an-zhuang-openldap.html">
+                <a href="/windows-an-zhuang-mysql5-7.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="ubuntu16.04安装openLDAP">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="windows安装MySQL5.7">
                         
-                        <span class="card-title">ubuntu16.04安装openLDAP</span>
+                        <span class="card-title">windows安装MySQL5.7</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ubuntu16.04安装openLDAP
+                            windows安装MySQL5.7
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ubuntu16-04/" class="post-category" target="_blank">
-                                    ubuntu16.04
+                            <a href="/categories/DataBase/" class="post-category" target="_blank">
+                                    DataBase
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/build-server/" target="_blank">
-                        <span class="chip bg-color">build server</span>
+                    <a href="/tags/MySQL/" target="_blank">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
@@ -1237,31 +1302,31 @@ sudo chmod 777 /var/lib/dhcp/dhcpd6.leases</code></pre><ul>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/ubuntu16-04-an-zhuang-radvd.html">
+                <a href="/django-hou-duan-da-jian.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="ubuntu16.04安装radvd">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Django后端搭建">
                         
-                        <span class="card-title">ubuntu16.04安装radvd</span>
+                        <span class="card-title">Django后端搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ubuntu16.04安装radvd
+                            Django项目构建的一些操作记录
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-19
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ubuntu16-04/" class="post-category" target="_blank">
-                                    ubuntu16.04
+                            <a href="/categories/Web-Framework/" class="post-category" target="_blank">
+                                    Web Framework
                                 </a>
                             
                             
@@ -1271,12 +1336,8 @@ sudo chmod 777 /var/lib/dhcp/dhcpd6.leases</code></pre><ul>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ipv6/" target="_blank">
-                        <span class="chip bg-color">ipv6</span>
-                    </a>
-                    
-                    <a href="/tags/build-server/" target="_blank">
-                        <span class="chip bg-color">build server</span>
+                    <a href="/tags/Django/" target="_blank">
+                        <span class="chip bg-color">Django</span>
                     </a>
                     
                 </div>
