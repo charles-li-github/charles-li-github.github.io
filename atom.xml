@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://charles-li-github.github.io/"/>
-  <updated>2021-08-26T14:59:19.595Z</updated>
+  <updated>2021-09-02T15:52:48.521Z</updated>
   <id>https://charles-li-github.github.io/</id>
   
   <author>
@@ -15,6 +15,263 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>卷积神经网络基础</title>
+    <link href="https://charles-li-github.github.io/juan-ji-shen-jing-wang-luo-ji-chu.html"/>
+    <id>https://charles-li-github.github.io/juan-ji-shen-jing-wang-luo-ji-chu.html</id>
+    <published>2021-09-02T15:51:43.000Z</published>
+    <updated>2021-09-02T15:52:48.521Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;大纲&quot;&gt;&lt;a href=&quot;#大纲&quot; class=&quot;headerlink&quot; title=&quot;大纲&quot;&gt;&lt;/a&gt;大纲&lt;/h2&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="卷积神经网络" scheme="https://charles-li-github.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vision_Transformer</title>
+    <link href="https://charles-li-github.github.io/vision-transformer.html"/>
+    <id>https://charles-li-github.github.io/vision-transformer.html</id>
+    <published>2021-09-02T15:49:01.000Z</published>
+    <updated>2021-09-02T15:51:22.305Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Vision-Transformer详解&quot;&gt;&lt;a href=&quot;#Vision-Transformer详解&quot; class=&quot;headerlink&quot; title=&quot;Vision Transformer详解&quot;&gt;&lt;/a&gt;Vision
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="图像识别" scheme="https://charles-li-github.github.io/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LC_旋转数组</title>
+    <link href="https://charles-li-github.github.io/lc-xuan-zhuan-shu-zu.html"/>
+    <id>https://charles-li-github.github.io/lc-xuan-zhuan-shu-zu.html</id>
+    <published>2021-09-02T15:47:31.000Z</published>
+    <updated>2021-09-02T15:48:37.076Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;给定一个数组，将数组中的元素向右移动 k 个位置，其中 k
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://charles-li-github.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="数组" scheme="https://charles-li-github.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="双指针" scheme="https://charles-li-github.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LC_删除排序数组中的重复项</title>
+    <link href="https://charles-li-github.github.io/lc-shan-chu-pai-xu-shu-zu-zhong-de-chong-fu-xiang.html"/>
+    <id>https://charles-li-github.github.io/lc-shan-chu-pai-xu-shu-zu-zhong-de-chong-fu-xiang.html</id>
+    <published>2021-09-02T15:44:59.000Z</published>
+    <updated>2021-09-02T15:47:05.625Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;给你一个有序数组 nums ，请你 &lt;strong&gt;原地&lt;/strong&gt; 删除重复出现的元素，使每个元素只出现一次
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://charles-li-github.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="数组" scheme="https://charles-li-github.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="双指针" scheme="https://charles-li-github.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LC_买卖股票的最佳时机II</title>
+    <link href="https://charles-li-github.github.io/lc-mai-mai-gu-piao-de-zui-jia-shi-ji-ii.html"/>
+    <id>https://charles-li-github.github.io/lc-mai-mai-gu-piao-de-zui-jia-shi-ji-ii.html</id>
+    <published>2021-09-02T15:41:19.000Z</published>
+    <updated>2021-09-02T15:44:28.794Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;给定一个数组 prices ，其中 prices[i] 是一支给定股票第 i
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://charles-li-github.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="数组" scheme="https://charles-li-github.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="贪心" scheme="https://charles-li-github.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="动态规划" scheme="https://charles-li-github.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LC_两数之和</title>
+    <link href="https://charles-li-github.github.io/lc-liang-shu-zhi-he.html"/>
+    <id>https://charles-li-github.github.io/lc-liang-shu-zhi-he.html</id>
+    <published>2021-09-02T15:31:22.000Z</published>
+    <updated>2021-09-02T15:33:29.150Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://charles-li-github.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="数组" scheme="https://charles-li-github.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="哈希" scheme="https://charles-li-github.github.io/tags/%E5%93%88%E5%B8%8C/"/>
+    
+      <category term="暴力枚举" scheme="https://charles-li-github.github.io/tags/%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LC_剑指 Offer 22. 链表中倒数第k个节点</title>
+    <link href="https://charles-li-github.github.io/lc-jian-zhi-offer-22-lian-biao-zhong-dao-shu-di-k-ge-jie-dian.html"/>
+    <id>https://charles-li-github.github.io/lc-jian-zhi-offer-22-lian-biao-zhong-dao-shu-di-k-ge-jie-dian.html</id>
+    <published>2021-09-02T15:26:00.000Z</published>
+    <updated>2021-09-02T15:29:09.211Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://charles-li-github.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="双指针" scheme="https://charles-li-github.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+      <category term="链表" scheme="https://charles-li-github.github.io/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LC_合并两个有序数组</title>
+    <link href="https://charles-li-github.github.io/lc-he-bing-liang-ge-you-xu-shu-zu.html"/>
+    <id>https://charles-li-github.github.io/lc-he-bing-liang-ge-you-xu-shu-zu.html</id>
+    <published>2021-09-02T15:24:15.000Z</published>
+    <updated>2021-09-02T15:30:49.640Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://charles-li-github.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="数组" scheme="https://charles-li-github.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="双指针" scheme="https://charles-li-github.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+      <category term="排序" scheme="https://charles-li-github.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LC_存在重复元素</title>
+    <link href="https://charles-li-github.github.io/lc-cun-zai-chong-fu-yuan-su.html"/>
+    <id>https://charles-li-github.github.io/lc-cun-zai-chong-fu-yuan-su.html</id>
+    <published>2021-09-02T15:10:21.000Z</published>
+    <updated>2021-09-02T15:29:55.560Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;给定一个整数数组，判断是否存在重复元素。&lt;/p&gt;
+&lt;p&gt;如果存在一值在数组中出现至少两次，函数返回 &lt;code&gt;true&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://charles-li-github.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="数组" scheme="https://charles-li-github.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="哈希" scheme="https://charles-li-github.github.io/tags/%E5%93%88%E5%B8%8C/"/>
+    
+      <category term="排序" scheme="https://charles-li-github.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>windows安装MySQL5.7</title>
@@ -47,7 +304,7 @@
     <link href="https://charles-li-github.github.io/django-hou-duan-da-jian.html"/>
     <id>https://charles-li-github.github.io/django-hou-duan-da-jian.html</id>
     <published>2021-08-26T14:54:37.000Z</published>
-    <updated>2021-08-26T15:02:09.146Z</updated>
+    <updated>2021-08-26T15:03:22.917Z</updated>
     
     <summary type="html">
     
@@ -310,189 +567,6 @@
       <category term="ipv6" scheme="https://charles-li-github.github.io/tags/ipv6/"/>
     
       <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu16.04安装radvd</title>
-    <link href="https://charles-li-github.github.io/ubuntu16-04-an-zhuang-radvd.html"/>
-    <id>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-radvd.html</id>
-    <published>2021-08-19T13:03:41.000Z</published>
-    <updated>2021-08-23T13:17:37.386Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;安装radvd&quot;&gt;&lt;a href=&quot;#安装radvd&quot; class=&quot;headerlink&quot; title=&quot;安装radvd&quot;&gt;&lt;/a&gt;安装radvd&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;执行下述命令进行安装&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;sudo
-        
-      
-    
-    </summary>
-    
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
-    
-    
-      <category term="ipv6" scheme="https://charles-li-github.github.io/tags/ipv6/"/>
-    
-      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习环境配置</title>
-    <link href="https://charles-li-github.github.io/shen-du-xue-xi-huan-jing-pei-zhi-cuda-tensorflow-pytorch.html"/>
-    <id>https://charles-li-github.github.io/shen-du-xue-xi-huan-jing-pei-zhi-cuda-tensorflow-pytorch.html</id>
-    <published>2021-08-19T13:00:55.000Z</published>
-    <updated>2021-08-19T13:02:50.091Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、安装Anaconda&quot;&gt;&lt;a href=&quot;#一、安装Anaconda&quot; class=&quot;headerlink&quot; title=&quot;一、安装Anaconda&quot;&gt;&lt;/a&gt;一、安装Anaconda&lt;/h2&gt;&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="CUDA" scheme="https://charles-li-github.github.io/tags/CUDA/"/>
-    
-      <category term="Tensorflow" scheme="https://charles-li-github.github.io/tags/Tensorflow/"/>
-    
-      <category term="Pytorch" scheme="https://charles-li-github.github.io/tags/Pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Neo4j安装</title>
-    <link href="https://charles-li-github.github.io/neo4j-an-zhuang.html"/>
-    <id>https://charles-li-github.github.io/neo4j-an-zhuang.html</id>
-    <published>2021-08-19T12:57:24.000Z</published>
-    <updated>2021-08-23T13:17:14.795Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;JDK安装&quot;&gt;&lt;a href=&quot;#JDK安装&quot; class=&quot;headerlink&quot; title=&quot;JDK安装&quot;&gt;&lt;/a&gt;JDK安装&lt;/h2&gt;&lt;p&gt;从官网下载jdk1.8&lt;/p&gt;
-&lt;p&gt;下载地址:&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="知识图谱" scheme="https://charles-li-github.github.io/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-    
-      <category term="Java" scheme="https://charles-li-github.github.io/tags/Java/"/>
-    
-      <category term="Neo4j" scheme="https://charles-li-github.github.io/tags/Neo4j/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>typora+picgo+gitee配置图片上传</title>
-    <link href="https://charles-li-github.github.io/typora-picgo-gitee-pei-zhi-tu-pian-shang-chuan.html"/>
-    <id>https://charles-li-github.github.io/typora-picgo-gitee-pei-zhi-tu-pian-shang-chuan.html</id>
-    <published>2021-08-18T13:37:49.000Z</published>
-    <updated>2021-08-23T13:15:05.623Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、Gitee配置&quot;&gt;&lt;a href=&quot;#一、Gitee配置&quot; class=&quot;headerlink&quot; title=&quot;一、Gitee配置&quot;&gt;&lt;/a&gt;一、Gitee配置&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;新建仓库&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="Blog" scheme="https://charles-li-github.github.io/categories/Blog/"/>
-    
-      <category term="Typora" scheme="https://charles-li-github.github.io/categories/Blog/Typora/"/>
-    
-    
-      <category term="Gitee" scheme="https://charles-li-github.github.io/tags/Gitee/"/>
-    
-      <category term="Picgo" scheme="https://charles-li-github.github.io/tags/Picgo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安装NVM管理nodejs</title>
-    <link href="https://charles-li-github.github.io/an-zhuang-nvm-guan-li-nodejs.html"/>
-    <id>https://charles-li-github.github.io/an-zhuang-nvm-guan-li-nodejs.html</id>
-    <published>2021-08-18T13:35:34.000Z</published>
-    <updated>2021-08-23T13:16:33.974Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;nvm 的全称是 Node Version Manager，Nodejs 版本管理器。nvm 可以帮助我们快速切换 Nodejs
-        
-      
-    
-    </summary>
-    
-      <category term="Blog" scheme="https://charles-li-github.github.io/categories/Blog/"/>
-    
-    
-      <category term="Hexo" scheme="https://charles-li-github.github.io/tags/Hexo/"/>
-    
-      <category term="博客搭建" scheme="https://charles-li-github.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-      <category term="Nodejs" scheme="https://charles-li-github.github.io/tags/Nodejs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Github + Hexo 搭建个人博客超详细教程</title>
-    <link href="https://charles-li-github.github.io/github-hexo-da-jian-ge-ren-bo-ke-chao-xiang-xi-jiao-cheng.html"/>
-    <id>https://charles-li-github.github.io/github-hexo-da-jian-ge-ren-bo-ke-chao-xiang-xi-jiao-cheng.html</id>
-    <published>2021-08-18T13:17:35.000Z</published>
-    <updated>2021-08-18T13:34:42.823Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本篇内容参考[枫叶](&lt;a href=&quot;https://zhuanlan.zhihu.com/p/102592286&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Blog" scheme="https://charles-li-github.github.io/categories/Blog/"/>
-    
-    
-      <category term="Github" scheme="https://charles-li-github.github.io/tags/Github/"/>
-    
-      <category term="Hexo" scheme="https://charles-li-github.github.io/tags/Hexo/"/>
-    
-      <category term="博客搭建" scheme="https://charles-li-github.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
