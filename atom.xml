@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://charles-li-github.github.io/"/>
-  <updated>2021-09-02T15:52:48.521Z</updated>
+  <updated>2021-09-06T16:23:01.118Z</updated>
   <id>https://charles-li-github.github.io/</id>
   
   <author>
@@ -15,6 +15,276 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC_用 Rand7() 实现 Rand10()</title>
+    <link href="https://charles-li-github.github.io/lc-yong-rand7-shi-xian-rand10.html"/>
+    <id>https://charles-li-github.github.io/lc-yong-rand7-shi-xian-rand10.html</id>
+    <published>2021-09-06T16:21:29.000Z</published>
+    <updated>2021-09-06T16:23:01.118Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;拒绝采样 概率与统计 随机化&lt;/p&gt;
+&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;已有方法 rand7 可生成 1 到 7 范围内的均匀随机整数，试写一个方法 rand10
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://charles-li-github.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="拒绝采样" scheme="https://charles-li-github.github.io/tags/%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B7/"/>
+    
+      <category term="概率论与数理统计" scheme="https://charles-li-github.github.io/tags/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"/>
+    
+      <category term="随机化" scheme="https://charles-li-github.github.io/tags/%E9%9A%8F%E6%9C%BA%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LC_面试题17.14_最小K个数</title>
+    <link href="https://charles-li-github.github.io/lc-mian-shi-ti-17-14-zui-xiao-k-ge-shu.html"/>
+    <id>https://charles-li-github.github.io/lc-mian-shi-ti-17-14-zui-xiao-k-ge-shu.html</id>
+    <published>2021-09-06T16:20:13.000Z</published>
+    <updated>2021-09-06T16:21:07.977Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;数组 分治 快速选择 排序 堆（优先队列）&lt;/p&gt;
+&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://charles-li-github.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="数组" scheme="https://charles-li-github.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="排序" scheme="https://charles-li-github.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="分治法" scheme="https://charles-li-github.github.io/tags/%E5%88%86%E6%B2%BB%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LC_剑指 Offer 10- I. 斐波那契数列</title>
+    <link href="https://charles-li-github.github.io/lc-jian-zhi-offer-10-i-fei-bo-na-qi-shu-lie.html"/>
+    <id>https://charles-li-github.github.io/lc-jian-zhi-offer-10-i-fei-bo-na-qi-shu-lie.html</id>
+    <published>2021-09-06T16:18:47.000Z</published>
+    <updated>2021-09-06T16:19:52.139Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;写一个函数，输入 n ，求斐波那契（Fibonacci）数列的第 n 项（即 F(N)）。斐波那契数列的定义如下：&lt;/p&gt;
+&lt;p&gt;F(0)
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://charles-li-github.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="动态规划" scheme="https://charles-li-github.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="矩阵快速幂" scheme="https://charles-li-github.github.io/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LC_二分查找</title>
+    <link href="https://charles-li-github.github.io/lc-er-fen-cha-zhao.html"/>
+    <id>https://charles-li-github.github.io/lc-er-fen-cha-zhao.html</id>
+    <published>2021-09-06T16:16:47.000Z</published>
+    <updated>2021-09-06T16:18:18.230Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://charles-li-github.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="数组" scheme="https://charles-li-github.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="二分查找" scheme="https://charles-li-github.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VGGNet</title>
+    <link href="https://charles-li-github.github.io/vggnet.html"/>
+    <id>https://charles-li-github.github.io/vggnet.html</id>
+    <published>2021-09-06T16:07:24.000Z</published>
+    <updated>2021-09-06T16:13:46.549Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;2014年，牛津大学计算机视觉组和Google
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="pytorch" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch/"/>
+    
+    
+      <category term="图像识别" scheme="https://charles-li-github.github.io/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+      <category term="VGGNet" scheme="https://charles-li-github.github.io/tags/VGGNet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ResNet</title>
+    <link href="https://charles-li-github.github.io/resnet.html"/>
+    <id>https://charles-li-github.github.io/resnet.html</id>
+    <published>2021-09-06T16:05:55.000Z</published>
+    <updated>2021-09-06T16:13:51.239Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;参考传送门：&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="pytorch" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch/"/>
+    
+    
+      <category term="图像识别" scheme="https://charles-li-github.github.io/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+      <category term="ResNet" scheme="https://charles-li-github.github.io/tags/ResNet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MobileNet</title>
+    <link href="https://charles-li-github.github.io/mobilenet.html"/>
+    <id>https://charles-li-github.github.io/mobilenet.html</id>
+    <published>2021-09-06T16:05:24.000Z</published>
+    <updated>2021-09-06T16:14:25.602Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;参考传送门：&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="pytorch" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch/"/>
+    
+    
+      <category term="图像识别" scheme="https://charles-li-github.github.io/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+      <category term="MobileNet" scheme="https://charles-li-github.github.io/tags/MobileNet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GoogleNet</title>
+    <link href="https://charles-li-github.github.io/googlenet.html"/>
+    <id>https://charles-li-github.github.io/googlenet.html</id>
+    <published>2021-09-06T16:04:45.000Z</published>
+    <updated>2021-09-06T16:14:54.780Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="pytorch" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch/"/>
+    
+    
+      <category term="图像识别" scheme="https://charles-li-github.github.io/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+      <category term="GoogleNet" scheme="https://charles-li-github.github.io/tags/GoogleNet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AlexNet</title>
+    <link href="https://charles-li-github.github.io/alexnet.html"/>
+    <id>https://charles-li-github.github.io/alexnet.html</id>
+    <published>2021-09-06T16:04:32.000Z</published>
+    <updated>2021-09-06T16:15:29.576Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;AlexNet模型来源于论文-&lt;a href=&quot;https://link.zhihu.com/?target=http%3A//www.cs.toronto.edu/~fritz/absps/imagenet.pdf&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="pytorch" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch/"/>
+    
+    
+      <category term="AlexNet" scheme="https://charles-li-github.github.io/tags/AlexNet/"/>
+    
+      <category term="图像识别" scheme="https://charles-li-github.github.io/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>卷积神经网络基础</title>
@@ -47,7 +317,7 @@
     <link href="https://charles-li-github.github.io/vision-transformer.html"/>
     <id>https://charles-li-github.github.io/vision-transformer.html</id>
     <published>2021-09-02T15:49:01.000Z</published>
-    <updated>2021-09-02T15:51:22.305Z</updated>
+    <updated>2021-09-06T16:12:16.072Z</updated>
     
     <summary type="html">
     
@@ -63,8 +333,12 @@
     
       <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
+      <category term="Pytorch" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Pytorch/"/>
+    
     
       <category term="图像识别" scheme="https://charles-li-github.github.io/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+      <category term="Vit" scheme="https://charles-li-github.github.io/tags/Vit/"/>
     
   </entry>
   
@@ -148,9 +422,9 @@
     
       <category term="数组" scheme="https://charles-li-github.github.io/tags/%E6%95%B0%E7%BB%84/"/>
     
-      <category term="贪心" scheme="https://charles-li-github.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
-    
       <category term="动态规划" scheme="https://charles-li-github.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="贪心" scheme="https://charles-li-github.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
     
   </entry>
   
@@ -322,251 +596,6 @@
     
     
       <category term="Django" scheme="https://charles-li-github.github.io/tags/Django/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>农业知识图谱实例</title>
-    <link href="https://charles-li-github.github.io/nong-ye-zhi-shi-tu-pu-shi-li.html"/>
-    <id>https://charles-li-github.github.io/nong-ye-zhi-shi-tu-pu-shi-li.html</id>
-    <published>2021-08-24T14:21:51.000Z</published>
-    <updated>2021-08-24T14:23:18.984Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Agricultural-Knowledge-Graph&quot;&gt;&lt;a href=&quot;#Agricultural-Knowledge-Graph&quot; class=&quot;headerlink&quot; title=&quot;Agricultural Knowledge
-        
-      
-    
-    </summary>
-    
-      <category term="知识图谱" scheme="https://charles-li-github.github.io/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-    
-      <category term="Github" scheme="https://charles-li-github.github.io/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>医学知识图谱实例</title>
-    <link href="https://charles-li-github.github.io/yi-xue-zhi-shi-tu-pu-shi-li.html"/>
-    <id>https://charles-li-github.github.io/yi-xue-zhi-shi-tu-pu-shi-li.html</id>
-    <published>2021-08-23T13:03:53.000Z</published>
-    <updated>2021-08-23T13:14:43.273Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;医学知识图谱案例&quot;&gt;&lt;a href=&quot;#医学知识图谱案例&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="知识图谱" scheme="https://charles-li-github.github.io/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-    
-      <category term="Github" scheme="https://charles-li-github.github.io/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu16.04搭建Radius-server</title>
-    <link href="https://charles-li-github.github.io/ubuntu16-04-da-jian-radius-server.html"/>
-    <id>https://charles-li-github.github.io/ubuntu16-04-da-jian-radius-server.html</id>
-    <published>2021-08-23T13:03:35.000Z</published>
-    <updated>2021-08-23T13:12:28.931Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;ubuntu16-04搭建Radius-Server&quot;&gt;&lt;a href=&quot;#ubuntu16-04搭建Radius-Server&quot; class=&quot;headerlink&quot; title=&quot;ubuntu16.04搭建Radius
-        
-      
-    
-    </summary>
-    
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
-    
-    
-      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu16.04搭建dns-server</title>
-    <link href="https://charles-li-github.github.io/ubuntu16-04-da-jian-dns-server.html"/>
-    <id>https://charles-li-github.github.io/ubuntu16-04-da-jian-dns-server.html</id>
-    <published>2021-08-23T13:03:12.000Z</published>
-    <updated>2021-08-23T13:13:19.165Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;ubuntu16-04搭建DNS-Server&quot;&gt;&lt;a href=&quot;#ubuntu16-04搭建DNS-Server&quot; class=&quot;headerlink&quot; title=&quot;ubuntu16.04搭建DNS Server&quot;&gt;&lt;/a&gt;ubuntu16.04搭建DNS
-        
-      
-    
-    </summary>
-    
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
-    
-    
-      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
-    
-      <category term="dns" scheme="https://charles-li-github.github.io/tags/dns/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python基础语法整理</title>
-    <link href="https://charles-li-github.github.io/python-ji-chu-yu-fa-zheng-li.html"/>
-    <id>https://charles-li-github.github.io/python-ji-chu-yu-fa-zheng-li.html</id>
-    <published>2021-08-23T13:02:45.000Z</published>
-    <updated>2021-08-23T13:10:59.185Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;注：该笔记基于&lt;a href=&quot;https://www.liaoxuefeng.com/wiki/1016959663602400&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;廖雪峰python学习教程&lt;/a&gt;和&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Computer Language" scheme="https://charles-li-github.github.io/categories/Computer-Language/"/>
-    
-    
-      <category term="Python" scheme="https://charles-li-github.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网络协议介绍</title>
-    <link href="https://charles-li-github.github.io/wang-luo-xie-yi-jie-shao.html"/>
-    <id>https://charles-li-github.github.io/wang-luo-xie-yi-jie-shao.html</id>
-    <published>2021-08-23T13:02:18.000Z</published>
-    <updated>2021-08-23T13:09:32.455Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;计算机网络体系结构&quot;&gt;&lt;a href=&quot;#计算机网络体系结构&quot; class=&quot;headerlink&quot; title=&quot;计算机网络体系结构&quot;&gt;&lt;/a&gt;计算机网络体系结构&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;注：本文参考链接：&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Computer Network" scheme="https://charles-li-github.github.io/categories/Computer-Network/"/>
-    
-    
-      <category term="TCP/IP" scheme="https://charles-li-github.github.io/tags/TCP-IP/"/>
-    
-      <category term="TCP&amp;UDP" scheme="https://charles-li-github.github.io/tags/TCP-UDP/"/>
-    
-      <category term="HTTP&amp;HTTPS" scheme="https://charles-li-github.github.io/tags/HTTP-HTTPS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Typora美化及配置</title>
-    <link href="https://charles-li-github.github.io/typora-mei-hua-ji-pei-zhi.html"/>
-    <id>https://charles-li-github.github.io/typora-mei-hua-ji-pei-zhi.html</id>
-    <published>2021-08-19T13:08:52.000Z</published>
-    <updated>2021-08-19T13:27:08.224Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、Typora更换主题&quot;&gt;&lt;a href=&quot;#一、Typora更换主题&quot; class=&quot;headerlink&quot; title=&quot;一、Typora更换主题&quot;&gt;&lt;/a&gt;一、Typora更换主题&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Typora" scheme="https://charles-li-github.github.io/categories/Typora/"/>
-    
-    
-      <category term="Typora" scheme="https://charles-li-github.github.io/tags/Typora/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu16.04安装openLDAP</title>
-    <link href="https://charles-li-github.github.io/ubuntu16-04-an-zhuang-openldap.html"/>
-    <id>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-openldap.html</id>
-    <published>2021-08-19T13:07:30.000Z</published>
-    <updated>2021-08-23T13:18:24.055Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、OpenLDAP-Server安装步骤&quot;&gt;&lt;a href=&quot;#一、OpenLDAP-Server安装步骤&quot; class=&quot;headerlink&quot; title=&quot;一、OpenLDAP Server安装步骤&quot;&gt;&lt;/a&gt;一、OpenLDAP
-        
-      
-    
-    </summary>
-    
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
-    
-    
-      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu16.04安装dhcpv6</title>
-    <link href="https://charles-li-github.github.io/ubuntu16-04-an-zhuang-dhcpv6.html"/>
-    <id>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-dhcpv6.html</id>
-    <published>2021-08-19T13:06:10.000Z</published>
-    <updated>2021-08-23T13:18:00.296Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;ISC-dhcp-server安装&quot;&gt;&lt;a href=&quot;#ISC-dhcp-server安装&quot; class=&quot;headerlink&quot; title=&quot;ISC dhcp server安装&quot;&gt;&lt;/a&gt;ISC dhcp
-        
-      
-    
-    </summary>
-    
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
-    
-    
-      <category term="ipv6" scheme="https://charles-li-github.github.io/tags/ipv6/"/>
-    
-      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
     
   </entry>
   

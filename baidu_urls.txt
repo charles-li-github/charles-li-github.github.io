@@ -1,3 +1,12 @@
+https://charles-li-github.github.io/lc-yong-rand7-shi-xian-rand10.html
+https://charles-li-github.github.io/lc-mian-shi-ti-17-14-zui-xiao-k-ge-shu.html
+https://charles-li-github.github.io/lc-jian-zhi-offer-10-i-fei-bo-na-qi-shu-lie.html
+https://charles-li-github.github.io/lc-er-fen-cha-zhao.html
+https://charles-li-github.github.io/vggnet.html
+https://charles-li-github.github.io/resnet.html
+https://charles-li-github.github.io/mobilenet.html
+https://charles-li-github.github.io/googlenet.html
+https://charles-li-github.github.io/alexnet.html
 https://charles-li-github.github.io/juan-ji-shen-jing-wang-luo-ji-chu.html
 https://charles-li-github.github.io/vision-transformer.html
 https://charles-li-github.github.io/lc-xuan-zhuan-shu-zu.html
