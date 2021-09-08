@@ -1,7 +1,3 @@
-https://charles-li-github.github.io/lc-yong-rand7-shi-xian-rand10.html
-https://charles-li-github.github.io/lc-mian-shi-ti-17-14-zui-xiao-k-ge-shu.html
-https://charles-li-github.github.io/lc-jian-zhi-offer-10-i-fei-bo-na-qi-shu-lie.html
-https://charles-li-github.github.io/lc-er-fen-cha-zhao.html
 https://charles-li-github.github.io/vggnet.html
 https://charles-li-github.github.io/resnet.html
 https://charles-li-github.github.io/mobilenet.html
@@ -9,13 +5,6 @@ https://charles-li-github.github.io/googlenet.html
 https://charles-li-github.github.io/alexnet.html
 https://charles-li-github.github.io/juan-ji-shen-jing-wang-luo-ji-chu.html
 https://charles-li-github.github.io/vision-transformer.html
-https://charles-li-github.github.io/lc-xuan-zhuan-shu-zu.html
-https://charles-li-github.github.io/lc-shan-chu-pai-xu-shu-zu-zhong-de-chong-fu-xiang.html
-https://charles-li-github.github.io/lc-mai-mai-gu-piao-de-zui-jia-shi-ji-ii.html
-https://charles-li-github.github.io/lc-liang-shu-zhi-he.html
-https://charles-li-github.github.io/lc-jian-zhi-offer-22-lian-biao-zhong-dao-shu-di-k-ge-jie-dian.html
-https://charles-li-github.github.io/lc-he-bing-liang-ge-you-xu-shu-zu.html
-https://charles-li-github.github.io/lc-cun-zai-chong-fu-yuan-su.html
 https://charles-li-github.github.io/windows-an-zhuang-mysql5-7.html
 https://charles-li-github.github.io/django-hou-duan-da-jian.html
 https://charles-li-github.github.io/nong-ye-zhi-shi-tu-pu-shi-li.html
