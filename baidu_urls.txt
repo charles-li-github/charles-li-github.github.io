@@ -1,3 +1,5 @@
+https://charles-li-github.github.io/efficientnetv2.html
+https://charles-li-github.github.io/efficientnet.html
 https://charles-li-github.github.io/vggnet.html
 https://charles-li-github.github.io/resnet.html
 https://charles-li-github.github.io/mobilenet.html

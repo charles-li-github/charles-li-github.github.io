@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://charles-li-github.github.io/"/>
-  <updated>2021-09-06T16:13:46.549Z</updated>
+  <updated>2021-09-08T13:27:52.704Z</updated>
   <id>https://charles-li-github.github.io/</id>
   
   <author>
@@ -15,6 +15,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>EfficientNetV2</title>
+    <link href="https://charles-li-github.github.io/efficientnetv2.html"/>
+    <id>https://charles-li-github.github.io/efficientnetv2.html</id>
+    <published>2021-09-08T13:25:25.000Z</published>
+    <updated>2021-09-08T13:27:52.704Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;参考传送门：&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Pytorch" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Pytorch/"/>
+    
+    
+      <category term="图像识别" scheme="https://charles-li-github.github.io/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+      <category term="EfficientNetV2" scheme="https://charles-li-github.github.io/tags/EfficientNetV2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>EfficientNet</title>
+    <link href="https://charles-li-github.github.io/efficientnet.html"/>
+    <id>https://charles-li-github.github.io/efficientnet.html</id>
+    <published>2021-09-08T13:25:14.000Z</published>
+    <updated>2021-09-08T13:26:50.322Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;参考传送门：&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Pytorch" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Pytorch/"/>
+    
+    
+      <category term="图像识别" scheme="https://charles-li-github.github.io/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+      <category term="EfficientNet" scheme="https://charles-li-github.github.io/tags/EfficientNet/"/>
+    
+  </entry>
   
   <entry>
     <title>VGGNet</title>
@@ -161,9 +221,9 @@
       <category term="pytorch" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch/"/>
     
     
-      <category term="AlexNet" scheme="https://charles-li-github.github.io/tags/AlexNet/"/>
-    
       <category term="图像识别" scheme="https://charles-li-github.github.io/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+      <category term="AlexNet" scheme="https://charles-li-github.github.io/tags/AlexNet/"/>
     
   </entry>
   
@@ -517,67 +577,6 @@
       <category term="ipv6" scheme="https://charles-li-github.github.io/tags/ipv6/"/>
     
       <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu16.04安装radvd</title>
-    <link href="https://charles-li-github.github.io/ubuntu16-04-an-zhuang-radvd.html"/>
-    <id>https://charles-li-github.github.io/ubuntu16-04-an-zhuang-radvd.html</id>
-    <published>2021-08-19T13:03:41.000Z</published>
-    <updated>2021-08-23T13:17:37.386Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;安装radvd&quot;&gt;&lt;a href=&quot;#安装radvd&quot; class=&quot;headerlink&quot; title=&quot;安装radvd&quot;&gt;&lt;/a&gt;安装radvd&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;执行下述命令进行安装&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;sudo
-        
-      
-    
-    </summary>
-    
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
-    
-    
-      <category term="ipv6" scheme="https://charles-li-github.github.io/tags/ipv6/"/>
-    
-      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习环境配置</title>
-    <link href="https://charles-li-github.github.io/shen-du-xue-xi-huan-jing-pei-zhi-cuda-tensorflow-pytorch.html"/>
-    <id>https://charles-li-github.github.io/shen-du-xue-xi-huan-jing-pei-zhi-cuda-tensorflow-pytorch.html</id>
-    <published>2021-08-19T13:00:55.000Z</published>
-    <updated>2021-08-19T13:02:50.091Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、安装Anaconda&quot;&gt;&lt;a href=&quot;#一、安装Anaconda&quot; class=&quot;headerlink&quot; title=&quot;一、安装Anaconda&quot;&gt;&lt;/a&gt;一、安装Anaconda&lt;/h2&gt;&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://charles-li-github.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="CUDA" scheme="https://charles-li-github.github.io/tags/CUDA/"/>
-    
-      <category term="Tensorflow" scheme="https://charles-li-github.github.io/tags/Tensorflow/"/>
-    
-      <category term="Pytorch" scheme="https://charles-li-github.github.io/tags/Pytorch/"/>
     
   </entry>
   

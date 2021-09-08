@@ -1,0 +1,2096 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="EfficientNet, Charles Blog">
+    <meta name="baidu-site-verification" content="fmlEuI34ir">
+    <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
+    <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
+    <meta name="description" content="前言参考传送门：https://blog.csdn.net/qq_37541097/article/details/114434046
+原论文名称：EfficientNet: Rethinking Model Scaling for Con">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>EfficientNet | Charles Blog</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?4d1d73af45a62734730491a6b6c41da4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+   </script>
+
+
+    <script>(function (i, s, o, g, r, a, m) {
+        i['DaoVoiceObject'] = r;
+        i[r] = i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          };
+        i[r].l = 1 * new Date();
+        a = s.createElement(o);
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        a.charset = 'utf-8';
+        m.parentNode.insertBefore(a, m);
+      })(window, document, 'script', ('https:' === document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/xxx.js", 'daovoice');
+      daovoice('init', {
+        app_id: "xxx",
+      });
+      daovoice('update');
+    </script>
+  
+  
+
+
+    
+        <script>
+            (function(){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+    
+
+    <script>
+        (function(){
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+    </script>
+
+    <meta name="baidu-site-verification" content>
+
+
+
+
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loaderҳ����ʧ���ý����ķ�ʽ*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo���ֶ��� */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//ʹ�ý����ķ�������loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//ǿ����ʾloading page 1s  
+    };
+    loaded();
+})()
+ </script><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loaderҳ����ʧ���ý����ķ�ʽ*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo���ֶ��� */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//ʹ�ý����ķ�������loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//ǿ����ʾloading page 1s  
+    };
+    loaded();
+})()
+ </script></head>
+
+
+ <div id="loading-container">
+     <p class="loading-text"></p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Charles Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Charles Blog</div>
+        <div class="logo-desc">
+            
+            C
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/charles-li-github" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/charles-li-github" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        EfficientNet
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/图像识别/" target="_blank">
+                            <span class="chip bg-color">图像识别</span>
+                        </a>
+                        
+                        <a href="/tags/EfficientNet/" target="_blank">
+                            <span class="chip bg-color">EfficientNet</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/深度学习/" class="post-category" target="_blank">
+                            深度学习
+                        </a>
+                        
+                        <a href="/categories/深度学习/Pytorch/" class="post-category" target="_blank">
+                            Pytorch
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-09-08
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                    CharlesLi
+                    
+                </div>
+
+                
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    18 分
+                </div>
+                
+                
+
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>参考传送门：<a href="https://blog.csdn.net/qq_37541097/article/details/114434046" target="_blank" rel="noopener">https://blog.csdn.net/qq_37541097/article/details/114434046</a></p>
+<p>原论文名称：EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks<br>论文下载地址：<a href="https://arxiv.org/abs/1905.11946" target="_blank" rel="noopener">https://arxiv.org/abs/1905.11946</a><br>原论文提供代码：<a href="https://github.com/tensorflow/tpu/tree/master/models/official/efficientnet" target="_blank" rel="noopener">https://github.com/tensorflow/tpu/tree/master/models/official/efficientnet</a></p>
+<p>在之前的一些手工设计网络中(AlexNet，VGG，ResNet等等)经常有人问，为什么输入图像分辨率要固定为224，为什么卷积的个数要设置为这个值，为什么网络的深度设为这么深？这些问题你要问设计作者的话，估计回复就四个字——工程经验。而这篇论文主要是用NAS（Neural Architecture Search）技术来搜索网络的图像输入分辨率 r ，网络的深度depth以及channel的宽度width三个参数的合理化配置。在之前的一些论文中，基本都是通过改变上述3个参数中的一个来提升网络的性能，而这篇论文就是同时来探索这三个参数的影响。在论文中提到，本文提出的<code>EfficientNet-B7</code>在<code>Imagenet top-1</code>上达到了当年最高准确率<code>84.3%</code>，与之前准确率最高的<code>GPipe</code>相比，参数数量（Params）仅为其<code>1/8.4</code>，推理速度提升了<code>6.1</code>倍（看上去又快又轻量，但个人实际使用起来发现很吃显存）。下图是EfficientNet与其他网络的对比（<code>注意，参数数量少并不意味推理速度就快</code>）。</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20210306112722568.png" alt="acc"></p>
+<h2 id="论文思想"><a href="#论文思想" class="headerlink" title="论文思想"></a>论文思想</h2><p>在之前的一些论文中，有的会通过增加网络的<code>width</code>即增加卷积核的个数（增加特征矩阵的<code>channels</code>）来提升网络的性能如图(b)所示，有的会通过增加网络的深度即使用更多的层结构来提升网络的性能如图(c)所示，有的会通过增加输入网络的分辨率来提升网络的性能如图(d)所示。而在本篇论文中会同时增加网络的<code>width</code>、网络的深度以及输入网络的分辨率来提升网络的性能如图(e)所示：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20210306162502756.png" alt="modelscaling"></p>
+<ul>
+<li>根据以往的经验，增加网络的深度<code>depth</code>能够得到更加丰富、复杂的特征并且能够很好的应用到其它任务中。但网络的深度过深会面临梯度消失，训练困难的问题。<br><code>The intuition is that deeper ConvNet can capture richer and more complex features, and generalize well on new tasks. However, deeper networks are also more difficult to train due to the vanishing gradient problem</code></li>
+<li>增加网络的<code>width</code>能够获得更高细粒度的特征并且也更容易训练，但对于<code>width</code>很大而深度较浅的网络往往很难学习到更深层次的特征。<br><code>wider networks tend to be able to capture more fine-grained features and are easier to train. However, extremely wide but shallow networks tend to have difficulties in capturing higher level features.</code></li>
+<li>增加输入网络的图像分辨率能够潜在得获得更高细粒度的特征模板，但对于非常高的输入分辨率，准确率的增益也会减小。并且大分辨率图像会增加计算量。<br><code>With higher resolution input images, ConvNets can potentially capture more fine-grained patterns. but the accuracy gain diminishes for very high resolutions.</code></li>
+</ul>
+<p>下图展示了在基准<code>EfficientNetB-0</code>上分别增加<code>width</code>、<code>depth</code>以及<code>esolution</code>后得到的统计结果。通过下图可以看出大概在Accuracy达到80%时就趋于饱和了。</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20210306172202609.png" alt="scalingup"></p>
+<p>接着作者又做了一个实验，采用不同的d , r 组合，然后不断改变网络的<code>width</code>就得到了如下图所示的4条曲线，通过分析可以发现在相同的FLOPs下，同时增加 d 和 r 的效果最好。</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20210306173102929.png" alt="figure4"></p>
+<p>为了方便后续理解，我们先看下论文中通过 <code>NAS（Neural Architecture Search）</code> 技术搜索得到的EfficientNetB0的结构，如下图所示，整个网络框架由一系列<code>Stage</code>组成，$ \hat{F_i} $表示对应Stage的运算操作，$ \hat{L_i} $ 表示在该<code>Stage</code>中$ \hat{F_i} $重复的次数：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20210306135337653.png" alt="EfficientNetb0"></p>
+<p>作者在论文中对整个网络的运算进行抽象：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210907103255588.png" alt="image-20210907103255588"></p>
+<p>其中：</p>
+<ul>
+<li>$\bigodot{i=1…8} $​​表示连乘运算</li>
+<li>$ \hat{F_i}$​​表示一个运算操作（如上图中的<code>Operator</code>），那么$F_i^{L_i}$​表示在Stagei中$F_i$运算被重复执行$L_i$次</li>
+<li>X​表示输入Stagei的特殊矩阵（input tensor）</li>
+<li>$\langle H_i,W_i,C_i \rangle$表示X的高度，宽度以及Channels（<code>shape</code>）​</li>
+</ul>
+<p>为了探究d , r , w 这三个因子对最终准确率的影响，则将d , r , w 加入到公式中，我们可以得到抽象化后的优化问题（在指定资源限制下），其中s.t.代表限制条件：<br><code>Our target is to maximize the model accuracy for any given resource constraints, which can be formulated as an optimization problem:</code></p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210907104338005.png" alt="image-20210907104338005"></p>
+<p>其中：</p>
+<ul>
+<li>d用来缩放深度$\widehat{L}_i $​</li>
+<li>r用来缩放分辨率即影响$\widehat{H}_i $​ 和$ \widehat{W}_i $​</li>
+<li>w就是用来缩放特征矩阵的channel即$\widehat{C}_i $​</li>
+<li><code>target_memory</code>为<code>memory</code>限制</li>
+<li><code>target_flops</code>为FLOPs限制</li>
+</ul>
+<p>接着作者又提出了一个混合缩放方法 (<code>compound scaling method</code>) 在这个方法中使用了一个混合因子$ \phi$​​去统一的缩放<code>width，depth，resolution</code>参数，具体的计算公式如下，其中s.t.代表限制条件：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210907104708786.png" alt="image-20210907104708786"></p>
+<p>注意：</p>
+<ul>
+<li>FLOPs（理论计算量）与<code>depth</code>的关系是：当<code>depth</code>翻倍，FLOPs也翻倍</li>
+<li>FLOPs与width的关系是：当width翻倍（即channal翻倍），FLOPs会翻4倍，因为卷积层的FLOPs约等于$ feature_w \times feature_h \times feature_c \times kernel_w \times kernel_h \times kernel_{number}$​​（假设输入输出特征矩阵的高宽不变），当<code>width</code>翻倍，输入特征矩阵的channels（$feature_c$​​）和输出特征矩阵的channels或卷积核的个数（$kernel_{number}$​​​）都会翻倍，所以FLOPs会翻4倍</li>
+<li>FLOPs与resolution的关系是：当resolution翻倍，FLOPs也会翻4倍，和上面类似因为特征矩阵的宽度$feature_w$和特征矩阵的高度$feature_h$ 都会翻倍。</li>
+</ul>
+<p>所以总的FLOPs倍率可以用近似用$ (\alpha \cdot \beta^{2} \cdot \gamma^{2})^{\phi}$​来表示，当限制$ \alpha \cdot \beta^{2} \cdot \gamma^{2} \approx 2$​​时，对于任意一个$\phi$​​而言FLOPs相当增加了$2^{\phi}$​ 倍。接下来作者在基准网络EfficientNetB-0（在后面的<code>网络详细结构</code>章节会详细讲）上使用<code>NAS</code>来搜索$\alpha, \beta, \gamma$这三个参数。</p>
+<ul>
+<li>（step1）首先固定$\phi=1$​，并基于上面给出的公式(2)和(3)进行搜索，作者发现对于EfficientNetB-0最佳参数为$ \alpha=1.2, \beta=1.1, \gamma=1.15$</li>
+<li>（step2）接着固定$ \alpha=1.2, \beta=1.1, \gamma=1.15$，在EfficientNetB-0的基础上使用不同的$\phi$分别得到EfficientNetB-1至EfficientNetB-7（在后面的<code>EfficientNet(B0-B7)参数</code>章节有给出详细参数）</li>
+</ul>
+<p>需要注意的是，对于不同的基准网络搜索出的$\alpha, \beta, \gamma$也不定相同。还需要注意的是，在原论文中，作者也说了，如果直接在大模型上去搜索$\alpha, \beta, \gamma$​​可能获得更好的结果，但是在较大的模型中搜索成本太大，所以这篇文章就在比较小的EfficientNetB-0模型上进行搜索的。<br><code>Notably, it is possible to achieve even better performance by searching for α, β, γ directly around a large model, but the search cost becomes prohibitively more expensive on larger models. Our method solves this issue by only doing search once on the small baseline network (step 1), and then use the same scaling coefficients for all other models (step 2).</code></p>
+<h2 id="网络详细结构"><a href="#网络详细结构" class="headerlink" title="网络详细结构"></a>网络详细结构</h2><p>下表为EfficientNet-B0的网络框架（B1-B7就是在B0的基础上修改<code>Resolution</code>，<code>Channels</code>以及<code>Layers</code>），可以看出网络总共分成了9个<code>Stage</code>，第一个<code>Stage</code>就是一个卷积核大小为<code>3x3</code>步距为2的普通卷积层（包含BN和激活函数Swish），<code>Stage2～Stage8</code>都是在重复堆叠<code>MBConv</code>结构（最后一列的<code>Layers</code>表示该<code>Stage</code>重复<code>MBConv</code>结构多少次），而<code>Stage9</code>由一个普通的<code>1x1</code>的卷积层（包含BN和激活函数Swish）一个平均池化层和一个全连接层组成。表格中每个<code>MBConv</code>后会跟一个数字1或6，这里的1或6就是倍率因子<code>n</code>即<code>MBConv</code>中第一个<code>1x1</code>的卷积层会将输入特征矩阵的<code>channels</code>扩充为<code>n</code>倍，其中<code>k3x3</code>或<code>k5x5</code>表示<code>MBConv</code>中<code>Depthwise Conv</code>所采用的卷积核大小。<code>Channels</code>表示通过该<code>Stage</code>后输出特征矩阵的<code>Channels</code>。</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210907105819323.png" alt="image-20210907105819323"></p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210907113547952.png" alt="image-20210907113547952"></p>
+<blockquote>
+<p>注： 上图中的stride参数的值对应的是Stage中多Layers的MBConv层的第一个MBConv层的步距，而其他的MBConv层的步距默认为1</p>
+</blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 定义MBConv结构配置</span>
+<span class="token keyword">class</span> <span class="token class-name">InvertedResidualConfig</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># kernel_size, in_channel, out_channel, exp_ratio, strides, use_SE, drop_connect_rate</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>
+                 kernel<span class="token punctuation">:</span> int<span class="token punctuation">,</span>          <span class="token comment" spellcheck="true"># 3 or 5</span>
+                 input_c<span class="token punctuation">:</span> int<span class="token punctuation">,</span>
+                 out_c<span class="token punctuation">:</span> int<span class="token punctuation">,</span>
+                 expanded_ratio<span class="token punctuation">:</span> int<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 1 or 6</span>
+                 stride<span class="token punctuation">:</span> int<span class="token punctuation">,</span>          <span class="token comment" spellcheck="true"># 1 or 2</span>
+                 use_se<span class="token punctuation">:</span> bool<span class="token punctuation">,</span>         <span class="token comment" spellcheck="true"># True</span>
+                 drop_rate<span class="token punctuation">:</span> float<span class="token punctuation">,</span>
+                 index<span class="token punctuation">:</span> str<span class="token punctuation">,</span>           <span class="token comment" spellcheck="true"># 1a, 2a, 2b, ...</span>
+                 <span class="token comment" spellcheck="true"># width_coefficient channel维度上的倍率因子</span>
+                 width_coefficient<span class="token punctuation">:</span> float<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>input_c <span class="token operator">=</span> self<span class="token punctuation">.</span>adjust_channels<span class="token punctuation">(</span>input_c<span class="token punctuation">,</span> width_coefficient<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>kernel <span class="token operator">=</span> kernel
+        self<span class="token punctuation">.</span>expanded_c <span class="token operator">=</span> self<span class="token punctuation">.</span>input_c <span class="token operator">*</span> expanded_ratio
+        self<span class="token punctuation">.</span>out_c <span class="token operator">=</span> self<span class="token punctuation">.</span>adjust_channels<span class="token punctuation">(</span>out_c<span class="token punctuation">,</span> width_coefficient<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>use_se <span class="token operator">=</span> use_se
+        self<span class="token punctuation">.</span>stride <span class="token operator">=</span> stride
+        self<span class="token punctuation">.</span>drop_rate <span class="token operator">=</span> drop_rate
+        self<span class="token punctuation">.</span>index <span class="token operator">=</span> index
+
+    @staticmethod
+    <span class="token keyword">def</span> <span class="token function">adjust_channels</span><span class="token punctuation">(</span>channels<span class="token punctuation">:</span> int<span class="token punctuation">,</span> width_coefficient<span class="token punctuation">:</span> float<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> _make_divisible<span class="token punctuation">(</span>channels <span class="token operator">*</span> width_coefficient<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="MBConv结构"><a href="#MBConv结构" class="headerlink" title="MBConv结构"></a>MBConv结构</h2><p><code>MBConv</code>其实就是MobileNetV3网络中的<code>InvertedResidualBlock</code>，但也有些许区别。一个是采用的激活函数不一样（EfficientNet的MBConv中使用的都是<code>Swish激活函数</code>），另一个是在每个<code>MBConv</code>中都加入了SE（<code>Squeeze-and-Excitation</code>）模块。下图是我自己绘制的<code>MBConv结构</code>。</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20210419135003777.png" alt="mbblock"></p>
+<p>如图所示，<code>MBConv</code>结构主要由一个<code>1x1</code>的普通卷积（升维作用，包含BN和Swish），一个<code>kxk</code>的<code>Depthwise Conv</code>卷积（包含BN和Swish）<code>k</code>的具体值可看EfficientNet-B0的网络框架主要有<code>3x3</code>和<code>5x5</code>两种情况，一个<code>SE</code>模块，一个<code>1x1</code>的普通卷积（降维作用，包含BN），一个<code>Droupout</code>层构成。搭建过程中还需要注意几点：</p>
+<ul>
+<li>第一个升维的<code>1x1</code>卷积层，它的卷积核个数是输入特征矩阵<code>channel</code>的n倍，n ∈ { 1 , 6 }，其中1对应MBConv1，6对应MBConv6</li>
+<li>当n = 1时，不要第一个升维的<code>1x1</code>卷积层，即<code>Stage2</code>中的<code>MBConv</code>结构都没有第一个升维的<code>1x1</code>卷积层（这和MobileNetV3网络类似）</li>
+<li>关于<code>shortcut</code>连接，仅当输入<code>MBConv</code>结构的特征矩阵与输出的特征矩阵<code>shape</code>相同时才存在（代码中可通过<code>stride == 1 and inputc_channels == output_channels</code>条件来判断）</li>
+<li>SE模块如下所示，由一个全局平均池化，两个全连接层组成。第一个全连接层的节点个数是输入该<code>MBConv</code>特征矩阵<code>channels</code>的$\frac{1}{4} $​，且使用Swish激活函数。第二个全连接层的节点个数等于<code>Depthwise Conv</code>层输出的特征矩阵<code>channels</code>，且使用Sigmoid激活函数</li>
+<li>Dropout层的<code>dropout_rate</code>在tensorflow的keras源码中对应的是drop_connect_rate后面会细讲（<code>注意，在源码实现中只有使用shortcut的时候才有Dropout层</code>）</li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 定义卷积、BN以及激活函数模块</span>
+<span class="token keyword">class</span> <span class="token class-name">ConvBNActivation</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Sequential<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># groups参数用来控制是使用普通卷积还是使用dw卷积</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>
+                 in_planes<span class="token punctuation">:</span> int<span class="token punctuation">,</span>
+                 out_planes<span class="token punctuation">:</span> int<span class="token punctuation">,</span>
+                 kernel_size<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span>
+                 stride<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                 groups<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                 norm_layer<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Callable<span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> nn<span class="token punctuation">.</span>Module<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># BN</span>
+                 activation_layer<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Callable<span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> nn<span class="token punctuation">.</span>Module<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true">#激活函数</span>
+        padding <span class="token operator">=</span> <span class="token punctuation">(</span>kernel_size <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
+        <span class="token keyword">if</span> norm_layer <span class="token keyword">is</span> None<span class="token punctuation">:</span>
+            norm_layer <span class="token operator">=</span> nn<span class="token punctuation">.</span>BatchNorm2d
+        <span class="token keyword">if</span> activation_layer <span class="token keyword">is</span> None<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># nn.SiLU其实就是Swish激活函数，只是名字不同罢了</span>
+            activation_layer <span class="token operator">=</span> nn<span class="token punctuation">.</span>SiLU  <span class="token comment" spellcheck="true"># alias Swish  (torch>=1.7)</span>
+
+        super<span class="token punctuation">(</span>ConvBNActivation<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Conv2d<span class="token punctuation">(</span>in_channels<span class="token operator">=</span>in_planes<span class="token punctuation">,</span>
+                                                         out_channels<span class="token operator">=</span>out_planes<span class="token punctuation">,</span>
+                                                         kernel_size<span class="token operator">=</span>kernel_size<span class="token punctuation">,</span>
+                                                         stride<span class="token operator">=</span>stride<span class="token punctuation">,</span>
+                                                         padding<span class="token operator">=</span>padding<span class="token punctuation">,</span>
+                                                         groups<span class="token operator">=</span>groups<span class="token punctuation">,</span>
+                                                         bias<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                               norm_layer<span class="token punctuation">(</span>out_planes<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                               activation_layer<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true"># 定义MBConv结构</span>
+<span class="token keyword">class</span> <span class="token class-name">InvertedResidual</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>
+                 cnf<span class="token punctuation">:</span> InvertedResidualConfig<span class="token punctuation">,</span>
+                 norm_layer<span class="token punctuation">:</span> Callable<span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> nn<span class="token punctuation">.</span>Module<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        super<span class="token punctuation">(</span>InvertedResidual<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> cnf<span class="token punctuation">.</span>stride <span class="token operator">not</span> <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"illegal stride value."</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 判断是否满足使用捷径分支的条件</span>
+        self<span class="token punctuation">.</span>use_res_connect <span class="token operator">=</span> <span class="token punctuation">(</span>cnf<span class="token punctuation">.</span>stride <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">and</span> cnf<span class="token punctuation">.</span>input_c <span class="token operator">==</span> cnf<span class="token punctuation">.</span>out_c<span class="token punctuation">)</span>
+
+        layers <span class="token operator">=</span> OrderedDict<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        activation_layer <span class="token operator">=</span> nn<span class="token punctuation">.</span>SiLU  <span class="token comment" spellcheck="true"># alias Swish</span>
+
+        <span class="token comment" spellcheck="true"># expand</span>
+        <span class="token comment" spellcheck="true"># 1x1卷积的升维模块</span>
+        <span class="token comment" spellcheck="true"># 当expanded_ratio = 1时，不要第一个升维的`1x1`卷积层，即`Stage2`中的`MBConv`结构都没有第一个升维的`1x1`卷积层（这和MobileNetV3网络类似）</span>
+        <span class="token comment" spellcheck="true"># expanded_ratio = 1 意味着expanded_channel与input_channel是相等的</span>
+        <span class="token keyword">if</span> cnf<span class="token punctuation">.</span>expanded_c <span class="token operator">!=</span> cnf<span class="token punctuation">.</span>input_c<span class="token punctuation">:</span>
+            layers<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"expand_conv"</span><span class="token punctuation">:</span> ConvBNActivation<span class="token punctuation">(</span>cnf<span class="token punctuation">.</span>input_c<span class="token punctuation">,</span>
+                                                           cnf<span class="token punctuation">.</span>expanded_c<span class="token punctuation">,</span>
+                                                           kernel_size<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                                           norm_layer<span class="token operator">=</span>norm_layer<span class="token punctuation">,</span>
+                                                           activation_layer<span class="token operator">=</span>activation_layer<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># depthwise</span>
+        <span class="token comment" spellcheck="true"># dw卷积模块</span>
+        layers<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"dwconv"</span><span class="token punctuation">:</span> ConvBNActivation<span class="token punctuation">(</span>cnf<span class="token punctuation">.</span>expanded_c<span class="token punctuation">,</span>
+                                                  cnf<span class="token punctuation">.</span>expanded_c<span class="token punctuation">,</span>
+                                                  kernel_size<span class="token operator">=</span>cnf<span class="token punctuation">.</span>kernel<span class="token punctuation">,</span>
+                                                  stride<span class="token operator">=</span>cnf<span class="token punctuation">.</span>stride<span class="token punctuation">,</span>
+                                                  groups<span class="token operator">=</span>cnf<span class="token punctuation">.</span>expanded_c<span class="token punctuation">,</span>
+                                                  norm_layer<span class="token operator">=</span>norm_layer<span class="token punctuation">,</span>
+                                                  activation_layer<span class="token operator">=</span>activation_layer<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># EfficientNet中均使用SE模块，因此cnf.use_se参数恒为True</span>
+        <span class="token keyword">if</span> cnf<span class="token punctuation">.</span>use_se<span class="token punctuation">:</span>
+            layers<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"se"</span><span class="token punctuation">:</span> SqueezeExcitation<span class="token punctuation">(</span>cnf<span class="token punctuation">.</span>input_c<span class="token punctuation">,</span>
+                                                   cnf<span class="token punctuation">.</span>expanded_c<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># project</span>
+        <span class="token comment" spellcheck="true"># activation_layer=nn.Identity 激活函数传入nn.Identity 表示不做激活函数处理</span>
+        layers<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"project_conv"</span><span class="token punctuation">:</span> ConvBNActivation<span class="token punctuation">(</span>cnf<span class="token punctuation">.</span>expanded_c<span class="token punctuation">,</span>
+                                                        cnf<span class="token punctuation">.</span>out_c<span class="token punctuation">,</span>
+                                                        kernel_size<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                                        norm_layer<span class="token operator">=</span>norm_layer<span class="token punctuation">,</span>
+                                                        activation_layer<span class="token operator">=</span>nn<span class="token punctuation">.</span>Identity<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>block <span class="token operator">=</span> nn<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span>layers<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>out_channels <span class="token operator">=</span> cnf<span class="token punctuation">.</span>out_c
+        self<span class="token punctuation">.</span>is_strided <span class="token operator">=</span> cnf<span class="token punctuation">.</span>stride <span class="token operator">></span> <span class="token number">1</span>
+
+        <span class="token comment" spellcheck="true"># 只有在使用shortcut连接时才使用dropout层</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>use_res_connect <span class="token operator">and</span> cnf<span class="token punctuation">.</span>drop_rate <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>dropout <span class="token operator">=</span> DropPath<span class="token punctuation">(</span>cnf<span class="token punctuation">.</span>drop_rate<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>dropout <span class="token operator">=</span> nn<span class="token punctuation">.</span>Identity<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">:</span> Tensor<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Tensor<span class="token punctuation">:</span>
+        result <span class="token operator">=</span> self<span class="token punctuation">.</span>block<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        result <span class="token operator">=</span> self<span class="token punctuation">.</span>dropout<span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>use_res_connect<span class="token punctuation">:</span>
+            result <span class="token operator">+=</span> x
+
+        <span class="token keyword">return</span> result
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20210306151615976.png" alt="semodule"></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 定义SE模块</span>
+<span class="token keyword">class</span> <span class="token class-name">SqueezeExcitation</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>
+                 input_c<span class="token punctuation">:</span> int<span class="token punctuation">,</span>   <span class="token comment" spellcheck="true"># block input channel</span>
+                 expand_c<span class="token punctuation">:</span> int<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># block expand channel</span>
+                 squeeze_factor<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        super<span class="token punctuation">(</span>SqueezeExcitation<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># squeeze_c为第一个全连接层的channel数</span>
+        squeeze_c <span class="token operator">=</span> input_c <span class="token operator">//</span> squeeze_factor
+        self<span class="token punctuation">.</span>fc1 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Conv2d<span class="token punctuation">(</span>expand_c<span class="token punctuation">,</span> squeeze_c<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>ac1 <span class="token operator">=</span> nn<span class="token punctuation">.</span>SiLU<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># alias Swish</span>
+        self<span class="token punctuation">.</span>fc2 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Conv2d<span class="token punctuation">(</span>squeeze_c<span class="token punctuation">,</span> expand_c<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>ac2 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Sigmoid<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">:</span> Tensor<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Tensor<span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 平均池化下采样层</span>
+        scale <span class="token operator">=</span> F<span class="token punctuation">.</span>adaptive_avg_pool2d<span class="token punctuation">(</span>x<span class="token punctuation">,</span> output_size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        scale <span class="token operator">=</span> self<span class="token punctuation">.</span>fc1<span class="token punctuation">(</span>scale<span class="token punctuation">)</span>
+        scale <span class="token operator">=</span> self<span class="token punctuation">.</span>ac1<span class="token punctuation">(</span>scale<span class="token punctuation">)</span>
+        scale <span class="token operator">=</span> self<span class="token punctuation">.</span>fc2<span class="token punctuation">(</span>scale<span class="token punctuation">)</span>
+        scale <span class="token operator">=</span> self<span class="token punctuation">.</span>ac2<span class="token punctuation">(</span>scale<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> scale <span class="token operator">*</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="EfficientNet-B0-B7-参数"><a href="#EfficientNet-B0-B7-参数" class="headerlink" title="EfficientNet(B0-B7)参数"></a>EfficientNet(B0-B7)参数</h2><p>还是先给出EfficientNetB0的网络结构，方便后面理解。</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210907110352865.png" alt="EfficientNetB0"></p>
+<p>通过上面的内容，我们是可以搭建出EfficientNetB0网络的，其他版本的详细参数可见下表：</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>input_size</th>
+<th>width_coefficient</th>
+<th>depth_coefficient</th>
+<th>drop_connect_rate</th>
+<th>dropout_rate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EfficientNetB0</td>
+<td>224x224</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.2</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>EfficientNetB1</td>
+<td>240x240</td>
+<td>1.0</td>
+<td>1.1</td>
+<td>0.2</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>EfficientNetB2</td>
+<td>260x260</td>
+<td>1.1</td>
+<td>1.2</td>
+<td>0.2</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>EfficientNetB3</td>
+<td>300x300</td>
+<td>1.2</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>EfficientNetB4</td>
+<td>380x380</td>
+<td>1.4</td>
+<td>1.8</td>
+<td>0.2</td>
+<td>0.4</td>
+</tr>
+<tr>
+<td>EfficientNetB5</td>
+<td>456x456</td>
+<td>1.6</td>
+<td>2.2</td>
+<td>0.2</td>
+<td>0.4</td>
+</tr>
+<tr>
+<td>EfficientNetB6</td>
+<td>528x528</td>
+<td>1.8</td>
+<td>2.6</td>
+<td>0.2</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>EfficientNetB7</td>
+<td>600x600</td>
+<td>2.0</td>
+<td>3.1</td>
+<td>0.2</td>
+<td>0.5</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>input_size</code>代表训练网络时输入网络的图像大小</li>
+<li><code>width_coefficient</code>代表<code>channel</code>维度上的倍率因子，比如在 EfficientNetB0中<code>Stage1</code>的<code>3x3</code>卷积层所使用的卷积核个数是32，那么在B6中就是$32\times 1.8=57.6$​接着取整到离它最近的8的整数倍即56，其它<code>Stage</code>同理</li>
+<li><code>depth_coefficient</code>代表<code>depth</code>维度上的倍率因子（仅针对<code>Stage2</code>到<code>Stage8</code>），比如在EfficientNetB0中<code>Stage7</code>的${\widehat L}_i=4 $，那么在B6中就是$ 4 \times 2.6=10.4$​接着向上取整即11</li>
+<li><code>drop_connect_rate</code>是在<code>MBConv</code>结构中dropout层使用的<code>drop_rate</code>，在官方keras模块的实现中<code>MBConv</code>结构的<code>drop_rate</code>是从0递增到<code>drop_connect_rate</code>的（具体实现可以看下官方源码，<strong>注意，在源码实现中只有使用shortcut的时候才有Dropout层</strong>）。还需要注意的是，这里的Dropout层是<code>Stochastic Depth</code>，即会随机丢掉整个block的主分支（只剩捷径分支，相当于直接跳过了这个block）也可以理解为减少了网络的深度。具体可参考<code>Deep Networks with Stochastic Depth</code>这篇文章</li>
+<li><code>dropout_rate</code>是最后一个全连接层前的<code>dropout</code>层（在<code>stage9</code>的Pooling与FC之间）的<code>dropout_rate</code></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 定义EfficientNet模块</span>
+<span class="token keyword">class</span> <span class="token class-name">EfficientNet</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>
+                 width_coefficient<span class="token punctuation">:</span> float<span class="token punctuation">,</span>
+                 depth_coefficient<span class="token punctuation">:</span> float<span class="token punctuation">,</span>
+                 num_classes<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">,</span>
+                 dropout_rate<span class="token punctuation">:</span> float <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 最后用于特征分类的全连接层之前的Dropout参数</span>
+                 drop_connect_rate<span class="token punctuation">:</span> float <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">,</span>
+                 block<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Callable<span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> nn<span class="token punctuation">.</span>Module<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">,</span>
+                 norm_layer<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Callable<span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> nn<span class="token punctuation">.</span>Module<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> None
+                 <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        super<span class="token punctuation">(</span>EfficientNet<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># kernel_size, in_channel, out_channel, exp_ratio, strides, use_SE, drop_connect_rate, repeats</span>
+        default_cnf <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> drop_connect_rate<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> drop_connect_rate<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> drop_connect_rate<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> drop_connect_rate<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">112</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> drop_connect_rate<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">112</span><span class="token punctuation">,</span> <span class="token number">192</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> drop_connect_rate<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                       <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">192</span><span class="token punctuation">,</span> <span class="token number">320</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> drop_connect_rate<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">def</span> <span class="token function">round_repeats</span><span class="token punctuation">(</span>repeats<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token triple-quoted-string string">"""Round number of repeats based on depth multiplier."""</span>
+            <span class="token keyword">return</span> int<span class="token punctuation">(</span>math<span class="token punctuation">.</span>ceil<span class="token punctuation">(</span>depth_coefficient <span class="token operator">*</span> repeats<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 乘上深度倍率因子并向上取整</span>
+
+        <span class="token keyword">if</span> block <span class="token keyword">is</span> None<span class="token punctuation">:</span>
+            block <span class="token operator">=</span> InvertedResidual  <span class="token comment" spellcheck="true"># 默认传入MBconv模块</span>
+
+        <span class="token keyword">if</span> norm_layer <span class="token keyword">is</span> None<span class="token punctuation">:</span>
+            norm_layer <span class="token operator">=</span> partial<span class="token punctuation">(</span>nn<span class="token punctuation">.</span>BatchNorm2d<span class="token punctuation">,</span> eps<span class="token operator">=</span><span class="token number">1e</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span> momentum<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+
+        adjust_channels <span class="token operator">=</span> partial<span class="token punctuation">(</span>InvertedResidualConfig<span class="token punctuation">.</span>adjust_channels<span class="token punctuation">,</span>
+                                  width_coefficient<span class="token operator">=</span>width_coefficient<span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># build inverted_residual_setting</span>
+        bneck_conf <span class="token operator">=</span> partial<span class="token punctuation">(</span>InvertedResidualConfig<span class="token punctuation">,</span>
+                             width_coefficient<span class="token operator">=</span>width_coefficient<span class="token punctuation">)</span>
+
+        b <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token comment" spellcheck="true"># 根据深度倍率因子，重新计算Stage2-8即MBConv模块的堆叠深度</span>
+        num_blocks <span class="token operator">=</span> float<span class="token punctuation">(</span>sum<span class="token punctuation">(</span>round_repeats<span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> default_cnf<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        inverted_residual_setting <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 定义列表用于保存修改后的MBConv模块参数</span>
+        <span class="token keyword">for</span> stage<span class="token punctuation">,</span> args <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>default_cnf<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            cnf <span class="token operator">=</span> copy<span class="token punctuation">.</span>copy<span class="token punctuation">(</span>args<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>round_repeats<span class="token punctuation">(</span>cnf<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> i <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+                    <span class="token comment" spellcheck="true"># strides equal 1 except first cnf</span>
+                    cnf<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>  <span class="token comment" spellcheck="true"># strides</span>
+                    cnf<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> cnf<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># input_channel equal output_channel</span>
+
+                <span class="token comment" spellcheck="true"># 重新计算MBConv模块中的dropout参数，此参数随模型深度增长，增长上限为drop_connect_rate</span>
+                cnf<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> args<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">*</span> b <span class="token operator">/</span> num_blocks  <span class="token comment" spellcheck="true"># update dropout ratio</span>
+                index <span class="token operator">=</span> str<span class="token punctuation">(</span>stage <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> chr<span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">97</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 1a, 2a, 2b, ...</span>
+                <span class="token comment" spellcheck="true"># 重新组合所有MBConv模块的参数配置信息</span>
+                inverted_residual_setting<span class="token punctuation">.</span>append<span class="token punctuation">(</span>bneck_conf<span class="token punctuation">(</span><span class="token operator">*</span>cnf<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                b <span class="token operator">+=</span> <span class="token number">1</span>
+
+        <span class="token comment" spellcheck="true"># create layers</span>
+        layers <span class="token operator">=</span> OrderedDict<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 有序字典</span>
+
+        <span class="token comment" spellcheck="true"># first conv</span>
+        layers<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"stem_conv"</span><span class="token punctuation">:</span> ConvBNActivation<span class="token punctuation">(</span>in_planes<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
+                                                     out_planes<span class="token operator">=</span>adjust_channels<span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                                     kernel_size<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
+                                                     stride<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
+                                                     norm_layer<span class="token operator">=</span>norm_layer<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># building inverted residual blocks</span>
+        <span class="token keyword">for</span> cnf <span class="token keyword">in</span> inverted_residual_setting<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># cnf.index是该层的名称</span>
+            layers<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span>cnf<span class="token punctuation">.</span>index<span class="token punctuation">:</span> block<span class="token punctuation">(</span>cnf<span class="token punctuation">,</span> norm_layer<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># build top</span>
+        last_conv_input_c <span class="token operator">=</span> inverted_residual_setting<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>out_c
+        last_conv_output_c <span class="token operator">=</span> adjust_channels<span class="token punctuation">(</span><span class="token number">1280</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 进行channel上的调整，即乘上宽度倍率因子width_coefficient</span>
+        layers<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"top"</span><span class="token punctuation">:</span> ConvBNActivation<span class="token punctuation">(</span>in_planes<span class="token operator">=</span>last_conv_input_c<span class="token punctuation">,</span>
+                                               out_planes<span class="token operator">=</span>last_conv_output_c<span class="token punctuation">,</span>
+                                               kernel_size<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                               norm_layer<span class="token operator">=</span>norm_layer<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>features <span class="token operator">=</span> nn<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span>layers<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 传入定义好的特征提取层</span>
+        self<span class="token punctuation">.</span>avgpool <span class="token operator">=</span> nn<span class="token punctuation">.</span>AdaptiveAvgPool2d<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 平均池化下采样层</span>
+
+        <span class="token comment" spellcheck="true"># 定义特征分类层</span>
+        classifier <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> dropout_rate <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># Dropout</span>
+            classifier<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Dropout<span class="token punctuation">(</span>p<span class="token operator">=</span>dropout_rate<span class="token punctuation">,</span> inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        classifier<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>last_conv_output_c<span class="token punctuation">,</span> num_classes<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 全连接层</span>
+        self<span class="token punctuation">.</span>classifier <span class="token operator">=</span> nn<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span><span class="token operator">*</span>classifier<span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># initial weights</span>
+        <span class="token keyword">for</span> m <span class="token keyword">in</span> self<span class="token punctuation">.</span>modules<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>m<span class="token punctuation">,</span> nn<span class="token punctuation">.</span>Conv2d<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                nn<span class="token punctuation">.</span>init<span class="token punctuation">.</span>kaiming_normal_<span class="token punctuation">(</span>m<span class="token punctuation">.</span>weight<span class="token punctuation">,</span> mode<span class="token operator">=</span><span class="token string">"fan_out"</span><span class="token punctuation">)</span>
+                <span class="token keyword">if</span> m<span class="token punctuation">.</span>bias <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">:</span>
+                    nn<span class="token punctuation">.</span>init<span class="token punctuation">.</span>zeros_<span class="token punctuation">(</span>m<span class="token punctuation">.</span>bias<span class="token punctuation">)</span>
+            <span class="token keyword">elif</span> isinstance<span class="token punctuation">(</span>m<span class="token punctuation">,</span> nn<span class="token punctuation">.</span>BatchNorm2d<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                nn<span class="token punctuation">.</span>init<span class="token punctuation">.</span>ones_<span class="token punctuation">(</span>m<span class="token punctuation">.</span>weight<span class="token punctuation">)</span>
+                nn<span class="token punctuation">.</span>init<span class="token punctuation">.</span>zeros_<span class="token punctuation">(</span>m<span class="token punctuation">.</span>bias<span class="token punctuation">)</span>
+            <span class="token keyword">elif</span> isinstance<span class="token punctuation">(</span>m<span class="token punctuation">,</span> nn<span class="token punctuation">.</span>Linear<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                nn<span class="token punctuation">.</span>init<span class="token punctuation">.</span>normal_<span class="token punctuation">(</span>m<span class="token punctuation">.</span>weight<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.01</span><span class="token punctuation">)</span>
+                nn<span class="token punctuation">.</span>init<span class="token punctuation">.</span>zeros_<span class="token punctuation">(</span>m<span class="token punctuation">.</span>bias<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">_forward_impl</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">:</span> Tensor<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Tensor<span class="token punctuation">:</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>features<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>avgpool<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        x <span class="token operator">=</span> torch<span class="token punctuation">.</span>flatten<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>classifier<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> x
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">:</span> Tensor<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Tensor<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_forward_impl<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>最后给出原论文中关于EfficientNet与当时主流网络的性能参数对比：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/20210306162051639.png" alt="EfficientNetvsothers"></p>
+
+            </div>
+            <hr />
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《EfficientNet》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/efficientnet.html" property="cc:attributionName"
+               rel="cc:attributionURL">
+                CharlesLi
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: 'charles-li-github.github.io',
+        owner: 'charles-li-github',
+        admin: "charles-li-github",
+        id: 'efficientnet.html',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+    <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<!-- <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script> -->
+
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '',
+        appKey: '',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'false' === 'true',
+        avatar: 'wavatar',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '如果你没有GitHub账号，还可以在这里评论啦！'
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/efficientnetv2.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="EfficientNetV2">
+                        
+                        <span class="card-title">EfficientNetV2</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            EfficientNetV2详解及pytorch实现
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/深度学习/" class="post-category" target="_blank">
+                                    深度学习
+                                </a>
+                            
+                            <a href="/categories/深度学习/Pytorch/" class="post-category" target="_blank">
+                                    Pytorch
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/图像识别/" target="_blank">
+                        <span class="chip bg-color">图像识别</span>
+                    </a>
+                    
+                    <a href="/tags/EfficientNetV2/" target="_blank">
+                        <span class="chip bg-color">EfficientNetV2</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/vggnet.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="VGGNet">
+                        
+                        <span class="card-title">VGGNet</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            VGGNet神经网络介绍及Pytorch实现
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/深度学习/" class="post-category" target="_blank">
+                                    深度学习
+                                </a>
+                            
+                            <a href="/categories/深度学习/pytorch/" class="post-category" target="_blank">
+                                    pytorch
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/图像识别/" target="_blank">
+                        <span class="chip bg-color">图像识别</span>
+                    </a>
+                    
+                    <a href="/tags/VGGNet/" target="_blank">
+                        <span class="chip bg-color">VGGNet</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Charles Blog<br />'
+            + '作者: CharlesLi<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+    });
+</script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+       <div class="Copy-right">
+            &copy; 202i Charles. All Rights Reserved.
+
+                    
+           <!--<a href="/sitemap.xml" target="_blank">站点地图</a>丨-->
+           
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">105k
+             丨            
+          
+
+            <span id="sitetime"></span>
+
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-users"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="red-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+               人次,&nbsp;<i class="fa fa-user"></i>访客数 <span id="busuanzi_value_site_uv" class="blue-color"></span> 人.
+            </span>
+            
+            
+        </div>        
+        <div class="social-link social-statis">
+    <a href="https://github.com//" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="https://www.csdn.net//" class="tooltipped" target="_blank" data-tooltip="访问我的CSDN主页" data-position="top" data-delay="50">
+        <i class="fa fa-codiepie"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com//" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
+        <i class="fa fa-inverse">知</i>
+    </a>
+
+
+
+    <a href="https://user.qzone.qq.com//" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="mailto:hangliccclh@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+    <div class="container row center-align">
+    <div class="github-badge">
+      <a style="color: #fff" rel="license" href="https://hexo.io/" target="_blank" title="由 Hexo 强力驱动">
+      <span class="badge-subject">Powered</span><span class="badge-value bg-blue">Hexo</span></a>
+    </div>
+    <div class="github-badge">
+      <a style="color: #fff" rel="license" href="https://github.com/" target="_blank" title="静态网页托管于 GitHub Pages 和 Coding Pages">
+      <span class="badge-subject">Hosted</span><span class="badge-value bg-brightgreen">GitHub & Coding</span></a>
+    </div>
+    <div class="github-badge">
+      <a style="color: #fff" rel="license" href="https://www.cloud.tencent.com/" target="_blank" title="腾讯云提供域名相关服务">
+      <span class="badge-subject">DNS</span><span class="badge-value bg-blueviolet">Tencent cloud</span></a>
+    </div>
+    <div class="github-badge">
+      <a style="color: #fff" rel="license" href="https://www.jsdelivr.com/" target="_blank" title="jsDelivr 提供 CDN 加速服务">
+      <span class="badge-subject">CDN</span><span class="badge-value bg-orange">jsDelivr</span></a>
+    </div>
+    <div class="github-badge">
+        <a style="color: #fff" rel="license" href="https://github.com/blinkfox/hexo-theme-matery/" target="_blank" title="站点使用 Matery 主题">
+      <span class="badge-subject">Theme</span><span class="badge-value bg-blue">Matery</span></a>
+    </div>
+    <div class="github-badge">
+      <a style="color: #fff" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="本站点采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可">
+      <span class="badge-subject"><i class="fa fa-copyright"></i></span><span class="badge-value bg-lightgrey">BY-NC-SA 4.0</span></a>
+    </div>
+    <div class="github-badge">
+      <a style="color: #fff" rel="license" href="https://996.icu/" target="_blank" title="支持 996.ICU">
+      <span class="badge-subject">Link</span><span class="badge-value bg-red">996.ICU</span></a>
+    </div>
+    <div class="github-badge">
+      <span class="badge-subject">UV</span><span class="badge-value bg-orange" id="busuanzi_value_site_uv"></span>
+    </div>
+    <div class="github-badge">
+      <span class="badge-subject">PV</span><span class="badge-value bg-brightgreen" id="busuanzi_value_site_pv"></span>
+    </div>
+    <div class="github-badge">
+      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">105k</span>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 0;
+        var uvcountOffset = 0;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2021, 08, 18, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+
+    
+    <script src="/libs/others/clicklove.js"></script>
+    
+
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    <!-- 雪花特效 -->
+    
+    <script type="text/javascript" src="/libs/others/snow.js"></script>
+    
+
+   <!-- 单击显示文字 -->
+   <!-- <script type="text/javascript" src="/js/click_show_text.js"></script>  -->
+
+   <!--动态线条背景-->
+   <script type="text/javascript"
+   color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+   </script>
+
+   <script async src =“ https://cdn.jsdelivr.net/npm/perfops-rom”> </script>
+   <!--自定义看板娘-->
+   <!-- <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+   <script src="/live2d-widget/autoload.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/> -->
+
+</body>
+
+</html>
