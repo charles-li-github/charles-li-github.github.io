@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://charles-li-github.github.io/"/>
-  <updated>2021-09-15T08:48:37.752Z</updated>
+  <updated>2021-09-15T14:17:59.105Z</updated>
   <id>https://charles-li-github.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>请求模块requests</title>
+    <link href="https://charles-li-github.github.io/qing-qiu-mo-kuai-requests.html"/>
+    <id>https://charles-li-github.github.io/qing-qiu-mo-kuai-requests.html</id>
+    <published>2021-09-15T09:21:18.000Z</published>
+    <updated>2021-09-15T14:17:59.105Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;requests模块为第三方模块，需要通过下述命令安装&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install
+        
+      
+    
+    </summary>
+    
+      <category term="网络爬虫" scheme="https://charles-li-github.github.io/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="python" scheme="https://charles-li-github.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>请求模块Urllib3</title>
@@ -544,37 +571,6 @@
     
     
       <category term="Python" scheme="https://charles-li-github.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网络协议介绍</title>
-    <link href="https://charles-li-github.github.io/wang-luo-xie-yi-jie-shao.html"/>
-    <id>https://charles-li-github.github.io/wang-luo-xie-yi-jie-shao.html</id>
-    <published>2021-08-23T13:02:18.000Z</published>
-    <updated>2021-08-23T13:09:32.455Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;计算机网络体系结构&quot;&gt;&lt;a href=&quot;#计算机网络体系结构&quot; class=&quot;headerlink&quot; title=&quot;计算机网络体系结构&quot;&gt;&lt;/a&gt;计算机网络体系结构&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;注：本文参考链接：&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Computer Network" scheme="https://charles-li-github.github.io/categories/Computer-Network/"/>
-    
-    
-      <category term="TCP/IP" scheme="https://charles-li-github.github.io/tags/TCP-IP/"/>
-    
-      <category term="TCP&amp;UDP" scheme="https://charles-li-github.github.io/tags/TCP-UDP/"/>
-    
-      <category term="HTTP&amp;HTTPS" scheme="https://charles-li-github.github.io/tags/HTTP-HTTPS/"/>
     
   </entry>
   
