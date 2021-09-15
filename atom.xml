@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://charles-li-github.github.io/"/>
-  <updated>2021-09-14T08:51:08.345Z</updated>
+  <updated>2021-09-15T08:48:37.752Z</updated>
   <id>https://charles-li-github.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>请求模块Urllib3</title>
+    <link href="https://charles-li-github.github.io/qing-qiu-mo-kuai-urllib3.html"/>
+    <id>https://charles-li-github.github.io/qing-qiu-mo-kuai-urllib3.html</id>
+    <published>2021-09-15T03:22:36.000Z</published>
+    <updated>2021-09-15T08:48:37.752Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="网络爬虫" scheme="https://charles-li-github.github.io/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="python" scheme="https://charles-li-github.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>请求模块Urllib</title>
@@ -549,33 +575,6 @@
       <category term="TCP&amp;UDP" scheme="https://charles-li-github.github.io/tags/TCP-UDP/"/>
     
       <category term="HTTP&amp;HTTPS" scheme="https://charles-li-github.github.io/tags/HTTP-HTTPS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Typora美化及配置</title>
-    <link href="https://charles-li-github.github.io/typora-mei-hua-ji-pei-zhi.html"/>
-    <id>https://charles-li-github.github.io/typora-mei-hua-ji-pei-zhi.html</id>
-    <published>2021-08-19T13:08:52.000Z</published>
-    <updated>2021-08-19T13:27:08.224Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、Typora更换主题&quot;&gt;&lt;a href=&quot;#一、Typora更换主题&quot; class=&quot;headerlink&quot; title=&quot;一、Typora更换主题&quot;&gt;&lt;/a&gt;一、Typora更换主题&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Typora" scheme="https://charles-li-github.github.io/categories/Typora/"/>
-    
-    
-      <category term="Typora" scheme="https://charles-li-github.github.io/tags/Typora/"/>
     
   </entry>
   
