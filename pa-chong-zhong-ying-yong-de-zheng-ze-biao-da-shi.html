@@ -4,18 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="请求模块Urllib3, Charles Blog">
+    <meta name="keywords" content="爬虫中应用的正则表达式, Charles Blog">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="简介urllib3是一个第三方模块，提供了很多python标准库里没有的特性：
-
-线性安全
-连接池
-客户端SSL/TLS验证
-使用multipart编码上传文件
-Helpers用于重拾请求并处理HTTP重定向
-支持gzip和deflate编">
+    <meta name="description" content="简介在不借助第三方模块的前提下，正则表达式是一个非常强大的工具
+使用search()方法匹配字符串re模块中的search()方法用于在整个字符串中搜索第一个匹配的值，如果在第一个匹配位置匹配成功，则返回Match对象，否则返回None，其">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +17,7 @@ Helpers用于重拾请求并处理HTTP重定向
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>请求模块Urllib3 | Charles Blog</title>
+    <title>爬虫中应用的正则表达式 | Charles Blog</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -622,13 +616,13 @@ Helpers用于重拾请求并处理HTTP重定向
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        请求模块Urllib3
+                        爬虫中应用的正则表达式
                     </div>
                 </div>
             </div>
@@ -763,7 +757,7 @@ Helpers用于重拾请求并处理HTTP重定向
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-15
+                    2021-09-17
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -777,14 +771,14 @@ Helpers用于重拾请求并处理HTTP重定向
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    12 分
                 </div>
                 
                 
@@ -800,197 +794,240 @@ Helpers用于重拾请求并处理HTTP重定向
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>urllib3是一个第三方模块，提供了很多python标准库里没有的特性：</p>
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在不借助第三方模块的前提下，正则表达式是一个非常强大的工具</p>
+<h2 id="使用search-方法匹配字符串"><a href="#使用search-方法匹配字符串" class="headerlink" title="使用search()方法匹配字符串"></a>使用search()方法匹配字符串</h2><p>re模块中的search()方法用于在整个字符串中搜索第一个匹配的值，如果在第一个匹配位置匹配成功，则返回Match对象，否则返回None，其语法格式如下：</p>
+<pre><code>re.search(pattern,string,[flags])</code></pre><p><strong>参数说明：</strong></p>
 <ul>
-<li>线性安全</li>
-<li>连接池</li>
-<li>客户端SSL/TLS验证</li>
-<li>使用multipart编码上传文件</li>
-<li>Helpers用于重拾请求并处理HTTP重定向</li>
-<li>支持gzip和deflate编码</li>
-<li>支持HTTP和SOCKS代理</li>
-<li>100%的测试覆盖率</li>
+<li>pattern：表示模式字符串，由要匹配的正则表达式转换而来</li>
+<li>string：表示要匹配的字符串</li>
+<li>flags：可选参数，表示修饰符，用于控制匹配方式，如是否区分大小写等</li>
 </ul>
-<p>安装命令：</p>
-<pre><code>pip install urllib3</code></pre><h2 id="发送网络请求"><a href="#发送网络请求" class="headerlink" title="发送网络请求"></a>发送网络请求</h2><h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><p>使用urllib3模块发送网络请求时，首先需要创建PoolManager对象，通过该对象调用request()方法来实现网络请求的发送。request()方法的语法格式如下：</p>
-<pre class="line-numbers language-python"><code class="language-python">request<span class="token punctuation">(</span>method<span class="token punctuation">,</span>url<span class="token punctuation">,</span>fields<span class="token operator">=</span>None<span class="token punctuation">,</span>headers<span class="token operator">=</span>None<span class="token punctuation">,</span><span class="token operator">**</span> urlopen_kw<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="获取第一个指定字符开头的字符串"><a href="#获取第一个指定字符开头的字符串" class="headerlink" title="获取第一个指定字符开头的字符串"></a>获取第一个指定字符开头的字符串</h3><p>以搜索第一个“mr_”开头的字符串为例，不区分字母大小写。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re
+pattern <span class="token operator">=</span> <span class="token string">'mr_\w+'</span>                       <span class="token comment" spellcheck="true"># 模式字符串</span>
+string <span class="token operator">=</span> <span class="token string">'MR_SHOP mr_shop'</span>              <span class="token comment" spellcheck="true"># 要匹配的字符串</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span>string<span class="token punctuation">,</span>re<span class="token punctuation">.</span>I<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 搜索字符串，不区分大小写</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                              <span class="token comment" spellcheck="true"># 输出匹配结果</span>
+string <span class="token operator">=</span> <span class="token string">'项目名称MR_SHOP mr_shop'</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span>string<span class="token punctuation">,</span>re<span class="token punctuation">.</span>I<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 搜索字符串，不区分大小写</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                              <span class="token comment" spellcheck="true"># 输出匹配结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>程序执行结果：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917144143783.png" alt="image-20210917144143783"></p>
+<blockquote>
+<p>从上图可以看出，search()方法不仅仅可以在字符串的起始位置搜索，其他位置存在符合的匹配时也可以</p>
+</blockquote>
+<h3 id="可选匹配"><a href="#可选匹配" class="headerlink" title="可选匹配"></a>可选匹配</h3><p>在匹配字符串时，有时会遇到部分内容可有可无的情况，对于这样的情况可以使用“？”来解决，“？”可以理解为可选符号，通过该符号即可实现可选匹配字符串中的内容</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re                        <span class="token comment" spellcheck="true"># 导入re模块</span>
+<span class="token comment" spellcheck="true"># 表达式，(\d?)+表示多个数字可有可无，\s空格可有可无，([\u4e00-\u9fa5]?)+多个汉字可有可无</span>
+pattern <span class="token operator">=</span> <span class="token string">'(\d?)+mrsoft\s?([\u4e00-\u9fa5]?)+'</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'01mrsoft'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串,mrsoft前有01数字，匹配成功</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'mrsoft'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串，mrsoft匹配成功</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'mrsoft '</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串，mrsoft后面有一个空格，匹配成功</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'mrsoft 第一'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串，mrsoft后面有空格和汉字，匹配成功</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'rsoft 第一'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串，rsoft后面有空格和汉字，但不满足完整的mrsoft，匹配失败</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>程序执行结果：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917144632597.png" alt="image-20210917144632597"></p>
+<h3 id="匹配字符串边界"><a href="#匹配字符串边界" class="headerlink" title="匹配字符串边界"></a>匹配字符串边界</h3><p>如果字符串在开始处、结尾处，或者是字符串的分界符为空格、标点符号以及换行，可以使用“\b”匹配字符串的边界</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re                        <span class="token comment" spellcheck="true"># 导入re模块</span>
+pattern <span class="token operator">=</span> r<span class="token string">'\bmr\b'</span>               <span class="token comment" spellcheck="true"># 表达式，mr两侧均有边界</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'mrsoft'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串,mr右侧不是边界是soft，匹配失败</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'mr soft'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串，mr左侧为边界右侧为空格，匹配成功</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">' mrsoft '</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串，mr左侧为空格右侧为soft空格，匹配失败</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'mr.soft'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串，mr左侧为边界右侧为“.”，匹配成功</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>程序执行结果：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917144952383.png" alt="image-20210917144952383"></p>
+<blockquote>
+<p><code>表达式中的r表示“\b”不进行转义，如果将表达式中的r去掉将无法进行字符串边界匹配</code></p>
+</blockquote>
+<h2 id="使用findall-方法匹配字符串"><a href="#使用findall-方法匹配字符串" class="headerlink" title="使用findall()方法匹配字符串"></a>使用findall()方法匹配字符串</h2><p>re模块的findall()方法用于在整个字符串中搜索<code>所有</code>符合正则表达式的字符串，并以<code>列表</code>的形式返回。如果匹配成功，则返回包含匹配结构的列表，否则返回空列表，其语法格式如下：</p>
+<pre><code>re.findall(pattern,string,[flags])</code></pre><p><strong>参数说明：</strong></p>
+<ul>
+<li>pattern：表示模式字符串，由要匹配的正则表达式转换而来</li>
+<li>string：表示要匹配的字符串</li>
+<li>flags：可选参数，表示修饰符，用于控制匹配方式，如是否区分大小写等</li>
+</ul>
+<h3 id="匹配所有指定字符开头的字符串"><a href="#匹配所有指定字符开头的字符串" class="headerlink" title="匹配所有指定字符开头的字符串"></a>匹配所有指定字符开头的字符串</h3><p>以搜索所有以“mr_”开头的字符串为例</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re
+pattern <span class="token operator">=</span> <span class="token string">'mr_\w+'</span>                        <span class="token comment" spellcheck="true"># 模式字符串</span>
+string <span class="token operator">=</span> <span class="token string">'MR_SHOP mr_shop'</span>                <span class="token comment" spellcheck="true"># 要匹配的字符串</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span>string<span class="token punctuation">,</span>re<span class="token punctuation">.</span>I<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 搜索字符串，不区分大小写</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                                <span class="token comment" spellcheck="true"># 输出匹配结果</span>
+string <span class="token operator">=</span> <span class="token string">'项目名称MR_SHOP mr_shop'</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span>string<span class="token punctuation">)</span>        <span class="token comment" spellcheck="true"># 搜索字符串，区分大小写</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                                <span class="token comment" spellcheck="true"># 输出匹配结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>程序执行结果：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917145744566.png" alt="image-20210917145744566"></p>
+<h3 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h3><p>如果需要匹配一段包含不同类型数据的字符串，需要挨个字符进行匹配，如果使用这种传统的匹配方式那将非常复杂。<code>“·*”</code>则是一种万能匹配的方式，其中<code>&quot;.&quot;</code>可以匹配除换行符以外的任意字符，而<code>&quot;*&quot;</code>表示匹配前面字符0次或者无限次，当他们组合在一起的时候就变成了万能的匹配方式。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re                        <span class="token comment" spellcheck="true"># 导入re模块</span>
+pattern <span class="token operator">=</span> <span class="token string">'https://.*/'</span>               <span class="token comment" spellcheck="true"># 表达式，“.*”获取www.hao123.com</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'https://www.hao123.com/'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>程序执行结果：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917164021828.png" alt="image-20210917164021828"></p>
+<p>匹配成功后将打印字符串的所有内容，如果只需要单独获取<code>&quot;.*&quot;</code>所匹配的中间内容时，可以使用<code>&quot;(.*)&quot;</code>的方式匹配</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re                        <span class="token comment" spellcheck="true"># 导入re模块</span>
+pattern <span class="token operator">=</span> <span class="token string">'https://(.*)/'</span>               <span class="token comment" spellcheck="true"># 表达式，“.*”获取www.hao123.com</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'https://www.hao123.com/'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>程序执行结果：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917164222630.png" alt="image-20210917164222630"></p>
+<h3 id="非贪婪匹配"><a href="#非贪婪匹配" class="headerlink" title="非贪婪匹配"></a>非贪婪匹配</h3><p>在某些情况下，贪婪匹配并不会匹配我们所需要的结果。以获取网络地址（<a href="https://www.hao123.com/）中的“123”数字为例" target="_blank" rel="noopener">https://www.hao123.com/）中的“123”数字为例</a></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re                        <span class="token comment" spellcheck="true"># 导入re模块</span>
+pattern <span class="token operator">=</span> <span class="token string">'https://.*(\d+).com/'</span>               <span class="token comment" spellcheck="true"># 表达式，“.*”获取www.hao123.com</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'https://www.hao123.com/'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>程序执行结果：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917165038760.png" alt="image-20210917165038760"></p>
+<p>从以上的运行结果可以看出，<code>&quot;(\d+)&quot;</code>并没有匹配我们所需要的结果123，而是匹配了一个数字3而已。这是因为在贪婪匹配下，<code>&quot;.*&quot;</code>会尽量匹配更多的字符，而<code>&quot;\d+&quot;</code>表示至少匹配一个数字并没有指定数字的多少，所以<code>&quot;.*&quot;</code>将”<a href="http://www.hao12“全部匹配了，只把数字3留给了`&quot;\d+&quot;`进行匹配，因此也就有了数字3的结果。" target="_blank" rel="noopener">www.hao12“全部匹配了，只把数字3留给了`&quot;\d+&quot;`进行匹配，因此也就有了数字3的结果。</a></p>
+<p>如果需要解决上述问题，其实可以使用非贪婪匹配<code>&quot;.*?&quot;</code>，这样的匹配方式可以尽量匹配更少的字符，但不会影响我们需要匹配的数据</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re                        <span class="token comment" spellcheck="true"># 导入re模块</span>
+pattern <span class="token operator">=</span> <span class="token string">'https://.*?(\d+).com/'</span>               <span class="token comment" spellcheck="true"># 表达式，“.*”获取www.hao123.com</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'https://www.hao123.com/'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>程序执行结果：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917174820400.png" alt="image-20210917174820400"></p>
+<p>非贪婪匹配虽然有一定的优势，但是如果需要匹配的结果在字符串的尾部时，<code>&quot;.*?&quot;</code>就很可能匹配不到任何内容，因为他会尽量匹配更少的字符。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re                        <span class="token comment" spellcheck="true"># 导入re模块</span>
+pattern <span class="token operator">=</span> <span class="token string">'https://(.*?)'</span>               <span class="token comment" spellcheck="true"># 表达式，“.*?”获取www.hao123.com/</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'https://www.hao123.com/'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span>
+pattern <span class="token operator">=</span> <span class="token string">'https://(.*)'</span>               <span class="token comment" spellcheck="true"># 表达式，“.*”获取www.hao123.com/</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'https://www.hao123.com/'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印匹配结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>程序执行结果：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917175002334.png" alt="image-20210917175002334"></p>
+<h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h3 id="替换字符串"><a href="#替换字符串" class="headerlink" title="替换字符串"></a>替换字符串</h3><p>sub()方法用于实现将某个字符串中所有匹配正则表达式的部分替换成其他字符串，其语法格式如下：</p>
+<pre class="line-numbers language-python"><code class="language-python">re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> repl<span class="token punctuation">,</span> string<span class="token punctuation">,</span> count<span class="token punctuation">,</span> flags<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>参数说明：</strong></p>
 <ul>
-<li>method：必选参数，用于指定请求方式，如GET、POST、PUT等</li>
-<li>url：必选参数，用于设置需要请求的URL地址</li>
-<li>fields：可选参数，用于设置请求参数</li>
-<li>headers：可选参数，用于设置请求头</li>
+<li>pattern：表示模式字符串，由要匹配的正则表达式转换而来</li>
+<li>repl：表示替换的字符串</li>
+<li>string：表示要被查找替换的原始字符串</li>
+<li>count：可选参数，表示模式匹配后替换的最大次数，默认值为0，表示替换所有的匹配</li>
+<li>flags：可选参数，表示修饰符，用于控制匹配方式，例如是否区分字母大小写</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-url <span class="token operator">=</span> <span class="token string">"http://httpbin.org/get"</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-r <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span>url<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 发送GET请求</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>status<span class="token punctuation">)</span>                <span class="token comment" spellcheck="true"># 打印请求状态码</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>使用sub()方法替换字符串</strong></p>
+<p>例如，隐藏中奖信息中的手机号码</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re
+pattern <span class="token operator">=</span> r<span class="token string">'1[34578]\d{9}'</span>                       <span class="token comment" spellcheck="true"># 定义要替换的模式字符串</span>
+string <span class="token operator">=</span> <span class="token string">'中奖号码为：84978981 联系电话为：13611111111'</span>
+result <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'1XXXXXXXXXX'</span><span class="token punctuation">,</span>string<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 替换字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>程序执行结果：</p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915113815498.png" alt="image-20210915113815498"></p>
-<hr>
-<p><strong>使用PoolManager对象向多个服务器发送请求</strong></p>
-<p>一个PoolManager对象就是一个连接池管理对象，通过该对象可以实现向多个服务器发送请求。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true"># 关闭ssl警告</span>
-jingdong_url <span class="token operator">=</span> <span class="token string">'https://www.jd.com/'</span>     <span class="token comment" spellcheck="true"># 京东url地址</span>
-python_url <span class="token operator">=</span> <span class="token string">'https://www.python.org/'</span>   <span class="token comment" spellcheck="true"># Python url地址</span>
-baidu_url <span class="token operator">=</span> <span class="token string">'https://www.baidu.com/'</span>     <span class="token comment" spellcheck="true"># 百度url地址</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-r1 <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span>jingdong_url<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 向京东地址发送GET请求</span>
-r2 <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span>python_url<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true"># 向python地址发送GET请求</span>
-r3 <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span>baidu_url<span class="token punctuation">)</span>       <span class="token comment" spellcheck="true"># 向百度地址发送GET请求</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'京东请求状态码：'</span><span class="token punctuation">,</span>r1<span class="token punctuation">.</span>status<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'python请求状态码：'</span><span class="token punctuation">,</span>r2<span class="token punctuation">.</span>status<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'百度请求状态码：'</span><span class="token punctuation">,</span>r3<span class="token punctuation">.</span>status<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917221449153.png" alt="image-20210917221449153"></p>
+<p>sub()方法除了有替换字符串的功能以外，<code>还可以使用该方法实现删除字符串中我们所不需要的数据</code>。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re                        <span class="token comment" spellcheck="true"># 导入re模块</span>
+string <span class="token operator">=</span> <span class="token string">'hk400 jhkj6h7k5 jhkjhk1j0k66'</span>     <span class="token comment" spellcheck="true"># 需要匹配的字符串</span>
+pattern <span class="token operator">=</span> <span class="token string">'[a-z]'</span>                           <span class="token comment" spellcheck="true"># 表达式</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span>string<span class="token punctuation">,</span>flags<span class="token operator">=</span>re<span class="token punctuation">.</span>I<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串,将所有字母替换为空，并区分大小写</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                                <span class="token comment" spellcheck="true"># 打印匹配结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>程序执行结果：</p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915114006623.png" alt="image-20210915114006623"></p>
-<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><p>POST请求需要在request()方法中将method参数设置为“POST”，然后将fields参数设置为字典类型的表单参数。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true"># 关闭ssl警告</span>
-url <span class="token operator">=</span> <span class="token string">'https://www.httpbin.org/post'</span>    <span class="token comment" spellcheck="true"># post请求测试地址</span>
-params <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'Jack'</span><span class="token punctuation">,</span><span class="token string">'country'</span><span class="token punctuation">:</span><span class="token string">'中国'</span><span class="token punctuation">,</span><span class="token string">'age'</span><span class="token punctuation">:</span><span class="token number">30</span><span class="token punctuation">}</span>  <span class="token comment" spellcheck="true"># 定义字典类型的请求参数</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-r <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'POST'</span><span class="token punctuation">,</span>url<span class="token punctuation">,</span>fields<span class="token operator">=</span>params<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 发送POST请求</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'返回结果：'</span><span class="token punctuation">,</span>r<span class="token punctuation">.</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917221617585.png" alt="image-20210917221617585"></p>
+<p>在re模块中还提供了<code>subn()</code>方法，该方法也能实现替换字符串的功能，此外，<code>还可以返回替换的数量</code>。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re                        <span class="token comment" spellcheck="true"># 导入re模块</span>
+<span class="token comment" spellcheck="true"># 需要匹配的字符串</span>
+string <span class="token operator">=</span> <span class="token string">'John,I like you to meet Mr. Wang，Mr. Wang, this is our Sales Manager John. John, this is Mr. Wang.'</span>
+pattern <span class="token operator">=</span> <span class="token string">'Wang'</span>      <span class="token comment" spellcheck="true"># 表达式</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>subn<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span><span class="token string">'Li'</span><span class="token punctuation">,</span>string<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串,将所有Wang替换为Li，并统计替换次数</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                                <span class="token comment" spellcheck="true"># 打印匹配结果</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>                             <span class="token comment" spellcheck="true"># 打印匹配次数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>程序执行结果：</p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915154658808.png" alt="image-20210915154658808"></p>
-<p>返回JSON数据中的form对应数据为表单数据，只是country所对应的并不是“中国”而是一段Unicode编码，对于这种情况，可以将请求结果的编码方式设置为“unicode_escape”</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'返回结果：'</span><span class="token punctuation">,</span>r<span class="token punctuation">.</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'unicode_escape'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915160003534.png" alt="image-20210915160003534"></p>
-<h3 id="重试请求"><a href="#重试请求" class="headerlink" title="重试请求"></a>重试请求</h3><p>urllib3模块可以自动重试请求，这种相同的机制还可以处理重定向。在<code>默认</code>情况下request()方法的请求重试次数为<code>3次</code>，可以通过设置retries参数进行修改</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true"># 关闭ssl警告</span>
-url <span class="token operator">=</span> <span class="token string">'https://www.httpbin.org/get'</span>    <span class="token comment" spellcheck="true"># get请求测试地址</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-r <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span>url<span class="token punctuation">)</span>              <span class="token comment" spellcheck="true"># 发送GET请求,默认重试请求</span>
-r1 <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span>url<span class="token punctuation">,</span>retries<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 发送GET请求,设置5次重试请求</span>
-r2 <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span>url<span class="token punctuation">,</span>retries<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 发送GET请求,关闭重试请求</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'默认重试请求次数：'</span><span class="token punctuation">,</span>r<span class="token punctuation">.</span>retries<span class="token punctuation">.</span>total<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'设置重试请求次数：'</span><span class="token punctuation">,</span>r1<span class="token punctuation">.</span>retries<span class="token punctuation">.</span>total<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'关闭重试请求次数：'</span><span class="token punctuation">,</span>r2<span class="token punctuation">.</span>retries<span class="token punctuation">.</span>total<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>程序执行结果：</p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915161132014.png" alt="image-20210915161132014"></p>
-<h3 id="处理响应内容"><a href="#处理响应内容" class="headerlink" title="处理响应内容"></a>处理响应内容</h3><h4 id="获取响应头"><a href="#获取响应头" class="headerlink" title="获取响应头"></a>获取响应头</h4><p>发送网络请求后，将返回一个HTTPResponse对象，通过该对象中的info()方法即可获取HTTP响应头信息，该信息为字典（dict）类型的数据，需要通过遍历才可以看到每条响应头信息</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true"># 关闭ssl警告</span>
-url <span class="token operator">=</span> <span class="token string">'https://www.httpbin.org/get'</span>    <span class="token comment" spellcheck="true"># get请求测试地址</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-r <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span>url<span class="token punctuation">)</span>              <span class="token comment" spellcheck="true"># 发送GET请求,默认重试请求</span>
-response_header <span class="token operator">=</span> r<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true"># 获取响应头</span>
-<span class="token keyword">for</span> key <span class="token keyword">in</span> response_header<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>      <span class="token comment" spellcheck="true"># 循环遍历打印响应头信息</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span><span class="token string">':'</span><span class="token punctuation">,</span>response_header<span class="token punctuation">.</span>get<span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>程序执行结果：</p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915161418633.png" alt="image-20210915161418633"></p>
-<h4 id="JSON信息"><a href="#JSON信息" class="headerlink" title="JSON信息"></a>JSON信息</h4><p>对于服务器返回的JSON信息，我们可以将JSON数据转换为字典（dict）类型数据，接着使用指定的键值获取相应数据即可</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-<span class="token keyword">import</span> json       <span class="token comment" spellcheck="true"># 导入json模块</span>
-urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true"># 关闭ssl警告</span>
-url <span class="token operator">=</span> <span class="token string">'https://www.httpbin.org/post'</span>    <span class="token comment" spellcheck="true"># post请求测试地址</span>
-params <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'Jack'</span><span class="token punctuation">,</span><span class="token string">'country'</span><span class="token punctuation">:</span><span class="token string">'中国'</span><span class="token punctuation">,</span><span class="token string">'age'</span><span class="token punctuation">:</span><span class="token number">30</span><span class="token punctuation">}</span>  <span class="token comment" spellcheck="true"># 定义字典类型的请求参数</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-r <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'POST'</span><span class="token punctuation">,</span>url<span class="token punctuation">,</span>fields<span class="token operator">=</span>params<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 发送POST请求</span>
-j <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>r<span class="token punctuation">.</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'unicode_escape'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 将响应数据转换为字典类型</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'数据类型：'</span><span class="token punctuation">,</span>type<span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'获取form对应的数据：'</span><span class="token punctuation">,</span>j<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'form'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'获取country对应的数据：'</span><span class="token punctuation">,</span>j<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'form'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'country'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>程序执行结果：</p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915162724502.png" alt="image-20210915162724502"></p>
-<h4 id="二进制数据"><a href="#二进制数据" class="headerlink" title="二进制数据"></a>二进制数据</h4><p>如果响应数据为二进制数据，也可以进行处理。例如，响应数据为图片的二进制数据时，则可以使用open()函数将二进制数据转化为图片</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true"># 关闭ssl警告</span>
-url <span class="token operator">=</span> <span class="token string">'http://sck.rjkflm.com:666/spider/file/python.png'</span>  <span class="token comment" spellcheck="true"># 图片请求地址</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-r <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span>url<span class="token punctuation">)</span>              <span class="token comment" spellcheck="true"># 发送网络请求</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>data<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 打印二进制数据</span>
-f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'python.png'</span><span class="token punctuation">,</span><span class="token string">'wb+'</span><span class="token punctuation">)</span>             <span class="token comment" spellcheck="true"># 创建open对象</span>
-f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>r<span class="token punctuation">.</span>data<span class="token punctuation">)</span>                          <span class="token comment" spellcheck="true"># 写入数据</span>
-f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>                                <span class="token comment" spellcheck="true"># 关闭</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>程序执行结果：</p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915162915558.png" alt="image-20210915162915558"></p>
-<h2 id="复杂请求的发送"><a href="#复杂请求的发送" class="headerlink" title="复杂请求的发送"></a>复杂请求的发送</h2><h3 id="设置请求头"><a href="#设置请求头" class="headerlink" title="设置请求头"></a>设置请求头</h3><p>使用request()方法设置请求头信息时，只需要为headers参数指定一个有效的字典（dict）类型的请求头信息即可。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true"># 关闭ssl警告</span>
-url <span class="token operator">=</span> <span class="token string">'https://www.httpbin.org/get'</span>    <span class="token comment" spellcheck="true"># get请求测试地址</span>
-<span class="token comment" spellcheck="true"># 定义火狐浏览器请求头信息</span>
-headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'</span><span class="token punctuation">}</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span>                   <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-r <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 发送GET请求</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>                  <span class="token comment" spellcheck="true"># 打印返回内容</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>程序执行结果：</p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915163405440.png" alt="image-20210915163405440"></p>
-<h3 id="设置超时"><a href="#设置超时" class="headerlink" title="设置超时"></a>设置超时</h3><p>在没有特殊要求的情况下，可以将设置超时的参数与时间填写在request()方法或者是PoolManager()对象中</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true"># 关闭ssl警告</span>
-baidu_url <span class="token operator">=</span> <span class="token string">'https://www.baidu.com/'</span>    <span class="token comment" spellcheck="true"># 百度超时请求测试地址</span>
-python_url <span class="token operator">=</span> <span class="token string">'https://www.python.org/'</span>  <span class="token comment" spellcheck="true"># Python超时请求测试地址</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span>                   <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-<span class="token keyword">try</span><span class="token punctuation">:</span>
-    r <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span>baidu_url<span class="token punctuation">,</span>timeout<span class="token operator">=</span><span class="token number">0.01</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 发送GET请求，并设置超时时间为0.01秒</span>
-<span class="token keyword">except</span>  Exception <span class="token keyword">as</span> error<span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'百度超时：'</span><span class="token punctuation">,</span>error<span class="token punctuation">)</span>
-http2 <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span>timeout<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 创建连接池管理对象,并设置超时时间为0.1秒</span>
-<span class="token keyword">try</span><span class="token punctuation">:</span>
-    r <span class="token operator">=</span> http2<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span> python_url<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 发送GET请求</span>
-<span class="token keyword">except</span>  Exception <span class="token keyword">as</span> error<span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Python超时：'</span><span class="token punctuation">,</span>error<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>程序执行结果：</p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915163605724.png" alt="image-20210915163605724"></p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915163657545.png" alt="image-20210915163657545"></p>
-<p>如果需要设置更加精确的超时，可以使用Timeout实例对象，在该对象中可以单独设置连接超时与读取超时。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3              <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-<span class="token keyword">from</span> urllib3 <span class="token keyword">import</span> Timeout <span class="token comment" spellcheck="true"># 导入Timeout类</span>
-urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 关闭ssl警告</span>
-timeout <span class="token operator">=</span> Timeout<span class="token punctuation">(</span>connect<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">,</span> read<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 设置连接超时0.5秒，读取超时0.1秒</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span>timeout<span class="token operator">=</span>timeout<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span><span class="token string">'https://www.python.org/'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 发送请求</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>或者是</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3              <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-<span class="token keyword">from</span> urllib3 <span class="token keyword">import</span> Timeout <span class="token comment" spellcheck="true"># 导入Timeout类</span>
-urllib3<span class="token punctuation">.</span>disable_warnings<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 关闭ssl警告</span>
-timeout <span class="token operator">=</span> Timeout<span class="token punctuation">(</span>connect<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">,</span> read<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 设置连接超时0.5秒，读取超时0.1秒</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span><span class="token string">'https://www.python.org/'</span>，timeout<span class="token operator">=</span>timeout<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 发送请求</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="设置代理IP"><a href="#设置代理IP" class="headerlink" title="设置代理IP"></a>设置代理IP</h3><p>在设置代理IP时需要创建ProxyManager对象，在该对象中最好填写两个参数：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917221748437.png" alt="image-20210917221748437"></p>
+<p>从以上的运行结果中可以看出，替换后所返回的数据为一个元组，第一个元素为替换后的字符串，而第二个元素为替换的次数，这里可以直接使用索引获取替换的次数。</p>
+<h3 id="分割字符串"><a href="#分割字符串" class="headerlink" title="分割字符串"></a>分割字符串</h3><p>split()方法用于实现根据正则表达式分割字符串，并以列表的形式返回。其语法格式如下：</p>
+<pre class="line-numbers language-python"><code class="language-python">re<span class="token punctuation">.</span>split<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> string<span class="token punctuation">,</span> <span class="token punctuation">[</span>maxsplit<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>flags<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>参数说明：</strong></p>
 <ul>
-<li>一个是proxy_url，表示需要使用的代理IP；</li>
-<li>另一个参数是headers，用于模拟浏览器请求，避免被后台服务器发现</li>
+<li>pattern：表示模式字符串，由要匹配的正则表达式转换而来</li>
+<li>string：表示要被查找替换的原始字符串</li>
+<li>maxsplit：可选参数，表示最大的拆分次数</li>
+<li>flags：可选参数，表示修饰符，用于控制匹配方式，例如是否区分字母大小写</li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-url <span class="token operator">=</span> <span class="token string">"http://httpbin.org/ip"</span>            <span class="token comment" spellcheck="true"># 代理IP请求测试地址</span>
-<span class="token comment" spellcheck="true"># 定义火狐浏览器请求头信息</span>
-headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'</span><span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true"># 创建代理管理对象</span>
-proxy <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>ProxyManager<span class="token punctuation">(</span><span class="token string">'http://120.27.110.143:80'</span><span class="token punctuation">,</span>headers <span class="token operator">=</span> headers<span class="token punctuation">)</span>
-r <span class="token operator">=</span> proxy<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'get'</span><span class="token punctuation">,</span>url<span class="token punctuation">,</span>timeout<span class="token operator">=</span><span class="token number">2.0</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 发送请求</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>                    <span class="token comment" spellcheck="true"># 打印返回结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>request()方法提供了两种比较常用的文件上传方式：</p>
-<ul>
-<li>第一种是通过fields参数以元组的形式分别指定文件名，文件内容以及文件类型。这种方式适合上传文本文件时使用。</li>
-</ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-<span class="token keyword">import</span> json       <span class="token comment" spellcheck="true"># 导入json模块</span>
-<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>    <span class="token comment" spellcheck="true"># 打开文本文件</span>
-  data <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true"># 读取文件</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-<span class="token comment" spellcheck="true"># 发送网络请求</span>
-r <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span> <span class="token string">'POST'</span><span class="token punctuation">,</span><span class="token string">'http://httpbin.org/post'</span><span class="token punctuation">,</span>fields<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'filefield'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token string">'example.txt'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-files <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>r<span class="token punctuation">.</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'files'</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 获取上传文件内容</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>files<span class="token punctuation">)</span>                                         <span class="token comment" spellcheck="true"># 打印上传文本信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>使用split()方法分割字符串</strong></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re
+pattern <span class="token operator">=</span> r<span class="token string">'[?|&amp;]'</span>                  <span class="token comment" spellcheck="true"># 定义分割符</span>
+url <span class="token operator">=</span> <span class="token string">'http://www.mingrisoft.com/login.jsp?username="mr"&amp;pwd="mrsoft"'</span>
+result <span class="token operator">=</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span>url<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 分割字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>程序执行结果：</p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915164620792.png" alt="image-20210915164620792"></p>
-<ul>
-<li>第二种是在request()方法中指定body参数，该参数所对应的值为图片的二进制数据，然后还需要使用headers参数为其指定文件类型。这种方式适合上传图片等二进制文件时使用。</li>
-</ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> urllib3    <span class="token comment" spellcheck="true"># 导入urllib3模块</span>
-<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'python.jpg'</span><span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 打开图片文件</span>
-  data <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>                    <span class="token comment" spellcheck="true"># 读取文件</span>
-http <span class="token operator">=</span> urllib3<span class="token punctuation">.</span>PoolManager<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 创建连接池管理对象</span>
-<span class="token comment" spellcheck="true"># 发送请求</span>
-r <span class="token operator">=</span> http<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'POST'</span><span class="token punctuation">,</span><span class="token string">'http://httpbin.org/post'</span><span class="token punctuation">,</span>body <span class="token operator">=</span> data<span class="token punctuation">,</span>headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'Content-Type'</span><span class="token punctuation">:</span><span class="token string">'image/jpeg'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true"># 打印返回结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917222306513.png" alt="image-20210917222306513"></p>
+<p>如果需要分割的字符串非常大，并且不希望使用模式字符串一直分割下去，此时可以指定split()方法中的maxsplit参数来指定最大的分割次数</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> re                        <span class="token comment" spellcheck="true"># 导入re模块</span>
+<span class="token comment" spellcheck="true"># 需要匹配的字符串</span>
+string <span class="token operator">=</span> <span class="token string">'预定|K7577|CCT|THL|CCT|LYL|14:47|16:51|02:04|Y|'</span>
+pattern <span class="token operator">=</span> <span class="token string">'\|'</span>      <span class="token comment" spellcheck="true"># 表达式</span>
+match <span class="token operator">=</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span>string<span class="token punctuation">,</span>maxsplit<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 匹配字符串,通过第一次出现的|进行分割</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span>                                <span class="token comment" spellcheck="true"># 打印匹配结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>程序执行结果：</p>
-<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210915164809414.png" alt="image-20210915164809414"></p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917222455629.png" alt="image-20210917222455629"></p>
+<h2 id="案例：爬取编程e学网视频"><a href="#案例：爬取编程e学网视频" class="headerlink" title="案例：爬取编程e学网视频"></a>案例：爬取编程e学网视频</h2><p>本节将使用requests模块与正则表达式，爬取编程e学网的某个视频。在爬取前首先设计爬取思路：</p>
+<ul>
+<li>首先需要找到视频页面</li>
+<li>然后分析视频的URL地址</li>
+<li>最后根据爬取匹配到的地址实现视频的下载工作</li>
+</ul>
+<h3 id="查找视频页面"><a href="#查找视频页面" class="headerlink" title="查找视频页面"></a>查找视频页面</h3><ul>
+<li>浏览器打开“编程e学网”（<a href="http://site2.rjkflm.com:666/）地址，点击“精彩课程”下的“第一颗" target="_blank" rel="noopener">http://site2.rjkflm.com:666/）地址，点击“精彩课程”下的“第一颗</a> 初识Java”</li>
+</ul>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917223140866.png" alt="image-20210917223140866"></p>
+<ul>
+<li>点击“第1节”查看对应课程视频</li>
+</ul>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917223225075.png" alt="image-20210917223225075"></p>
+<ul>
+<li>视频页面如下</li>
+</ul>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917223306336.png" alt="image-20210917223306336"></p>
+<blockquote>
+<p>此处需保留当前页面网络地址，即<a href="http://site2.rjkflm.com:666/index/index/view/id/1.html，用于爬虫程序的请求地址" target="_blank" rel="noopener">http://site2.rjkflm.com:666/index/index/view/id/1.html，用于爬虫程序的请求地址</a></p>
+</blockquote>
+<h3 id="分析视频地址"><a href="#分析视频地址" class="headerlink" title="分析视频地址"></a>分析视频地址</h3><ul>
+<li>进入开发者工具并找到视频窗口的HTML代码</li>
+</ul>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917223519289.png" alt="image-20210917223519289"></p>
+<ul>
+<li>由于HTML代码中链接不完整，所以需要将网站首地址与视频地址进行拼接，然后在浏览器中打开拼接后的完整地址，测试是否可以正常观看视频</li>
+</ul>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917223812304.png" alt="image-20210917223812304"></p>
+<blockquote>
+<p>测试拼接后的视频地址为：<a href="http://site2.rjkflm.com:666/public/uploads/video/file_5c35895748585.mp4" target="_blank" rel="noopener">http://site2.rjkflm.com:666/public/uploads/video/file_5c35895748585.mp4</a></p>
+</blockquote>
+<h3 id="实现视频下载"><a href="#实现视频下载" class="headerlink" title="实现视频下载"></a>实现视频下载</h3><ul>
+<li>首先需要定义视频播放的URL与请求头信息</li>
+<li>然后使用requests.get()方法发送网络请求</li>
+<li>接着返回的HTML代码中，通过正则表达式匹配视频地址的数据并将其视频地址拼接完整</li>
+<li>最后再次对拼接后的视频地址发送网络请求</li>
+<li>再通过open()函数将返回的视频二进制数据写成视频文件</li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests          <span class="token comment" spellcheck="true"># 导入requests模块</span>
+<span class="token keyword">import</span> re                <span class="token comment" spellcheck="true"># 导入re模块</span>
+<span class="token comment" spellcheck="true"># 定义视频播放页面的url</span>
+url <span class="token operator">=</span> <span class="token string">'http://site2.rjkflm.com:666/index/index/view/id/1.html'</span>
+<span class="token comment" spellcheck="true"># 定义请求头信息</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36'</span><span class="token punctuation">}</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 发送网络请求</span>
+<span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code<span class="token operator">==</span><span class="token number">200</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true"># 判断请求成功后</span>
+    <span class="token comment" spellcheck="true"># 通过正则表达式匹配视频地址</span>
+    video_url <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">'&lt;source src="(.*?)" type="video/mp4">'</span><span class="token punctuation">,</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    video_url<span class="token operator">=</span><span class="token string">'http://site2.rjkflm.com:666/'</span><span class="token operator">+</span>video_url    <span class="token comment" spellcheck="true"># 将视频地址拼接完整</span>
+    video_response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>video_url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 发送下载视频的网络请求</span>
+    <span class="token keyword">if</span> video_response<span class="token punctuation">.</span>status_code<span class="token operator">==</span><span class="token number">200</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true"># 如果请求成功</span>
+        data <span class="token operator">=</span> video_response<span class="token punctuation">.</span>content      <span class="token comment" spellcheck="true"># 获取返回的视频二进制数据</span>
+        file <span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">'java视频.mp4'</span><span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 创建open对象</span>
+        file<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span>                   <span class="token comment" spellcheck="true"># 写入数据</span>
+        file<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>                       <span class="token comment" spellcheck="true"># 关闭</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>程序执行结果：</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917224226760.png" alt="image-20210917224226760"></p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210917224232448.png" alt="image-20210917224232448"></p>
 
             </div>
             <hr />
@@ -1025,9 +1062,9 @@ r <span class="token operator">=</span> http<span class="token punctuation">.</s
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《请求模块Urllib3》
+                    《爬虫中应用的正则表达式》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/qing-qiu-mo-kuai-urllib3.html" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/pa-chong-zhong-ying-yong-de-zheng-ze-biao-da-shi.html" property="cc:attributionName"
                rel="cc:attributionURL">
                 CharlesLi
             </a> 采用
@@ -1068,7 +1105,7 @@ r <span class="token operator">=</span> http<span class="token punctuation">.</s
         repo: 'charles-li-github.github.io',
         owner: 'charles-li-github',
         admin: "charles-li-github",
-        id: 'qing-qiu-mo-kuai-urllib3.html',
+        id: 'pa-chong-zhong-ying-yong-de-zheng-ze-biao-da-shi.html',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1351,29 +1388,30 @@ r <span class="token operator">=</span> http<span class="token punctuation">.</s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/qing-qiu-mo-kuai-requests.html">
+                <a href="/pa-chong-zhong-ying-yong-de-zheng-ze-biao-da-shi.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="请求模块requests">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="爬虫中应用的正则表达式">
                         
-                        <span class="card-title">请求模块requests</span>
+                        <span class="card-title">爬虫中应用的正则表达式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Python爬虫常用模块之requests请求模块
+                            Python爬虫之正则表达式
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1386,6 +1424,7 @@ r <span class="token operator">=</span> http<span class="token punctuation">.</s
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1404,24 +1443,24 @@ r <span class="token operator">=</span> http<span class="token punctuation">.</s
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/qing-qiu-mo-kuai-urllib.html">
+                <a href="/gao-ji-wang-luo-qing-qiu-mo-kuai.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="请求模块Urllib">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="高级网络请求模块">
                         
-                        <span class="card-title">请求模块Urllib</span>
+                        <span class="card-title">高级网络请求模块</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Python爬虫常用模块之Urllib请求模块
+                            Python爬虫常用模块之高级网络请求模块
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-14
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-16
                             </span>
                         <span class="publish-author">
                             

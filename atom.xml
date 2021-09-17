@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://charles-li-github.github.io/"/>
-  <updated>2021-09-16T06:35:44.101Z</updated>
+  <updated>2021-09-17T14:42:51.984Z</updated>
   <id>https://charles-li-github.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>爬虫中应用的正则表达式</title>
+    <link href="https://charles-li-github.github.io/pa-chong-zhong-ying-yong-de-zheng-ze-biao-da-shi.html"/>
+    <id>https://charles-li-github.github.io/pa-chong-zhong-ying-yong-de-zheng-ze-biao-da-shi.html</id>
+    <published>2021-09-17T06:31:09.000Z</published>
+    <updated>2021-09-17T14:42:51.984Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;在不借助第三方模块的前提下，正则表达式是一个非常强大的工具&lt;/p&gt;
+&lt;h2 id=&quot;使用search-方法匹配字符串&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="网络爬虫" scheme="https://charles-li-github.github.io/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="python" scheme="https://charles-li-github.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>高级网络请求模块</title>
@@ -542,34 +569,6 @@
     
     
       <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu16.04搭建dns-server</title>
-    <link href="https://charles-li-github.github.io/ubuntu16-04-da-jian-dns-server.html"/>
-    <id>https://charles-li-github.github.io/ubuntu16-04-da-jian-dns-server.html</id>
-    <published>2021-08-23T13:03:12.000Z</published>
-    <updated>2021-08-23T13:13:19.165Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;ubuntu16-04搭建DNS-Server&quot;&gt;&lt;a href=&quot;#ubuntu16-04搭建DNS-Server&quot; class=&quot;headerlink&quot; title=&quot;ubuntu16.04搭建DNS Server&quot;&gt;&lt;/a&gt;ubuntu16.04搭建DNS
-        
-      
-    
-    </summary>
-    
-      <category term="ubuntu16.04" scheme="https://charles-li-github.github.io/categories/ubuntu16-04/"/>
-    
-    
-      <category term="build server" scheme="https://charles-li-github.github.io/tags/build-server/"/>
-    
-      <category term="dns" scheme="https://charles-li-github.github.io/tags/dns/"/>
     
   </entry>
   
