@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://charles-li-github.github.io/"/>
-  <updated>2021-09-18T07:07:49.651Z</updated>
+  <updated>2021-09-20T16:16:44.954Z</updated>
   <id>https://charles-li-github.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解析数据的Beautiful Soup模块</title>
+    <link href="https://charles-li-github.github.io/jie-xi-shu-ju-de-beautiful-soup-mo-kuai.html"/>
+    <id>https://charles-li-github.github.io/jie-xi-shu-ju-de-beautiful-soup-mo-kuai.html</id>
+    <published>2021-09-19T08:02:28.000Z</published>
+    <updated>2021-09-20T16:16:44.954Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;Beautiful Soup是一个用于从HTML和XML文件中提取数据的Python模块。Beautiful
+        
+      
+    
+    </summary>
+    
+      <category term="网络爬虫" scheme="https://charles-li-github.github.io/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="python" scheme="https://charles-li-github.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>XPath解析</title>
@@ -535,32 +561,6 @@
         
         
           &lt;h1 id=&quot;Agricultural-Knowledge-Graph&quot;&gt;&lt;a href=&quot;#Agricultural-Knowledge-Graph&quot; class=&quot;headerlink&quot; title=&quot;Agricultural Knowledge
-        
-      
-    
-    </summary>
-    
-      <category term="知识图谱" scheme="https://charles-li-github.github.io/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-    
-      <category term="Github" scheme="https://charles-li-github.github.io/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>医学知识图谱实例</title>
-    <link href="https://charles-li-github.github.io/yi-xue-zhi-shi-tu-pu-shi-li.html"/>
-    <id>https://charles-li-github.github.io/yi-xue-zhi-shi-tu-pu-shi-li.html</id>
-    <published>2021-08-23T13:03:53.000Z</published>
-    <updated>2021-08-23T13:14:43.273Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;医学知识图谱案例&quot;&gt;&lt;a href=&quot;#医学知识图谱案例&quot; class=&quot;headerlink&quot;
         
       
     
