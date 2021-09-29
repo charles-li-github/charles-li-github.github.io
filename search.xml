@@ -110,31 +110,6 @@
     
     
     <entry>
-      <title>APP抓包工具</title>
-      <link href="/app-zhua-bao-gong-ju.html"/>
-      <url>/app-zhua-bao-gong-ju.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>爬虫不仅仅只对Web页面的信息进行爬取，还可以爬取应用中存在的大量数据，例如移动端的App。由于App中的数据都是通过异步的方式从后台服务器中获取的，类似于Web中的Ajax请求，所以在爬取数据前同样需要分析App用于获取数据的URL。</p><p>实现App请求地址的抓取工作需要使用到专业的抓包工具，如Charles抓包工具</p><blockquote><p>本内容仅作为学习记录</p></blockquote><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210927144154821.png" alt="image-20210927144154821"></p><h2 id="Charles工具的下载与安装"><a href="#Charles工具的下载与安装" class="headerlink" title="Charles工具的下载与安装"></a>Charles工具的下载与安装</h2><p>常用的App抓包工具有Fidder与Charles工具，从性能来讲Charles的功能更胜一筹。</p><p>Charles工具官方下载页面：<a href="https://www.charlesproxy.com/download/" target="_blank" rel="noopener">https://www.charlesproxy.com/download/</a></p><p>以Windows系统为例：</p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925161209034.png" alt="image-20210925161209034"></p><p>下载完成后双击“charles-proxy-4.5.6-win64.msi”进行安装</p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925161321240.png" alt="image-20210925161321240"></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925161347700.png" alt="image-20210925161347700"></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925161357020.png" alt="image-20210925161357020"></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925161406464.png" alt="image-20210925161406464"></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925161419760.png" alt="image-20210925161419760"></p><h2 id="SSL证书的安装"><a href="#SSL证书的安装" class="headerlink" title="SSL证书的安装"></a>SSL证书的安装</h2><h3 id="安装PC端证书"><a href="#安装PC端证书" class="headerlink" title="安装PC端证书"></a>安装PC端证书</h3><p>Charles工具安装完成后，启动Charles工具。Charles工具启动后将默认获取当前PC端所有网络请求，例如，自动获取PC端浏览器中访问的百度页面，不过在查看请求内容时，将显示乱码信息</p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925161634721.png" alt="image-20210925161634721"></p><blockquote><p>在默认情况下，Charles工具是可以获取PC端的网络请求的</p></blockquote><p>目前网页多数使用HTTPS与服务端进行数据交互，而通过HTTPS传输的数据都是加密的，此时通过Charles所获取到的信息也都是乱码，所以需要安装PC端SSL证书，步骤如下：</p><ul><li>打开安装SSL证书对话框</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925161910694.png" alt="image-20210925161910694"></p><ul><li>单击“安装证书”，然后点击“下一步”</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925161948387.png" alt="image-20210925161948387"></p><ul><li>打开证书向导的“证书存储”对话框，在该对话框中首先选择“将所有的证书都放入下列存储”选项，然后单击“浏览”选择证书的存储位置为“受信任的根证书颁发机构”，再单击“确认”，最后单击“下一步”</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925162948312.png" alt="image-20210925162948312"></p><ul><li>在证书导入向导的“正在完成证书向导”对话框中，单击“完成”</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925163037787.png" alt="image-20210925163037787"></p><ul><li>在弹出的安全警告框中单击“是”，即可完成SSL证书的安装</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925163224755.png" alt="image-20210925163224755"></p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925163305543.png" alt="image-20210925163305543"></p><h3 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h3><p>PC端的SSL证书安装完成后，在获取请求详情内容时依然显示乱码。此时还需要设置SSL代理，设置SSL代理的步骤如下：</p><p>打开SSL Proxying Settings并进行设置，如果没有代理的情况下可以将其设置为“*”（表示所有SSL）</p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925163604907.png" alt="image-20210925163604907"></p><p>SSL代理设置完成后，重新启动Charles，再次打开浏览器中的百度页面，单机左侧目录中的”/“将显示下图详细信息：</p><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925163714888.png" alt="image-20210925163714888"></p><h3 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h3><p>当需要通过Charles抓取手机中的请求地址时，需要保证PC端与手机端在同一网络环境下，然后为手机端进行网络配置。步骤如下：</p><ul><li>确定PC（电脑端）与手机端在同一网络下，然后如下图操作</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925163911080.png" alt="image-20210925163911080"></p><ul><li>打开移动设备安装证书的信息提示框，在该对话框中需要记录IP地址与端口号</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925163946007.png" alt="image-20210925163946007"></p><ul><li>将提示框的IP地址与端口号记住后，将手机（这里以Android手机为例）WIFI连接与PC（电脑端）同一网络的WIFI，然后在手机WIFI列表中选择“修改网络”</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925164120145.png" alt="image-20210925164120145"></p><ul><li>在修改网络界面中，进行如下操作</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925164217612.png" alt="image-20210925164217612"></p><ul><li>在手机端服务器主机与端口设置完成后，PC（电脑端）Charles将自动弹出是否信任此设备的确认对话框，点击“Allow”即可</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925164316920.png" alt="image-20210925164316920"></p><h3 id="安装手机端证书"><a href="#安装手机端证书" class="headerlink" title="安装手机端证书"></a>安装手机端证书</h3><p>PC端与手机端的网络配置完成后，需要将Charles证书保存在PC端，然后安装在手机端，这样Charles才可以正常的抓取手机App中的网络请求。步骤如下：</p><ul><li>在Charles工具中保存证书</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925165203937.png" alt="image-20210925165203937"></p><ul><li>将证书文件保存在PC端指定路径下</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925165227585.png" alt="image-20210925165227585"></p><ul><li>将Charles_SSL证书文件导入手机，然后在手机中依次选择“设置”–&gt;”安全和隐私”–&gt;“更多安全设置”–&gt;“从SD卡安装证书”，选择“Charles_SSL证书文件”，输入手机密码后设置证书名称，单击“确定”</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925165429737.png" alt="image-20210925165429737"></p><ul><li>完成上述配置后打开任意某个网页</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925165503373.png" alt="image-20210925165503373"></p><ul><li>在Charles工具左侧的请求栏内，同时观察不断出现换色闪烁的最新请求，即可查询到手机中网页对应的请求地址</li></ul><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210925165554926.png" alt="image-20210925165554926"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 网络爬虫 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>数据处理与存储</title>
       <link href="/shu-ju-chu-li-yu-cun-chu.html"/>
       <url>/shu-ju-chu-li-yu-cun-chu.html</url>
@@ -945,9 +920,9 @@
       
         <tags>
             
-            <tag> ipv6 </tag>
-            
             <tag> build server </tag>
+            
+            <tag> ipv6 </tag>
             
         </tags>
       
@@ -972,9 +947,9 @@
       
         <tags>
             
-            <tag> ipv6 </tag>
-            
             <tag> build server </tag>
+            
+            <tag> ipv6 </tag>
             
         </tags>
       
