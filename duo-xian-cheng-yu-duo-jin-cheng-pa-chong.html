@@ -8,8 +8,9 @@
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="进程与线程进程介绍首先介绍一下多任务，顾名思义，多任务就是指操作系统能够执行多个任务。例如使用windows或Linux操作系统可以同时看电影、聊天等，此时操作系统就是在执行多任务，而每一个任务就是一个进程
-进程（Process）是计算机中">
+    <meta name="description" content="简介
+进程与线程进程介绍首先介绍一下多任务，顾名思义，多任务就是指操作系统能够执行多个任务。例如使用windows或Linux操作系统可以同时看电影、聊天等，此时操作系统就是在执行多任务，而每一个任务就是一个进程
+进程（Process）是计">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -603,7 +604,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = 'charles';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -616,7 +617,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -798,7 +799,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><h3 id="进程介绍"><a href="#进程介绍" class="headerlink" title="进程介绍"></a>进程介绍</h3><p>首先介绍一下多任务，顾名思义，多任务就是指操作系统能够执行多个任务。例如使用windows或Linux操作系统可以同时看电影、聊天等，此时操作系统就是在执行多任务，而每一个任务就是一个进程</p>
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210927144348721.png" alt="image-20210927144348721"></p>
+<h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><h3 id="进程介绍"><a href="#进程介绍" class="headerlink" title="进程介绍"></a>进程介绍</h3><p>首先介绍一下多任务，顾名思义，多任务就是指操作系统能够执行多个任务。例如使用windows或Linux操作系统可以同时看电影、聊天等，此时操作系统就是在执行多任务，而每一个任务就是一个进程</p>
 <p>进程（Process）是计算机中已运行程序的实体。进程与程序不同，<code>程序本身只是指令、数据及其组织形式的描述</code>，<code>进程才是程序（那些指令和数据）的真正运行实体</code>。例如，在没有打开QQ时，QQ只是程序。打开QQ后，操作系统就为QQ开启了一个进程。再打开一个QQ则又开启了一个进程</p>
 <h3 id="线程介绍"><a href="#线程介绍" class="headerlink" title="线程介绍"></a>线程介绍</h3><p><code>线程（Thread）是操作系统能够进行运算调度的最小单位。</code>他被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。例如，对于视频播放器，显示视频用一个线程，播放音频用另一个线程。只有两个线程同时工作，我们才能正常观看画面和声音同步的视频</p>
 <h2 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h2><p>由于线程是操作系统直接支持的执行单元，因此高级语言（如python、java等）都内置多线程支持。python的标准库提供了两个模块：_thread和threading，其中</p>
@@ -1820,7 +1822,7 @@ info_end_time_4 <span class="token operator">=</span> time<span class="token pun
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="数据处理与存储">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="数据处理与存储">
                         
                         <span class="card-title">数据处理与存储</span>
                     </div>
@@ -1873,7 +1875,7 @@ info_end_time_4 <span class="token operator">=</span> time<span class="token pun
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="爬取动态渲染的信息">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="爬取动态渲染的信息">
                         
                         <span class="card-title">爬取动态渲染的信息</span>
                     </div>
@@ -2080,7 +2082,7 @@ info_end_time_4 <span class="token operator">=</span> time<span class="token pun
            <!--<a href="/sitemap.xml" target="_blank">站点地图</a>丨-->
            
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">176.9k
+            <span class="white-color">196.6k
              丨            
           
 
@@ -2174,7 +2176,7 @@ info_end_time_4 <span class="token operator">=</span> time<span class="token pun
       <span class="badge-subject">PV</span><span class="badge-value bg-brightgreen" id="busuanzi_value_site_pv"></span>
     </div>
     <div class="github-badge">
-      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">176.9k</span>
+      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">196.6k</span>
     </div>
 </footer>
 
@@ -2289,16 +2291,12 @@ $(function () {
 
 
     
-    <script src="/libs/others/clicklove.js"></script>
-    
 
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     <!-- 雪花特效 -->
-    
-    <script type="text/javascript" src="/libs/others/snow.js"></script>
     
 
    <!-- 单击显示文字 -->

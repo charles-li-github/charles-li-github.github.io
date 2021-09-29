@@ -9,7 +9,8 @@
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
     <meta name="description" content="简介本章将介绍requests模块的两大扩展，Requests-Cache（爬虫缓存）与Requests-HTML模块。通过该章节可以了解爬虫缓存的作用、requests模块的不足以及扩展后的强大功能。
-Requests-Cache的安装与">
+
+Requests-Cache的安装">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -603,7 +604,7 @@ Requests-Cache的安装与">
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = 'charles';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -616,7 +617,7 @@ Requests-Cache的安装与">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -795,6 +796,7 @@ Requests-Cache的安装与">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本章将介绍requests模块的两大扩展，Requests-Cache（爬虫缓存）与Requests-HTML模块。通过该章节可以了解爬虫缓存的作用、requests模块的不足以及扩展后的强大功能。</p>
+<p><img src="https://gitee.com/charlesli1111/picgo-image-lib/raw/master/image-20210927144725155.png" alt="image-20210927144725155"></p>
 <h2 id="Requests-Cache的安装与测试"><a href="#Requests-Cache的安装与测试" class="headerlink" title="Requests-Cache的安装与测试"></a>Requests-Cache的安装与测试</h2><p>Requests-Cache模块是requests模块的一个扩展功能，<code>用于为requests模块提供给持久化缓存支持</code>，如果requests模块向一个URL发送重复请求时，Requests-Cache模块将自动判断当前的网络请求是否产生了缓存，如果已经产生了缓存，就会从缓存中读取数据作为响应内容，如果没有缓存就会向服务器发送网络请求获取服务器所返回的响应内容。<code>使用Requests-Cache模块可以减少网络资源避免重复请求次数，这样可以变相地规避一些反爬机制</code>。</p>
 <p>安装Requests-Cache的命令：</p>
 <pre><code>pip install requests-cache</code></pre><p>安装完成后可通过下述命令获取Requests-Cache模块版本，以检测是否安装成功。</p>
@@ -1419,7 +1421,7 @@ r<span class="token punctuation">.</span>encoding<span class="token operator">=<
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="爬虫中应用的正则表达式">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="爬虫中应用的正则表达式">
                         
                         <span class="card-title">爬虫中应用的正则表达式</span>
                     </div>
@@ -1472,7 +1474,7 @@ r<span class="token punctuation">.</span>encoding<span class="token operator">=<
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="请求模块requests">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="请求模块requests">
                         
                         <span class="card-title">请求模块requests</span>
                     </div>
@@ -1679,7 +1681,7 @@ r<span class="token punctuation">.</span>encoding<span class="token operator">=<
            <!--<a href="/sitemap.xml" target="_blank">站点地图</a>丨-->
            
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">176.9k
+            <span class="white-color">196.6k
              丨            
           
 
@@ -1773,7 +1775,7 @@ r<span class="token punctuation">.</span>encoding<span class="token operator">=<
       <span class="badge-subject">PV</span><span class="badge-value bg-brightgreen" id="busuanzi_value_site_pv"></span>
     </div>
     <div class="github-badge">
-      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">176.9k</span>
+      <span class="badge-subject">WordCount</span><span class="badge-value bg-blueviolet">196.6k</span>
     </div>
 </footer>
 
@@ -1888,16 +1890,12 @@ $(function () {
 
 
     
-    <script src="/libs/others/clicklove.js"></script>
-    
 
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     <!-- 雪花特效 -->
-    
-    <script type="text/javascript" src="/libs/others/snow.js"></script>
     
 
    <!-- 单击显示文字 -->
